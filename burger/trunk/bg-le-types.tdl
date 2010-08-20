@@ -1,0 +1,824 @@
+;; -*- Mode: tdl; coding: mule-utf-8; -*-
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;; Grammar of Bulgarian
+;;; created at:
+;;;     Sat Jan 30 20:19:09 UTC 2010
+;;; based on Matrix customization system version of:
+;;;     Fri Jan 29 09:38:10 UTC 2010
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+;;;;;;;;;;;;;;;;;;;;;;;;;
+;;; Matrix Type Addenda
+;;;;;;;;;;;;;;;;;;;;;;;;;
+
+;;;LE-TYPES
+
+;;;NOUNS
+
+;;; Masculine nouns
+
+n_-_cm-hum_le := basic-common-noun-masc-intr &
+  [ SYNSEM.LOCAL.CONT.HOOK.INDEX.SORT human ].
+
+n_-_cm-non-hum_le := basic-common-noun-masc-intr &
+  [ SYNSEM.LOCAL.CONT.HOOK.INDEX.SORT other-non-human ].
+
+n_np_cm-hum_le := basic-common-noun-masc-tr &
+  [ SYNSEM.LOCAL [ CONT.HOOK.INDEX.SORT human,
+					CAT.VAL.COMPS <[ LOCAL.CAT [HEAD noun, VAL.SPR <[]>]]>]].
+
+n_np_cm-non-hum_le := basic-common-noun-masc-tr &
+  [ SYNSEM.LOCAL [ CONT.HOOK.INDEX.SORT other-non-human,
+					CAT.VAL.COMPS <[ LOCAL.CAT [HEAD noun, VAL.SPR <[]>]]>]].
+					  
+n_pp_cm-hum_le := basic-common-noun-masc-tr &
+  [ SYNSEM.LOCAL  [ CONT.HOOK.INDEX.SORT human,
+				CAT.VAL.COMPS <[ LOCAL.CAT [ HEAD adp, VAL.COMPS < >]]>]].
+
+n_pp_cm-non-hum_le := basic-common-noun-masc-tr &
+  [ SYNSEM.LOCAL  [ CONT.HOOK.INDEX.SORT other-non-human,
+				CAT.VAL.COMPS <[ LOCAL.CAT [ HEAD adp, VAL.COMPS < >]]>]].
+
+ n_cl_cm-hum_le := basic-common-noun-masc-tr &
+  [ SYNSEM.LOCAL [ CONT.HOOK.INDEX.SORT human,
+				CAT.VAL.COMPS <[ LOCAL.CAT [ HEAD verb, VAL.COMPS < >]]>]].
+
+n_cl_cm-non-hum_le := basic-common-noun-masc-tr &
+  [ SYNSEM.LOCAL [ CONT.HOOK.INDEX.SORT other-non-human,
+				CAT.VAL.COMPS <[ LOCAL.CAT [ HEAD verb & [FORM da-form], VAL.COMPS < >]]>]].
+
+;;; Temporal nouns that can be modifiers
+
+n_-_cm-temporal_le := basic-temporal-noun-masc-intr.
+
+;;; Time nouns (days, months, etc)
+
+n_-_cm-week-day_le := basic-week-noun-masc-intr.
+
+n_-_cf-part-day_le := basic-partday-noun-fem-intr.
+
+;;; Clock nouns
+
+n_-_cm-clock_le := basic-clock-noun-masc-intr.
+
+;;; Feminine nouns
+
+
+n_-_cf_le := basic-common-noun-intr &
+  [ SYNSEM.LOCAL.AGR.PNG.GENDER feminine].
+
+
+#|
+n_-_cf_le := basic-common-noun-intr &
+  [ SYNSEM [ LOCAL.AGR.PNG.GENDER feminine,
+			PUNCT.R-PUNCT no_punct ] ].
+|#
+
+n_np_cf_le := basic-common-noun-tr &
+  [ SYNSEM.LOCAL [AGR.PNG.GENDER feminine,
+				CAT.VAL.COMPS <[LOCAL.CAT [ HEAD noun, VAL.SPR <[]>]]>]].
+					  
+n_pp_cf_le := basic-common-noun-tr &
+  [ SYNSEM.LOCAL [AGR.PNG.GENDER feminine,
+				CAT.VAL.COMPS <[LOCAL.CAT [ HEAD adp, VAL.COMPS < >]]>]].
+
+ n_cl_cf_le := basic-common-noun-tr &
+  [ SYNSEM.LOCAL [AGR.PNG.GENDER feminine,
+				CAT.VAL.COMPS <[LOCAL.CAT [ HEAD comp, VAL.COMPS < >]]>]].
+ ;;; Neuter nouns
+
+ n_-_cn_le := basic-common-noun-intr &
+  [ SYNSEM.LOCAL.AGR.PNG.GENDER neuter].
+  
+
+n_np_cn_le := basic-common-noun-tr &
+  [ SYNSEM.LOCAL [ AGR.PNG.GENDER neuter,
+				CAT.VAL.COMPS <[ LOCAL.CAT [ HEAD noun, VAL.SPR <[]>]]>]].
+					  
+n_pp_cn_le := basic-common-noun-tr &
+  [ SYNSEM.LOCAL [AGR.PNG.GENDER neuter,
+				CAT.VAL.COMPS <[ LOCAL.CAT [HEAD adp, VAL.COMPS < >]]>]].
+
+ n_cl_cn_le := basic-common-noun-tr &
+  [ SYNSEM.LOCAL [ AGR.PNG.GENDER neuter,
+				CAT.VAL.COMPS <[ LOCAL.CAT [HEAD verb, VAL.COMPS < >]]>]].
+
+;;; Singularia tantum nouns
+
+n_-_cn-only-sg_le := basic-only-sing-noun-intr &
+[ SYNSEM.LOCAL.AGR.PNG.GENDER neuter].
+
+ ;;; Proper nouns
+
+basic-proper-noun := basic-common-noun-intr &
+  [ SYNSEM.LKEYS.KEYREL named-relation ].
+   
+n_-_pm_le := basic-proper-noun &
+  [ SYNSEM.LOCAL.AGR.PNG.GENDER masculine].
+
+n_-_pf_le := basic-proper-noun &
+  [ SYNSEM.LOCAL.AGR.PNG.GENDER feminine].
+
+n_-_pn_le := basic-proper-noun &
+  [ SYNSEM.LOCAL.AGR.PNG.GENDER neuter].
+
+;;; Compound nouns
+
+#|
+n_np-compound_cn_le := basic-compound-common-noun-tr &
+  [ SYNSEM.LOCAL [ AGR.PNG.GENDER neuter,
+				     CAT.VAL.COMPS <[ LOCAL.CAT [ HEAD noun,
+												VAL.SPR <[]>]]>]].
+|#
+
+n_np-compound_cn_le := basic-compound-lex &
+  [ SYNSEM.LOCAL [CAT.VAL.COMPS <>,
+				    AGR.PNG.GENDER neuter ] ].
+
+;;; Relational nouns
+
+n_pp-relationl_cf_le := basic-relational-common-prep-tr &
+  [ SYNSEM.LOCAL [ AGR.PNG.GENDER feminine,
+				     CAT.VAL.COMPS <[ LOCAL.CAT [ HEAD adp & [FORM dative],
+												VAL.COMPS < >]]>]].
+
+;;; Adjectives
+
+a_-_le := typical-adjective-lex &
+ [ SYNSEM.LOCAL.CAT.VAL.COMPS <>].
+
+a_pp_le := typical-adjective-lex &
+ [ SYNSEM.LOCAL.CAT.VAL.COMPS <[LOCAL.CAT [HEAD adp,
+												VAL.COMPS <>]]>].
+a_cl_le := typical-adjective-lex &
+ [ SYNSEM.LOCAL.CAT.VAL.COMPS <[LOCAL.CAT [HEAD verb,
+									VAL.COMPS <>]]>].
+
+a_-_compar_le := comp-adjective-lex &
+[ SYNSEM.LOCAL.CAT.VAL.COMPS <>].
+
+;;; probata
+
+a_-_pred_le := pred-adjective-lex &
+ [ SYNSEM.LOCAL.CAT.VAL.COMPS <>].
+
+;;;Personal pronouns
+
+nom-pers-pro-noun-le := reg-pers-pro-noun & 
+[SYNSEM.LOCAL.CAT.HEAD.CASE nom ].
+
+acc-pers-pro-noun-reg-le := acc-pers-pro-noun & reg-pers-pro-noun.
+
+acc-pers-pro-noun-clit-le := acc-pers-pro-noun & pers-clitic-lexeme.
+
+dat-pers-pro-noun-clit-le := dat-pers-pro-noun & pers-clitic-lexeme.
+
+
+;;; Reflexive personal pronouns
+
+reg-pers-refl-pro-noun-le := reg-pers-refl-acc-pro-noun.
+
+pers-refl-acc-clitic-lexeme-le := pers-refl-acc-pro-noun-clitic-lexeme.
+
+pers-refl-dat-clitic-lexeme-le := pers-refl-dat-pro-noun-clitic-lexeme.
+
+;;;Possessives
+
+;;;; Regular
+
+poss-refl-pro-adj-reg-le := poss-refl-pro-adj-reg &
+[INFLECTED - ].
+
+poss-1p-le := poss-pro-adj-reg-1st.
+
+poss-2p-le := poss-pro-adj-reg-2nd.
+
+poss-3pm-le := poss-pro-adj-reg-3rd-masc.
+
+poss-3pf-le := poss-pro-adj-reg-3rd-fem.
+
+poss-3pn-le := poss-pro-adj-reg-3rd-neut.
+
+;;; Clitic
+
+poss-pro-adj-clit-le := poss-pro-adj-clit &
+[ INFLECTED - ].
+
+
+poss-refl-pro-adj-clit-le := poss-refl-pro-adj-clit.
+
+;;;Verbs
+
+;;; Impersonal intransitive
+
+v_-_p_im_le := v_-_p_le & impers_verb_lex.
+
+v_-_i_im_le := v_-_i_le & impers_verb_lex.
+
+;;; Impersonal with complement
+
+v_seem_le := v_seem_lex & imperfective-lexeme &
+[ SYNSEM.LOCAL.CAT.VAL.COMPS <#comp & [LOCAL.CAT [ HEAD verb,
+														VAL.SUBJ < [] > ] ]> , 
+  ARG-ST <[], #comp> ].
+
+v_seem_expl_le := v_seem_lex & imperfective-lexeme &
+[ SYNSEM.LOCAL.CAT.VAL [ COMPS <#comp & [LOCAL.CAT [ HEAD normcomp,
+						       VAL.SUBJ < > ] ]>,
+			   SUBJ < [ LOCAL [ CAT.HEAD pro-noun-hd,
+					    AGR.PNG [ PERSON 3rd,
+						      NUMBER singular,
+						      GENDER neuter ] ],
+				    OPT -] > ],
+  ARG-ST <[], #comp> ].
+
+v_seem_nosubj_le := v_seem_lex & imperfective-lexeme &
+[ SYNSEM.LOCAL.CAT.VAL [ COMPS <#comp & [LOCAL.CAT [ HEAD verb,
+						       VAL.SUBJ < > ] ]>,
+			   SUBJ < unexpressed-reg &
+				  [ LOCAL [ CAT.HEAD pro-noun-hd,
+					    AGR.PNG [ PERSON 3rd,
+						      NUMBER singular,
+						      GENDER neuter ] ] ] > ],
+  ARG-ST <[], #comp> ].
+
+v_there-is_le := v_np_i_lex & mclass-impers.
+
+v_must_le :=  modal-verb-lex & mclass-impers &
+[INFLECTED - ,
+SYNSEM.LOCAL [ CAT [ VAL.SUBJ < [LOCAL.CAT.HEAD pro-noun-hd ] >,
+						HEAD [ TAM.ASPECT #aspect & imperfective ] ],
+				CONT.HOOK.INDEX.E.ASPECT #aspect ]].
+
+
+
+;;Intransitive
+
+;;Intransitive-perfective
+
+v_-_p_le := v_-_p_lex.
+
+;;Intransitive-imperfective
+
+v_-_i_le := v_-_i_lex.
+
+;;; Transitive verbs
+
+;;; Transitive verbs with NP as complement
+
+;;; perfective
+
+v_np_p_le := v_np_p_lex.
+
+
+;;; imperfective
+
+v_np_i_le := v_np_i_lex.
+
+
+;;; Transitive verbs with PP as complement
+
+;;; perfective
+
+v_pp_p_le := v_pp_p_lex.
+
+;;; imperfective
+
+v_pp_i_le := v_pp_i_lex.
+
+
+;;; Transitive verbs with CLCHE as complement
+
+;;; perfective
+
+v_che_p_le := v_che_p_lex.
+
+;;; imperfective
+
+v_che_i_le := v_che_i_lex.
+
+;;; Transitive verbs with DALI as complement
+
+;;; perfective
+
+v_dali_p_le := v_dali_p_lex.
+
+
+;;; imperfective
+
+v_dali_i_le := v_dali_i_lex.
+
+
+;;; Transitive verbs with DA-FORM as CP complement (subject relaxation) - iskam
+
+;;; perfective
+
+v_da-cp_p_le := v_da-cp_p_lex.
+
+;;; imperfective
+
+v_da-cp_i_le := v_da-cp_i_lex.
+
+;;; Transitive verbs with DA-FORM as VP complement (subject identity) - zapochvam, prodalzhavam
+
+;;; perfective
+
+v_da-vp_p_le := v_da-vp_p_lex.
+
+;;; imperfective
+
+v_da-vp_i_le := v_da-vp_i_lex.
+
+
+;;; Diransitive verbs with DA-FORM as VP complement (subject-subject identity) - obeshtaja na njakogo da napravja neshto
+
+;;; perfective
+
+v_da1-vp_p_le := v_da1-vp_p_lex.
+
+v_da1-vp_p_dat-le := v_da1-vp_p_lex &
+[ SYNSEM.LOCAL.CAT.VAL.COMPS < [ LOCAL.CAT.HEAD.MOD < > ], [] > ].
+
+
+;;; imperfective
+
+v_da1-vp_i_le := v_da1-vp_i_lex.
+
+;;; Diransitive verbs with DA-FORM as VP complement (object-subject identity) - ubedja njakogo da napravi neshto
+
+;;; perfective
+
+v_da2-vp_p_le := v_da2-vp_p_lex.
+
+
+;;; imperfective
+
+v_da2-vp_i_le := v_da2-vp_i_lex.
+
+
+;;; Ditransitive verbs with DA-FORM-SE-VERBS as VP complement (subject identity) - opitvam se da dojda
+
+;;; perfective
+
+v_se-da-vp_p_le := v_se-da-vp_p_lex.
+
+;;; imperfective
+
+v_se-da-vp_i_le := v_se-da-vp_i_lex.
+
+;;; Ditransitive verbs with DALI-FORM-SE-VERBS as CP complement - chudja se dali idva
+
+;;; perfective
+
+v_se-dali_p_le := v_se-dali_p_lex.
+
+;;; imperfective
+
+v_se-dali_i_le := v_se-dali_i_lex.
+
+;;; probata
+;;; Ditransitive verbs with QUES-FORM-SE-VERBS - chudja se koj idva
+
+;;; perfective
+
+v_se-ques_p_le := v_se-ques_p_lex.
+
+;;; imperfective
+
+v_se-ques_i_le := v_se-ques_i_lex.
+
+
+;;; Ditransitive verbs with NP and PP as complements
+
+;;; perfective
+
+v_np-pp_p_le := v_np-pp_p_lex.
+
+v_np-pp_p-dat_le := v_np-pp_p_lex &
+ [ SYNSEM.LOCAL.CAT.VAL.COMPS < [], [ LOCAL.CAT.HEAD.MOD < > ] > ].
+
+v_np-pp_p-loc-le := v_np-pp_p_lex &
+[ SYNSEM.LOCAL.CAT.VAL.COMPS < [], [ LOCAL.CAT.HEAD.MOD < > ] > ].
+
+
+  ;;; imperfective
+
+ v_np-pp_i_le := v_np-pp_i_lex.
+
+v_np-pp_i-pred_le := v_np-pp_i_lex &
+[ SYNSEM.LOCAL.CAT.VAL.COMPS < [], [ LOCAL.CAT.HEAD.MOD < > ] > ].
+
+
+;;; smjatam njakogo za njakakav
+
+v_np-pp_p-adj_le := v_np-pp_p-adj_lex.
+
+v_np-pp_i-adj_le := v_np-pp_i-adj_lex.
+
+v_np-pp_i-adj-pred_le := v_np-pp_i-adj_lex &
+[ SYNSEM.LOCAL.CAT.VAL.COMPS < [], [ LOCAL.CAT.HEAD.MOD < > ] > ].
+
+v_np-pp_i-dat_le := v_np-pp_i_lex &
+  [ SYNSEM.LOCAL.CAT.VAL.COMPS < [], [ LOCAL.CAT.HEAD.MOD < > ] > ].
+
+ 
+
+;;; izglezhdam na njakogo njakakav
+
+ v_adj-pp_i_le := v_adj-pp_i_lex &
+[ SYNSEM.LOCAL.CAT.VAL.COMPS < [ LOCAL.CAT.HEAD.MOD < > ],[] > ].
+
+  ;;; SE-transitives
+
+  ;;; perfective
+
+  v_se_p_le := v_se_p_lex.
+
+ ;;; imperfective
+
+ v_se_i_le := v_se_i_lex.
+
+
+;;; SE-ditransitives
+
+;;; perfective
+
+v_se-pp_p_le := v_se-pp_p_lex.
+
+;;; imperfective
+
+v_se-pp_i_le := v_se-pp_i_lex.
+
+
+;;; four-transitive obzalozha se
+
+v_se-2pp-comp_p_le := v_se-2pp-comp_p_lex.
+
+
+
+;;; Auxiliaries
+
+pres-be-le := be-aux &
+[SYNSEM.LOCAL [ CAT.HS-INIT -,
+		AGR.E.TENSE present ] ].
+
+past-be-le := be-aux &
+[SYNSEM.LOCAL.AGR.E.TENSE aorist ].
+
+will-le := will-or-da-aux &
+[SYNSEM.LOCAL.AGR.E.TENSE future ].
+
+da-le := will-or-da-aux &
+[SYNSEM.LOCAL.CAT.HEAD [ FORM da-form ] ].
+
+
+future-past_relation := relation.
+
+nyama-le := ne-aux &
+[SYNSEM [ LOCAL [ CAT [ HEAD.AUX + ,
+					    VAL.COMPS.FIRST.LOCAL.CAT [ HEAD.FORM da-form,
+													VAL.COMPS <> ] ],
+				CONT.RELS <! #keyrel !>,
+				AGR.E.TENSE future ],
+		   LKEYS.KEYREL #keyrel & [ PRED "negation_rel" ] ] ].
+
+would-le := arg-phr-aux & raise-sem-lex-item &
+[SYNSEM.LOCAL [ CAT [ HEAD.AUX +,
+					     VAL.COMPS.FIRST.LOCAL.CAT[ HEAD.FORM da-form,
+													VAL.COMPS <> ] ],
+				 AGR.E.TENSE future-past ] ].
+
+ne-le := ne-aux &
+[SYNSEM [ LOCAL.CONT.RELS <! #keyrel !> ,
+		   LKEYS.KEYREL #keyrel & [ PRED "negation_rel" ] ] ].
+
+nedej-aux-le := modal-verb-lex &
+[SYNSEM [ LOCAL [ CAT.VAL.COMPS.FIRST.LOCAL.CONT.HOOK.INDEX #arg & [SF comm],
+				     AGR.E.MOOD imperative ],
+                   LKEYS.KEYREL [PRED "negation_rel" ,
+						   ARG0 #arg ] ] ].
+
+
+modal-can-le := modal-verb-lex &
+[INFLECTED - ].
+
+
+
+;;; Copula
+
+;;; Past
+
+past-copula-prep-le := past-copula-lex & raise-sem-lex-item &
+[SYNSEM.LOCAL.CAT.VAL.COMPS < [ LOCAL.CAT.HEAD adp ] > ].
+			  
+past-copula-adj-le := past-copula-lex & raise-sem-lex-item &
+[SYNSEM.LOCAL.CAT.VAL [ COMPS < [ LOCAL [ CAT.HEAD adj,
+					  AGR.PNG #png ] ]>,
+			SUBJ <[LOCAL.AGR.PNG #png ]> ] ].
+
+past-copula-noun-le := past-copula-lex & norm-sem-lex-item & 
+		       transitive-lex-item &
+[SYNSEM.LOCAL.CAT.VAL [ SUBJ < #subj >,
+			                           COMPS #comps & < [ LOCAL.CAT.HEAD noun ] > ],
+ ARG-ST < #subj . #comps > ].
+
+past-copula-adv-le := past-copula-lex & raise-sem-lex-item &
+[SYNSEM.LOCAL.CAT.VAL [ COMPS < [ LOCAL.CAT.HEAD adv & [MOD.FIRST.LOCAL intersective-mod]]>,
+			    SUBJ < [LOCAL [CAT.HEAD noun ]]> ] ].
+
+ ;;; Present
+
+ pres-copula-prep-le := pres-copula-lex & raise-sem-lex-item &
+[SYNSEM.LOCAL.CAT.VAL.COMPS < [ LOCAL.CAT.HEAD adp ] > ].
+			  
+pres-copula-adj-le := pres-copula-lex & raise-sem-lex-item &
+[SYNSEM.LOCAL.CAT.VAL [ COMPS < [ LOCAL [ CAT.HEAD adj,
+					  AGR.PNG #png ] ]>,
+			SUBJ <[LOCAL.AGR.PNG #png ]> ] ].
+
+
+pres-copula-noun-le := pres-copula-lex & norm-sem-lex-item & 
+		       transitive-lex-item &
+[SYNSEM.LOCAL.CAT.VAL [ SUBJ < #subj >,
+				COMPS #comps & < [ LOCAL.CAT.HEAD noun ] > ],
+ ARG-ST < #subj . #comps > ].
+ 
+
+ ;;; petya
+
+pres-copula-adv-le := pres-copula-lex & raise-sem-lex-item &
+[SYNSEM.LOCAL [ AGR.E.TENSE present,
+		CAT [ HS-INIT -,
+		      VAL [ COMPS < [ LOCAL.CAT.HEAD adv & [MOD.FIRST.LOCAL intersective-mod]]>,
+			    SUBJ < [LOCAL [CAT.HEAD +nd ]]> ] ]] ].
+				 
+
+
+
+
+ ;;; Demonstratives
+
+ nito-le := nito-lex.
+
+demonstrative-entity-le := demonstrative-pron-lex & determiner-lex &
+[INFLECTED -,
+SYNSEM [ LOCAL.CAT.VAL.SPEC <[LOCAL.CAT.HEAD noun]>,
+		     NON-LOCAL non-local-none ] ].
+
+demonstrative-property-le := demonstrative-pron-lex & pro-adj &
+[SYNSEM.LOCAL [ CAT.HEAD.MOD <[LOCAL.AGR.PNG #png]>,
+				   AGR.PNG #png,
+				   CONT. HCONS <! !> ] ].
+
+indefinite-entity-le := indefinite-pron-lex & determiner-lex &
+ [ INFLECTED -,
+ SYNSEM.NON-LOCAL non-local-none ].
+
+ indefinite-neshto-le :=  indefinite-pron-lex & pro-noun &
+ [ INFLECTED -,
+ SYNSEM [LOCAL [ CAT.VAL.SPR <[]>,
+				     AGR.PNG.PERSON 3rd,
+				     CONT. HCONS <! !> ],
+		     NON-LOCAL non-local-none ] ].
+
+indefinite-njakogo-le :=  indefinite-pron-lex & pro-noun & fully-inflected-lexeme &
+ [ SYNSEM [LOCAL [ CAT [HEAD.CASE acc,
+						VAL.SPR <[]> ],
+				     AGR.PNG.PERSON 3rd,
+				      CONT.HCONS <! !> ],
+		     NON-LOCAL non-local-none ] ].
+
+collective-entity-le := collective-pron-lex & determiner-lex &
+ [ SYNSEM.NON-LOCAL non-local-none ].
+
+negative-entity-le := negative-pron-lex & determiner-lex &
+ [ SYNSEM.NON-LOCAL non-local-none ].
+
+#|
+negative-nikogo-le :=  negative-pron-lex & pro-noun & fully-inflected-lexeme &
+ [ SYNSEM [LOCAL [ CAT [HEAD.CASE acc,
+						VAL.SPR <[]> ],
+				     AGR.PNG.PERSON 3rd ],
+		     NON-LOCAL non-local-none ] ].
+|#
+
+negative-nikogo-le :=  negative-pron-lex & pro-noun & fully-inflected-lexeme & norm-hook-lex-item &
+ [ SYNSEM [LOCAL [ CAT [HEAD.CASE acc,
+			VAL.SPR <[]> ],
+		   AGR.PNG.PERSON 3rd,
+		   CONT [ HOOK.INDEX #ind,
+			  HCONS <! !> ] ],
+	   NON-LOCAL non-local-none,
+	   LKEYS.KEYREL.ARG0 #ind ] ].
+
+
+
+question-pro-noun-le := interrogative-pron-lex & determiner-lex &
+[ SYNSEM [ LOCAL.CONT.RELS <! relation & [ PRED "exist_q_rel" ],
+								 [ PRED "interrogative_rel",
+									RSTR handle ] !>,
+		    NON-LOCAL [ QUE 1-dlist,
+					REL 0-dlist,
+					SLASH 0-dlist ] ] ].
+
+
+question-poss-pro-noun-le := interrogative-pron-lex & determiner-lex &
+[ SYNSEM [ LOCAL [ CONT [ RELS <! relation & [ PRED "exist_q_rel" ],
+				 [ PRED "interrogative_rel",
+				   RSTR handle,
+				   ARG0 #arg2 ],
+				[ LBL #lbl,
+				  PRED "possessive_rel",
+				  ARG1 #arg1,
+				  ARG2 #arg2 ] !>,
+			  HCONS <! [ LARG #lbl ] !> ],
+		   CAT.VAL.SPEC <[LOCAL.CONT.HOOK.INDEX #arg1]> ],
+	   NON-LOCAL [ QUE 1-dlist,
+		       REL 0-dlist,
+		       SLASH 0-dlist ] ] ].
+
+;;; Relatives
+
+#|
+relative-pro-noun-le := relative-pro-noun-lex &
+[SYNSEM [ LOCAL.CONT.RELS <! !>,
+	  NON-LOCAL [REL 1-dlist & <! [ CAT [ HEAD noun,
+					     VAL.SPR < > ] ] !>,
+		     QUE 0-dlist,
+		     SLASH 0-dlist ] ] ].
+|#
+
+relative-pro-noun-le := relative-pro-noun-lex &
+[SYNSEM [ LOCAL [ CONT.RELS <! !>,
+				     AGR.PNG #png ],
+		   NON-LOCAL [REL 1-dlist & <! [ CAT [ HEAD noun,
+									    VAL.SPR < > ],
+								   AGR.PNG #png ] !>,
+					QUE 0-dlist,
+					SLASH 0-dlist ] ] ].
+
+;;; Adverbs (maybe to make them v-int-adverb-le and add n-int-adverb-le)
+
+int-adverb-le := v-adverb-lex & basic-int-adverb-lex &
+ [SYNSEM [ LOCAL.CONT.HOOK.XARG #xarg,
+	   LKEYS.KEYREL.ARG1 #xarg ] ].
+
+#|
+scopal-adverb-le := v-adverb-lex & basic-scopal-adverb-lex &
+[SYNSEM [ LOCAL.CAT.HEAD.MOD <[LOCAL.CONT.HOOK.LTOP #ltop]>,
+		   LKEYS.KEYREL.ARG1 #ltop ] ].
+|#
+
+scopal-adverb-le := v-adverb-lex & basic-scopal-adverb-lex.
+
+ques-adverb-le := v-ques-adverb-lex & basic-int-adverb-lex.
+
+kolko-noun-adverb-le := kolko-ques-adverb-lex & basic-int-adverb-lex &
+[SYNSEM.LOCAL.CAT.HEAD.MOD <[LOCAL [CAT.HEAD noun,
+										   AGR.PNG.NUMBER count ] ]>].
+
+kolko-other-adverb-le := kolko-ques-adverb-lex & basic-int-adverb-lex &
+[SYNSEM.LOCAL.CAT.HEAD.MOD <[LOCAL.CAT.HEAD +vjr ]>].
+
+;;; probata pochti
+
+almost-adv-le := almost-adv-lex & basic-int-adverb-lex &
+ [SYNSEM [ LOCAL.CONT.HOOK.XARG #xarg,
+	   LKEYS.KEYREL.ARG1 #xarg ] ].
+
+;;; Prepositions
+
+;;; *** Change to matrix.tdl: stop making index of adp same as index of mod
+basic-mod-adp-lex := basic-adposition-lex & norm-ltop-lex-item.
+
+prep-le := prep-lex & basic-int-mod-adposition-lex &
+ [ SYNSEM [ LOCAL [ CAT [ HEAD [ FORM other,
+				 MOD < [ LOCAL [ CAT [ HEAD +nv,
+						   VAL [ COMPS < >,
+							 SPR < [] >,
+							 SUBJ < [] > ] ],
+					     CONT.HOOK.INDEX #mind ] ] > ],
+			VAL.COMPS <[ LOCAL.CONT.HOOK.INDEX #cind ]>],
+		    CONT.HOOK [ INDEX #event,
+				XARG #mind ] ],
+	    LKEYS.KEYREL [ ARG0 #event,
+			   ARG1 #mind,
+			   ARG2 #cind ] ] ].
+
+
+dat-prep-le := prep-lex & no-mod-lex &
+[SYNSEM.LOCAL [ CAT [ HEAD [ FORM dative],
+		      VAL.COMPS < [ LOCAL [ CAT.HEAD noun & 
+						     [CASE acc,
+						      FORM compound-or-not-reg],
+					    CONT.HOOK #hook ] ]>],
+		CONT [ HOOK #hook,
+		       RELS <! !> ] ] ].
+
+;;; probata
+
+
+pred-prep-le := prep-lex & no-mod-lex &
+[SYNSEM.LOCAL [ CAT [ HEAD [ FORM predic],
+		                             VAL.COMPS < [ LOCAL [ CAT.HEAD +nj,
+								                          CONT.HOOK #hook ] ]>],
+		CONT [ HOOK #hook,
+		       RELS <! !> ] ] ].
+
+
+loc-prep-le := prep-lex & no-mod-lex &
+[SYNSEM.LOCAL [ CAT [ HEAD [ FORM locative],
+		      VAL.COMPS < [ LOCAL [ CAT.HEAD noun & 
+						     [CASE acc,
+						      FORM regular],
+					    CONT.HOOK #hook ] ]>],
+		CONT [ HOOK #hook,
+		       RELS <! !> ] ] ].
+
+passive-prep-le := prep-lex & no-mod-lex &
+[SYNSEM.LOCAL [ CAT [ HEAD.FORM passive-prep,
+		      VAL.COMPS < [ LOCAL [ CAT.HEAD noun &
+						     [CASE acc,
+						      FORM regular],
+					    CONT.HOOK #hook ] ]> ],
+		CONT [ HOOK #hook,
+		       RELS <! !> ] ] ].
+
+
+;;; Particles
+
+;se-le := refl-part-lex & [ SYNSEM.LOCAL.CAT.HEAD [ FORM se-form,
+;						   MOD <>] ].
+
+;;; Subordinators and complementizers
+
+che-sub-le := subord-mod-conjunction-lex &
+[SYNSEM.LOCAL.CAT.HEAD [FORM che,
+						       MOD <[LOCAL.CAT.HEAD noun]>] ].
+
+che-comp-le := complementizer-lex-item & fully-inflected-lexeme &
+[SYNSEM.LOCAL.CAT.HEAD normcomp].
+
+dali-comp-le := q-compl-lex-item &
+[SYNSEM.LOCAL.CAT.HEAD partcomp].
+
+nali-comp-le := q-compl-lex-item.
+
+ako-le := subord-mod-conjunction-lex &
+[SYNSEM.LOCAL.CAT.HEAD [ FORM ako,
+						      MOD <[LOCAL.CAT.HEAD verb]>] ].
+
+zada-le := subord-mod-conjunction-lex &
+[SYNSEM.LOCAL.CAT.HEAD [ FORM zada,
+							MOD <[LOCAL.CAT.HEAD verb]>] ].
+
+;;; Particles
+
+;;; polar question li
+
+polar-ques-part-le := polar-ques-part-lex.
+
+polar-quest-verb-part-le := polar-quest-verb-part-lex.
+
+polar-mod-ques-part-le := polar-mod-ques-part-lex.
+
+;;; Numerals
+
+cardinal-adj-clock-le := cardinal-adj-clock-lex.
+
+cardinal-one-adj-le := cardinal-one-adj-lex &
+[SYNSEM.LOCAL.CONT.HOOK.INDEX.SORT one-sort ].
+
+cardinal-adj-le := cardinal-adj-lex &
+[SYNSEM.LOCAL.CONT.HOOK.INDEX.SORT several-sort ].
+
+ordinal-adj-le := ordinal-adj-lex.
+
+many-few-adj-verb-le := numeral-lex & fully-inflected-lexeme &
+[ SYNSEM [ LOCAL [CAT [HEAD num & [MOD <[LOCAL.CAT.HEAD verb]>],
+						VAL [COMPS <>,
+								SUBJ <>,
+								SPR <anti-synsem>] ],
+					CONT.RELS <! #keyrel !>],
+	   LKEYS.KEYREL #keyrel ] ].
+
+
+many-few-adj-noun-le := typical-numeral-lex &
+[ SYNSEM [ LOCAL [CAT [ HEAD.MOD <[LOCAL [ CAT.HEAD noun,
+											AGR.PNG.NUMBER plural] ]>,
+						VAL.SPR <>],
+				  CONT.RELS <! #keyrel !>],
+		    LKEYS.KEYREL #keyrel ] ].
+
+many-few-adj-adj-le := numeral-lex & fully-inflected-lexeme &
+[ SYNSEM [ LOCAL [CAT [ HEAD num & [MOD <[LOCAL.CAT.HEAD +jr]>],
+						POSTHEAD -,
+					      VAL [COMPS <>,
+								SUBJ <>,
+								SPR <anti-synsem>] ],
+				  CONT.RELS <! #keyrel !>],
+		    LKEYS.KEYREL #keyrel ] ].
+
+
+

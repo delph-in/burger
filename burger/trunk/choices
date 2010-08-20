@@ -1,0 +1,147 @@
+version=20
+
+section=general
+language=Bulgarian
+iso-code=bg
+archive=no
+
+section=word-order
+word-order=svo
+has-dets=yes
+noun-det-order=det-noun
+has-aux=yes
+aux-comp-order=before
+aux-comp=v
+multiple-aux=yes
+
+section=number
+  number1_name=singular
+    number1_supertype1_name=number
+  number2_name=plural
+    number2_supertype1_name=number
+  number3_name=count
+    number3_supertype1_name=number
+
+section=person
+person=1-2-3
+first-person=none
+
+section=gender
+  gender1_name=masculine
+    gender1_supertype1_name=gender
+  gender2_name=feminine
+    gender2_supertype1_name=gender
+  gender3_name=neuter
+    gender3_supertype1_name=gender
+
+section=case
+case-marking=none
+
+section=direct-inverse
+    scale1_feat1_name=form
+    scale1_feat1_value=finite
+scale-equal=other
+
+section=tense-aspect
+past=on
+  past-subtype1_name=aorist
+  past-subtype2_name=imperfect
+  past-subtype3_name=perfect
+  past-subtype4_name=pluskvamperfect
+present=on
+future=on
+  future-subtype1_name=future exactum
+  future-subtype2_name=future preteriti
+  future-subtype3_name=future exactum preteriti
+  future-subtype4_name=future simple
+  aspect1_name=perfective
+    aspect1_supertype1_name=aspect
+  aspect2_name=imperfective
+    aspect2_supertype1_name=aspect
+  nf-subform1_name=participle
+  nf-subform2_name=gerund
+
+section=other-features
+  feature1_name=MASCFEM
+  feature1_type=head
+    feature1_value1_name=mascfem
+      feature1_value1_supertype1_name=MASCFEM
+  feature2_name=MASCNEUT
+  feature2_type=head
+    feature2_value1_name=mascneut
+      feature2_value1_supertype1_name=MASCNEUT
+
+section=sentential-negation
+infl-neg=on
+
+section=coordination
+  cs1_n=on
+  cs1_np=on
+  cs1_vp=on
+  cs1_s=on
+  cs1_pat=mono
+  cs1_mark=word
+  cs1_orth=и
+  cs1_order=after
+
+section=matrix-yes-no
+q-part=on
+q-part-order=after
+q-part-orth=ли
+
+section=arg-opt
+subj-drop=subj-drop-all
+subj-mark-drop=subj-mark-drop-req
+subj-mark-no-drop=subj-mark-no-drop-req
+subj-con=subj-con-always
+obj-drop=obj-drop-lex
+obj-mark-drop=obj-mark-drop-not
+obj-mark-no-drop=obj-mark-no-drop-not
+
+section=lexicon
+  noun1_name=man-noun-lex
+    noun1_feat1_name=gender
+    noun1_feat1_value=masculine
+    noun1_feat2_name=number
+    noun1_feat2_value=singular
+    noun1_feat3_name=person
+    noun1_feat3_value=3rd
+  noun1_det=opt
+    noun1_stem1_orth=мъж
+    noun1_stem1_pred=man_n_rel
+  verb1_name=read-verb-lex
+    verb1_feat1_name=person
+    verb1_feat1_value=3rd
+    verb1_feat1_head=verb
+    verb1_feat2_name=number
+    verb1_feat2_value=singular
+    verb1_feat2_head=verb
+    verb1_feat3_name=aspect
+    verb1_feat3_value=imperfective
+    verb1_feat3_head=verb
+    verb1_feat4_name=form
+    verb1_feat4_value=finite
+    verb1_feat4_head=verb
+  verb1_valence=trans
+    verb1_stem1_orth=чете
+    verb1_stem1_pred=read_v_rel
+  aux1_name=be-aux-lex
+  aux1_sem=add-pred
+    aux1_feat1_name=number
+    aux1_feat1_value=singular
+    aux1_feat1_head=verb
+    aux1_feat2_name=person
+    aux1_feat2_value=3rd
+    aux1_feat2_head=verb
+  aux1_subj=np
+    aux1_compfeature1_name=form
+    aux1_compfeature1_value=finite
+    aux1_stem1_orth=е
+    aux1_stem1_pred=be_v_rel
+
+section=test-sentences
+  sentence1_orth=Мъж чете
+  sentence2_orth=Мъж е
+  sentence3_orth=*Мъж чете е
+  sentence4_orth=*Е мъж чете
+  sentence5_orth=*Мъж е чете

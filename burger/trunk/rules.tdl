@@ -1,0 +1,100 @@
+
+head-2nd-comp := head-comp2-phrase.
+
+comp2-head := comp2-head-phrase.
+
+#|
+head-int-mod := head-mod-int-bg-phrase.
+|#
+
+head-int-common-phrase := head-mod-int-bg-common-phrase.
+
+head-int-temp-phrase := head-mod-int-bg-noun-temp-phrase.
+
+#|
+mod-int-head := mod-head-int-bg-phrase.
+|#
+
+mod-int-noun-phrase := mod-head-int-bg-noun-phrase.
+
+mod-int-other-phrase := mod-head-int-bg-other-phrase.
+
+mod-scop-head := scopal-mod-head-bg-phrase.
+
+head-mod-scop := mod-head-scopal-bg-phrase.
+
+head-comp := head-comp-phrase.
+
+subj-head := subj-head-phrase.
+
+head-subj := head-subj-phrase.
+
+spec-head := head-spec-phrase.
+
+bare-np := bare-np-phrase.
+
+comp-head := comp-head-phrase.
+
+acc-cl-head := acc-clit-head-phrase.
+
+head-acc-cl := head-acc-clit-phrase.
+
+dat-cl-head := dat-clit-head-phrase.
+
+head-dat-cl := head-dat-clit-phrase.
+
+ditr-cl-head :=  ditr-clit-head-phrase.
+
+head-ditr-cl :=  head-ditr-clit-phrase.
+
+refl-cl-head := refl-clit-head-phrase.
+
+n1-top-coord := n1-top-coord-rule.
+
+n1-mid-coord := n1-mid-coord-rule.
+
+n1-bottom-coord := n1-bottom-coord-rule.
+
+np1-top-coord := np1-top-coord-rule.
+
+np1-mid-coord := np1-mid-coord-rule.
+
+np1-bottom-coord := np1-bottom-coord-rule.
+
+vp1-top-coord := vp1-top-coord-rule.
+
+vp1-mid-coord := vp1-mid-coord-rule.
+
+vp1-bottom-coord := vp1-bottom-coord-rule.
+
+s1-top-coord := s1-top-coord-rule.
+
+s1-mid-coord := s1-mid-coord-rule.
+
+s1-bottom-coord := s1-bottom-coord-rule.
+
+opt-subj := opt-subj-phrase.
+
+head-opt-comp := head-opt-comp-phrase.
+
+extracted-comp := basic-extracted-comp-phrase.
+
+extracted-subj := basic-extracted-subj-phrase2.
+
+rel-cl := basic_rel_cl.
+
+head-filler-phrase := bg-head-filler-phrase.
+
+#|
+interrog-cl := basic_interrog_clause.
+|#
+
+basic-cp-to-np := basic-cp-to-np-phrase.
+
+noun-compound := noun-noun-compound.
+
+;;; punctuation
+
+#|
+punct-phrase := basic-binary-punctuation-phrase.
+|#

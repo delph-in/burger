@@ -1,0 +1,565 @@
+;; -*- Mode: tdl; coding: mule-utf-8; -*-
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;; Grammar of Bulgarian
+;;; created at:
+;;;     Sat Jan 30 20:19:09 UTC 2010
+;;; based on Matrix customization system version of:
+;;;     Fri Jan 29 09:38:10 UTC 2010
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+;;;;;;;;;;;;;;;;;;;;;;;;;
+;;; Matrix Type Addenda
+;;;;;;;;;;;;;;;;;;;;;;;;;
+
+;;;SYNTAX-RULE-TYPES
+
+;;; Adjuncts - phrases
+;;; *** MATRIX override ***
+;;; Want to allow QUE 1-dlist modifier
+
+;;; punctuation
+
+#|
+basic-binary-punctuation-phrase :=
+  phrase &
+  [ SYNSEM.PUNCT [ L-PUNCT #lpunct,
+				    R-PUNCT #rpunct ],
+    ARGS < [ SYNSEM.PUNCT [ L-PUNCT #lpunct,
+							R-PUNCT #rpunct ]]> ].
+|#
+
+basic-head-mod-phrase-simple := head-mod-phrase & binary-headed-phrase &
+  [ SYNSEM [ NON-LOCAL [ SLASH [ LIST #first,
+				 LAST #last ],
+			 REL 0-dlist ] ],
+    HEAD-DTR.SYNSEM 
+           [ LOCAL [ CAT [ HEAD #head,
+                           VAL #val,
+                           POSTHEAD #ph,
+                           MC #hmc ],
+                     AGR #agr,
+                     CONT.HOOK #hdhook ],
+             NON-LOCAL #nonloc &
+                   [ SLASH [ LIST #middle,
+                             LAST #last ] ],
+	     LIGHT #light,
+             MODIFIED #modif ],
+    NON-HEAD-DTR.SYNSEM 
+           [ LOCAL.CAT [ HEAD [ MOD < [ LOCAL local & 
+                                              [ CAT [ HEAD #head,
+                                                      VAL #val,
+                                                      POSTHEAD #ph,
+                                                      MC #hmc ],
+                                                AGR #agr,
+                                                CONT.HOOK #hdhook ],
+                                        NON-LOCAL #nonloc,
+					LIGHT #light,
+                                        MODIFIED #modif ] > ],
+                         VAL [ COMPS < >,
+			       SUBJ < >,
+                               SPR olist ] ],
+             NON-LOCAL [ SLASH [ LIST #first,
+                                 LAST #middle ] ] ],
+    C-CONT.RELS <! !> ].
+
+;;; *** MATRIX override ***
+;;; Don't want POSTHEAD + on mother of head-adj-phrase, since we want 
+;;; [happy-the my] to be POSTHEAD -.
+;;; Also want to allow QUE 1-dlist modifier
+
+head-adj-phrase := basic-head-mod-phrase-simple & head-initial & phrasal &
+  [ SYNSEM [ LOCAL.CAT.POSTHEAD #ph,
+	     MODIFIED rmod ],
+    HEAD-DTR.SYNSEM [ MODIFIED notmod-or-rmod,
+		      LOCAL.CAT.POSTHEAD #ph ],
+    NON-HEAD-DTR.SYNSEM.LOCAL.CAT.POSTHEAD + ].
+
+
+head-mod-int-bg-phrase := head-adj-int-phrase &
+ [ SYNSEM.MODIFIED #xmod,
+ NON-HEAD-DTR.SYNSEM.LOCAL.CAT.POSTHEAD +,
+ HEAD-DTR.SYNSEM.MODIFIED #xmod].
+
+
+ ;;; probata
+
+head-mod-int-bg-common-phrase := head-mod-int-bg-phrase &
+[NON-HEAD-DTR.SYNSEM.LOCAL.CAT.HEAD non-noun-hd & [MOD <[LOCAL.CAT.HEAD +nvjrp ]>]].
+
+head-mod-int-bg-noun-temp-phrase := head-mod-int-bg-phrase &
+[NON-HEAD-DTR.SYNSEM.LOCAL.CAT.HEAD noun & [MOD <[LOCAL.CAT.HEAD +nv ]>] ].
+
+mod-head-int-bg-phrase := adj-head-int-phrase &
+[SYNSEM.LOCAL.CONT.HOOK.INDEX.SF #sf, 
+ NON-HEAD-DTR.SYNSEM.LOCAL [ CAT.POSTHEAD -,
+								   CONT.HOOK.INDEX.SF #sf ] ].
+								  
+;;; two rules because PPs and adverbs can pre and post modify verbs etc
+
+mod-head-int-bg-noun-phrase := mod-head-int-bg-phrase &
+[NON-HEAD-DTR.SYNSEM.LOCAL.CAT.HEAD +jm & [MOD <[LOCAL.CAT.HEAD noun]>] ].
+
+
+mod-head-int-bg-other-phrase := mod-head-int-bg-phrase &
+[NON-HEAD-DTR.SYNSEM.LOCAL.CAT.HEAD +vrpm &
+				    [MOD <[LOCAL.CAT.HEAD +nvjrpc ]> ] ].
+
+
+
+scopal-mod-head-bg-phrase := adj-head-scop-phrase &
+[ SYNSEM.MODIFIED #xmod,
+NON-HEAD-DTR.SYNSEM.LOCAL.CAT.POSTHEAD -,
+HEAD-DTR.SYNSEM.MODIFIED #xmod].
+
+mod-head-scopal-bg-phrase := head-adj-scop-phrase &
+[ SYNSEM.MODIFIED #xmod,
+ NON-HEAD-DTR.SYNSEM.LOCAL.CAT.POSTHEAD +,
+HEAD-DTR.SYNSEM.MODIFIED #xmod].
+
+
+;;; Clitic-Head phrase types
+
+clit-head-unordered-phrase := basic-binary-headed-phrase & head-compositional &
+			      head-valence-phrase &
+[SYNSEM lex-synsem & [ LOCAL.CAT [ HEAD verb ] ],
+ HEAD-DTR [ INFLECTED +,
+	    SYNSEM lex-synsem ],
+ NON-HEAD-DTR word &
+	      [ INFLECTED -,
+		SYNSEM.LOCAL [ CAT.HEAD.FORM clitic ] ],
+ C-CONT [ RELS <! !>,
+	  HCONS <! !> ] ].
+														     
+norm-clit-head-unordered-phrase := clit-head-unordered-phrase &
+[SYNSEM.LOCAL.CAT.VAL #val,
+ HEAD-DTR.SYNSEM.LOCAL.CAT.VAL #val ].
+
+;;; supertype for accusative clitic-head (te vizhdam i vizhdam te)
+
+acc-clit-head-unordered-phrase := clit-head-unordered-phrase &
+  [SYNSEM.LOCAL.CAT.DOCLIT + ,
+   HEAD-DTR.SYNSEM.LOCAL.CAT [ VAL.COMPS.FIRST.LOCAL [ CAT.HEAD.CASE acc,
+						       CONT.HOOK.INDEX #ind ],
+			       DOCLIT - ],
+   NON-HEAD-DTR [ SYNSEM.LOCAL [ CAT.HEAD.CASE acc,
+				 CONT.HOOK.INDEX #ind ] ] ].
+
+;;; acc-clitic-head order (te vizhdam)
+
+acc-clit-head-phrase := acc-clit-head-unordered-phrase & basic-head-final &
+			norm-clit-head-unordered-phrase &
+ [ SYNSEM.LOCAL.CAT.CLINIT - ].
+
+#|
+refl-clit-head-phrase := acc-clit-head-unordered-phrase & basic-head-final &
+ [ SYNSEM.LOCAL.CAT [ VAL [ SUBJ #subj,
+							SPR #spr,
+							COMPS #comps & [ FIRST synsem ]  ],
+					   CLINIT - ],
+   HD-DTR.SYNSEM.LOCAL.CAT.VAL [ SUBJ #subj,
+									SPR #spr,
+									COMPS < anti-synsem &
+											[ LOCAL.CONT.HOOK.INDEX.SORT refl-pro ] . #comps >  ] ].
+|#
+
+refl-clit-head-phrase := acc-clit-head-unordered-phrase & basic-head-final &
+ [ SYNSEM.LOCAL.CAT [ VAL [ SUBJ  #subj,
+			    SPR  #spr,
+			    COMPS #comps & [ FIRST synsem ]  ],
+		      CLINIT - ],
+   HEAD-DTR.SYNSEM.LOCAL.CAT.VAL [ SUBJ #subj,
+				 SPR #spr,
+				 COMPS < anti-synsem &
+					 [ LOCAL [CONT.HOOK.INDEX.SORT refl-pro,
+						  CAT.VAL [SUBJ <>,
+							   COMPS <> ] ] ] . #comps >  ],
+  NON-HEAD-DTR.SYNSEM.LOCAL.CONT.HOOK.INDEX.SORT refl-pro ].
+
+
+;;; head-acc-clitic order (vizhdam te)
+
+head-acc-clit-phrase := acc-clit-head-unordered-phrase & basic-head-initial &
+			norm-clit-head-unordered-phrase.
+
+;;; supertype for dative clitic-head (mu blagodarih i blagodarih mu)
+
+dat-clit-head-unordered-phrase := norm-clit-head-unordered-phrase &
+  [SYNSEM.LOCAL.CAT.IOCLIT + ,
+  HEAD-DTR.SYNSEM.LOCAL.CAT [ VAL.COMPS.FIRST.LOCAL [ CAT.HEAD adp & [ FORM dative ],
+						      CONT.HOOK.INDEX #ind ],
+			      IOCLIT -],
+  NON-HEAD-DTR.SYNSEM.LOCAL [ CAT.HEAD.CASE dat,
+			      CONT.HOOK.INDEX #ind ] ].
+
+
+;;; dat-clitic-head order (mu blagodarih)
+
+dat-clit-head-phrase := dat-clit-head-unordered-phrase & basic-head-final &
+ [ SYNSEM.LOCAL.CAT.CLINIT - ].
+
+;;; head-dat-clitic order (blagodarih mu)
+
+head-dat-clit-phrase := dat-clit-head-unordered-phrase & basic-head-initial.
+
+;;; supertype for ditransitive clitic-head (mu dadoh knigata i dadoh mu knigata)
+
+ditr-clit-head-unordered-phrase := norm-clit-head-unordered-phrase &
+  [SYNSEM.LOCAL.CAT.IOCLIT + ,
+  HEAD-DTR.SYNSEM.LOCAL.CAT [ VAL.COMPS.REST.FIRST.LOCAL [ CAT.HEAD adp & [ FORM dative ],
+							   CONT.HOOK.INDEX #ind],
+			      IOCLIT - ],
+   NON-HEAD-DTR.SYNSEM.LOCAL [ CAT.HEAD.CASE dat,
+			      CONT.HOOK.INDEX #ind ] ].
+
+  ;;; ditr-clitic-head order (mu dadoh)
+
+ditr-clit-head-phrase := ditr-clit-head-unordered-phrase & basic-head-final &
+ [ SYNSEM.LOCAL.CAT.CLINIT - ].
+
+ ;;; head-ditr-clitic order (dadoh mu)
+
+head-ditr-clit-phrase := ditr-clit-head-unordered-phrase & basic-head-initial.
+
+;;; head-comp types
+
+;;; ordering of two complements
+
+;;; dobaveno ogranichenie za REST kato phr-synsem
+
+
+head-comp2-unordered-phrase := basic-head-2nd-comp-phrase &
+[SYNSEM.LOCAL.CAT [HS-INIT #hs,
+		   HEAD.AUX -,
+		   VAL.COMPS.FIRST canonical-synsem &
+			   [ OPT - ] ],
+ ARGS.FIRST.SYNSEM.LOCAL.CAT.HS-INIT #hs].
+
+head-comp2-phrase := head-comp2-unordered-phrase & head-initial &
+  [ SYNSEM.LOCAL.CAT.HEAD +nvjrpdmo,
+    HEAD-DTR.SYNSEM.LOCAL.CAT.HC-INIT + ].
+
+comp2-head-phrase := head-comp2-unordered-phrase & head-final &
+  [ SYNSEM.LOCAL.CAT.HEAD +nvjrpdmo,
+    HEAD-DTR.SYNSEM.LOCAL.CAT.HC-INIT - ].
+
+;;; complement
+
+head-comp-unordered-phrase := basic-head-1st-comp-phrase &
+[SYNSEM.LOCAL.CAT.HS-INIT #hs,
+ARGS.FIRST.SYNSEM.LOCAL.CAT.HS-INIT #hs].
+
+head-comp-phrase := head-comp-unordered-phrase & head-initial &
+  [ SYNSEM.LOCAL.CAT.HEAD +nvjpcdmo,
+    HEAD-DTR.SYNSEM.LOCAL.CAT.HC-INIT + ].
+
+comp-head-phrase := head-comp-unordered-phrase & head-final &
+  [ SYNSEM.LOCAL.CAT.HEAD +nvjrdmo,
+    HEAD-DTR.SYNSEM.LOCAL.CAT.HC-INIT - ].
+
+;; MATRIX override: We agree that restrictng this to event-only dtrs is
+;; not universal, and we want to discharge them in Bulgarian for nouns also.
+
+basic-head-opt-comp-phrase := head-valence-phrase & head-only &
+                              head-compositional &
+  [ INFLECTED #infl,
+    SYNSEM canonical-synsem &
+	   [ LOCAL.CAT [ VAL [ SUBJ #subj,
+			       COMPS #comps,
+                               SPR #spr,
+                               SPEC #spec ],
+                         MC #mc,
+                         POSTHEAD #ph ],
+             MODIFIED #mod ],
+    HEAD-DTR [ INFLECTED #infl & +,
+             SYNSEM [ LOCAL [ CAT [ VAL [ SUBJ #subj,
+					  COMPS < unexpressed &
+						  [ OPT +,
+						    OPT-CS #def,
+						    LOCAL.CONT.HOOK.INDEX.COG-ST #def ] . #comps >,
+					  SPR #spr,
+                                        SPEC #spec ],
+				    MC #mc,
+				    POSTHEAD #ph ],
+			      CONT.HOOK.INDEX individual ],
+                      MODIFIED #mod ] ],
+    C-CONT [ RELS <! !>,
+	     HCONS <! !> ] ].
+
+
+head-opt-comp-phrase := basic-head-opt-comp-phrase &
+  [ SYNSEM phr-synsem &
+	   [ LOCAL.CAT.HS-INIT #hsinit ],
+    HEAD-DTR.SYNSEM.LOCAL.CAT.HS-INIT #hsinit ].
+
+;;; subject
+
+;;; Matrix override: we want a QUE 1-dlist for subject
+
+basic-head-subj-phrase := head-valence-phrase & binary-headed-phrase &
+			  head-compositional &
+  [ SYNSEM phr-synsem & 
+	   [ LOCAL.CAT [ POSTHEAD +,
+			 VAL [ SUBJ < >,
+			       COMPS #comps,
+			       SPR #spr ] ] ],
+    C-CONT [ RELS <! !>,
+	     HCONS <! !> ],
+    HEAD-DTR.SYNSEM.LOCAL.CAT.VAL [ SUBJ < #synsem >,
+				      COMPS #comps,	
+                                      SPR #spr ],
+    NON-HEAD-DTR.SYNSEM #synsem & canonical-synsem &
+		 [ LOCAL [ CAT [ VAL [ SUBJ olist,
+				       COMPS olist,
+				       SPR olist ] ] ],
+		   NON-LOCAL [ SLASH 0-dlist & [ LIST < > ],
+			       REL 0-dlist ] ]].
+
+head-subj-unordered-phrase := phrase &
+  [ SYNSEM.LOCAL [ AGR #agr,
+		   CONT.HOOK.INDEX #agr ] ].
+
+subj-head-phrase :=  head-subj-unordered-phrase &
+		     basic-head-subj-phrase & head-final &
+  [ SYNSEM.NON-LOCAL.REL 0-dlist,
+    HEAD-DTR.SYNSEM [ LOCAL.CAT [VAL.COMPS < >,
+				 HS-INIT -],
+		      NON-LOCAL.REL 0-dlist ],
+    C-CONT [ RELS <! !>,
+	     HCONS <! !> ]].
+
+;; See note on head-filler phrase about hack using HC-INIT.
+head-subj-phrase := head-subj-unordered-phrase &
+		    decl-head-subj-phrase & head-initial &
+  [ SYNSEM.LOCAL.CAT.HC-INIT +,
+    HEAD-DTR.SYNSEM.LOCAL.CAT [VAL.COMPS < >,
+			       HS-INIT +] ].
+
+
+#|
+head-subj-phrase := head-subj-unordered-phrase &
+		    decl-head-subj-phrase & head-initial &
+  [ HEAD-DTR.SYNSEM.LOCAL.CAT [VAL.COMPS < >,
+								HS-INIT +],
+ARGS < [ SYNSEM.PUNCT.R-PUNCT no_punct ], *top* >].
+|#
+
+
+
+
+
+
+;;; i underspecify hs-init feature
+;; See note about HS-INIT on head-filler phrase
+
+opt-subj-phrase := head-subj-unordered-phrase &
+		   basic-head-opt-subj-phrase & basic-non-rel-clause &
+  [ SYNSEM.LOCAL.CAT [ MC #mc,
+		       HS-INIT #hs,
+		       HC-INIT + ],
+    HEAD-DTR.SYNSEM.LOCAL.CAT [ MC #mc,
+				HS-INIT #hs,
+				VAL.SUBJ < unexpressed > ] ].
+ 
+
+#|
+opt-subj-phrase := head-subj-unordered-phrase &
+		   decl-head-opt-subj-phrase &
+  [ HEAD-DTR.SYNSEM.LOCAL.CAT.VAL.SUBJ < unexpressed >,
+  ARGS < [ SYNSEM.PUNCT.R-PUNCT no_punct ] > ].
+|#
+
+;;; Specifier type
+
+head-spec-phrase := basic-head-spec-phrase & head-final &
+[NON-HEAD-DTR.SYNSEM.LOCAL.CAT.HEAD det].
+
+;;; Bare NP
+
+basic-bare-np-phrase := head-only &
+  [ SYNSEM [ LOCAL.CAT.VAL [ SPR < >,
+			   SUBJ < >,
+			   COMPS < >,
+			   SPEC < > ],
+	     NON-LOCAL #nonloc & [ QUE 0-dlist ] ],
+    HEAD-DTR.SYNSEM [ LOCAL [ CAT.VAL [ SPR < [ LOCAL.CAT.HEAD det,
+						OPT + ] >,
+				      COMPS < > ],
+			    CONT.HOOK [ INDEX #index,
+					LTOP #larg ] ],
+		      NON-LOCAL #nonloc ],
+    C-CONT [ RELS <! quant-relation &
+		   [ LBL #ltop,
+		     ARG0 #index,
+		     RSTR #harg ] !>,
+	     HCONS <! qeq & 
+		    [ HARG #harg,
+		      LARG #larg ] !>,
+	     HOOK [ INDEX #index,
+		    LTOP #ltop ] ] ].
+
+
+bare-np-phrase := basic-bare-np-phrase &
+[SYNSEM.LOCAL [ CAT.HEAD noun,
+							CONT.HOOK.INDEX #index,
+							AGR #agr ],
+ ARGS < [ INFLECTED +,
+	  SYNSEM.LOCAL [ CONT.HOOK.INDEX #index,
+					  AGR #agr ] ] >,
+ C-CONT.RELS <! [ PRED "exist_q_rel",
+				ARG0 #index ] !> ].
+
+
+#|
+bare-np-phrase := basic-bare-np-phrase &
+[SYNSEM [ LOCAL [ CAT.HEAD noun,
+				CONT.HOOK.INDEX #index,
+				AGR #agr ],
+		   PUNCT.R-PUNCT #punct ],
+ ARGS < [ INFLECTED +,
+		SYNSEM [ LOCAL [ CONT.HOOK.INDEX #index,
+					         AGR #agr ],
+				  PUNCT.R-PUNCT #punct ] ]>,
+ C-CONT.RELS <! [ PRED "exist_q_rel",
+		  ARG0 #index ] !> ].
+|#
+
+
+
+basic-extracted-subj-phrase2 := basic-extracted-subj-phrase &
+[SYNSEM canonical-synsem].
+
+
+#|
+basic-extracted-subj-phrase2 := basic-extracted-subj-phrase &
+[SYNSEM canonical-synsem & [PUNCT.R-PUNCT no_punct ]].
+|#
+
+;;; relative clause (does analyses with subject and complement extraction, no PPs, no whose)
+
+basic_rel_cl := binary-phrase & phrasal &
+  [ SYNSEM [ LOCAL [ CAT [ HEAD verb & [MOD < [LOCAL intersective-mod &
+						     [ CAT [HEAD noun,
+							    VAL.SPR <[]>],
+						       CONT.HOOK.INDEX #index ]] >],
+			   VAL #val,
+			   POSTHEAD +,
+			   MC - ],
+		     CONT.HOOK.INDEX.SF prop ],
+	     NON-LOCAL [ REL <! !>,
+			 SLASH 0-dlist ] ],
+    ARGS < [SYNSEM [ LOCAL.CAT [ HEAD pro-adj-hd & [FORM relative-reg], 
+				 VAL [ SUBJ < >,
+				    COMPS < >,
+				    SPR olist ] ],
+		    NON-LOCAL [ REL 1-dlist & #slash &
+				 <! [ CONT.HOOK.INDEX #index ] !>,
+				SLASH 0-dlist ] ] ],
+	  [SYNSEM [ LOCAL [ CAT.VAL #val & [ SUBJ < >,
+					     COMPS < > ],
+			    COORD - ],
+		    NON-LOCAL [ SLASH #slash,
+				  QUE 0-dlist,
+				  REL 0-dlist ] ] ] >,
+	  C-CONT [ RELS <! !>,
+	     HCONS <! !> ] ].
+
+ basic_interrog_clause := basic-head-filler-phrase & basic-binary-headed-phrase &
+  [ SYNSEM.LOCAL.CAT.HEAD verb,
+    NON-HEAD-DTR.SYNSEM.NON-LOCAL.QUE 1-dlist,
+    C-CONT [ RELS <! !>,
+	     HCONS <! !> ] ].
+
+;; 25-jun-10 - Tried a dirty trick to prevent head-subj rule from immediately
+;; serving as head of filler-head, to avoid spurious analysis of NP-V-NP.
+;; We do this by making HC-INIT be + here, and constrain the head in
+;; filler-head to be HC-INIT -.  We believe this feature is otherwise not
+;; used for clauses (unlike HS-INIT, which is used on opt-subj phrase),
+;; so should be okay elsewhere in grammar.
+;; Also do this for opt-subj rule
+
+bg-head-filler-phrase := basic-head-filler-phrase & binary-headed-phrase &
+[ARGS <#arg2, #arg1>,
+SYNSEM [ LOCAL.CAT.VAL.SUBJ <>,
+	 NON-LOCAL non-local-none ],
+HEAD-DTR #arg1 & [ SYNSEM.LOCAL.CAT [HEAD verb,
+				     VAL [ SUBJ <>,
+					   COMPS <>,
+					   SPR olist & <anti-synsem>],
+				     HC-INIT - ] ],
+NON-HEAD-DTR #arg2 & [ SYNSEM.LOCAL.CAT [HEAD noun,
+											VAL [ COMPS <>,
+												  SPR <>] ] ] ].
+
+;;; petya
+
+
+
+basic-cp-to-np-phrase := unary-phrase & phrasal &
+  [ SYNSEM phr-synsem & [ LOCAL [ CAT [ HEAD noun & [ MOD < >] & [CASE nom],       
+									VAL [ SUBJ < >,
+										  SPR < [LOCAL.CAT [HEAD det,
+														VAL [SPR <>,
+														COMPS <>,
+														SUBJ <>]]] >,
+									           COMPS < >] ],
+								AGR.PNG #png & [PERSON 3rd,
+												NUMBER singular,
+												GENDER neuter] ],
+					NON-LOCAL non-local-none],
+    ARGS < [ SYNSEM phr-synsem &
+		    [ LOCAL [ CAT [ HEAD comp,
+				    VAL [ SUBJ < >, 
+					  COMPS < > ] ],
+			      CONT.HOOK [ LTOP #chand,
+					  XARG ref-ind ] ],
+		      NON-LOCAL non-local-none ] ] >,
+    C-CONT [ HOOK.INDEX #index & ref-ind & [ PNG #png ],
+	     RELS <! [PRED "nominalize_rel",
+		      ARG0 #index,
+		      ARG1 #harg ] !>,
+	     HCONS <! qeq & [HARG #harg, LARG #chand ]!> ] ].
+
+
+;;; probata
+
+noun-noun-compound := head-initial &
+  [ SYNSEM [ NON-LOCAL non-local-none,
+			LOCAL [ COORD -,
+					CAT [ HEAD.MOD <>,
+						  VAL [ COMPS <>,
+							     SPR <[]>] ] ] ],
+  HEAD-DTR.SYNSEM.LOCAL [ CAT [ HEAD compound & [FORM compound-init],
+								  VAL [ SPR <[]>,
+									    COMPS <> ] ],
+							CONT [ HOOK.INDEX #ind1,
+								     RELS <! noun-relation & [LBL #lbl] !> ],
+							AGR.PNG #png ],
+  NON-HEAD-DTR.SYNSEM lex-synsem & [ LOCAL [ CAT [ HEAD nonpro-noun-hd,
+													VAL [ SPR < >,
+														COMPS <> ] ],
+											CONT.HOOK.INDEX #ind2 & [DEF - ],
+											AGR.DEF - ] ],
+ C-CONT [ HOOK.INDEX #index & ref-ind & [ PNG #png ],
+	     RELS <!
+	     [PRED "compound_rel",
+	     LBL #lbl,
+	    ARG0 #index,
+	    ARG1 #ind1,
+	     ARG2 #ind2 ] !> ] ].
+
+
+
+									
+
+    
+
+
+
+
+
+
+
+
+
+

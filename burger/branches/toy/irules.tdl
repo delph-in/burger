@@ -1,0 +1,1070 @@
+;;; -*- Mode: tdl; coding: mule-utf-8; -*-
+%(letter-set (!c bdfgklmnprstz))
+
+%(letter-set (!l абвгдежзийклмнопрстуфхцчшщюя))
+
+;;; period
+
+period-punct_orule :=
+%suffix (!l !l.)
+period-punct.
+
+quest-punct_orule :=
+%suffix (!l !l\?)
+quest-punct.
+
+exclam-punct_orule :=
+%suffix (!l !l\!)
+exclam-punct.
+
+;;; Gerund
+
+gerund_mclass1-1_verb :=
+%suffix  (я ейки)
+gerund_mclass1-1_verb.
+
+;;; Adjectives predicative
+
+third_sg_masculine-pred_adj_irule :=
+third_sg_masculine-pred_adj.
+
+third_sg_feminine-pred_adj_orule :=
+%suffix  (* а)
+third_sg_feminine-pred_adj.
+
+third_sg_neuter-pred_adj_orule :=
+%suffix  (* о)
+third_sg_neuter-pred_adj.
+
+third_pl_pred_adj_orule :=
+%suffix  (* и)
+third_pl_pred_adj.
+
+;;; Substantivization rules
+
+det_to_noun_prep_irule :=
+det_to_noun_prep.
+
+def_to_noun_irule :=
+def_to_noun.
+
+part-num_to_noun_irule :=
+part-num_to_noun.
+
+;;; Deverbal
+
+neut_sg_mclass3_deverbal_orule :=
+%suffix  (м не)
+neut_sg_mclass3_deverbal.
+
+
+;;; Impersonal verbs
+
+third_sg_present_mclass-impers_verb_irule :=
+third_sg_present_mclass-impers_verb.
+
+third_sg_imperf_mclass-impers_verb_orule :=
+%suffix  (и еше)(* ше)
+third_sg_imperf_mclass-impers_verb.
+
+third_sg_aorist_mclass-impers_verb_orule :=
+%suffix  (и я)
+third_sg_aorist_mclass-impers_verb.
+
+
+;;; Numeral
+
+cardinal_adj_irule :=
+cardinal_adj.
+
+def_cardinal_adj_orule :=
+%suffix  (* те)
+def_cardinal_adj.
+
+masc-sg_cardinal_adj_one_irule :=
+masc-sg_cardinal_adj_one.
+
+def-masc_sg_cardinal_adj_one_orule :=
+%suffix  (* ия)(* ият)(и ия)(и ият)
+def-masc_sg_cardinal_adj_one.
+
+fem-sg_cardinal_adj_one_orule :=
+%suffix  (ин на)(и а)
+fem-sg_cardinal_adj_one.
+
+def-fem_sg_cardinal_adj_one_orule :=
+%suffix  (ин ната)(и ата)
+def-fem_sg_cardinal_adj_one.
+
+neut-sg_cardinal_adj_one_orule :=
+%suffix  (ин но)(и о)
+neut-sg_cardinal_adj_one.
+
+def-neut_sg_cardinal_adj_one_orule :=
+%suffix  (ин ното)(и ото)
+def-neut_sg_cardinal_adj_one.
+
+pl_cardinal_adj_one_orule :=
+%suffix  (ин ни)(и и) 
+pl_cardinal_adj_one.
+
+def_pl_cardinal_adj_one_orule :=
+%suffix  (ин ните)(и ите) 
+def_pl_cardinal_adj_one.
+
+;;; Possessive clitic
+
+refl_pro-clit_adj_irule :=
+refl_pro-clit_adj.
+
+first_sg_poss_pro_noun_clit_irule :=
+first_sg_poss_pro_noun_clit.
+
+second_sg_poss_pro_noun_clit_orule :=
+%suffix  (ми ти)
+second_sg_poss_pro_noun_clit.
+
+third_sg_poss-masc_pro_noun_clit_orule :=
+%suffix  (и у)
+third_sg_poss-masc_pro_noun_clit.
+
+third_sg_poss-fem_pro_noun_clit_orule :=
+%suffix  (ми й)
+third_sg_poss-fem_pro_noun_clit.
+
+third_sg_poss-neut_pro_noun_clit_orule :=
+%suffix  (и у)
+third_sg_poss-neut_pro_noun_clit.
+
+first_pl_poss_pro_noun_clit_orule :=
+%suffix  (ми ни)
+first_pl_poss_pro_noun_clit.
+
+second_pl_poss_pro_noun_clit_orule :=
+%suffix  (ми ви)
+second_pl_poss_pro_noun_clit.
+
+third_pl_poss_pro_noun_clit_orule :=
+%suffix  (ми им)
+third_pl_poss_pro_noun_clit.
+
+;;; Relatives
+
+sg_masc_rel_entity_pro_noun_irule :=
+sg_masc_rel_entity_pro_noun.
+
+sg_fem_rel_entity_pro_noun_orule :=
+%suffix  (йто ято)
+sg_fem_rel_entity_pro_noun.
+
+sg_neut_rel_entity_pro_noun_orule :=
+%suffix  (йто ето)
+sg_neut_rel_entity_pro_noun.
+
+pl_rel_entity_pro_noun_orule :=
+%suffix  (йто ито)
+pl_rel_entity_pro_noun.
+
+;;;; Demonstratives, indefinites, negatives, collectives
+
+;;; entity
+
+sg_masc_demonstr_entity_pro_noun_irule :=
+sg_masc_demonstr_entity_pro_noun.
+
+sg_fem_demonstr_entity_pro_noun_orule :=
+%suffix  (ози ази)(й я)(еки яка)(онзи онази)
+sg_fem_demonstr_entity_pro_noun.
+
+sg_neut_demonstr_entity_pro_noun_orule :=
+%suffix  (ози ова)(й е)(еки яко)(еки ичко)(онзи онова)
+sg_neut_demonstr_entity_pro_noun.
+
+pl_demonstr_entity_pro_noun_orule :=
+%suffix  (ози ези)(й и)(еки ички)(онзи онези)
+pl_demonstr_entity_pro_noun.
+
+;;;; Adjectives -petya (both types - type visok - visoki (no type gradski-gradska))
+
+third_sg_masculine_adj_irule :=
+third_sg_masculine_adj.
+
+def-third_sg_masculine_adj_orule :=
+%suffix  (* ият)(* ия)(й ят)(й я)(и ия)(и ят)
+def-third_sg_masculine_adj.
+
+third_sg_feminine_adj_orule :=
+%suffix  (* а)(й я)(и а)
+third_sg_feminine_adj.
+
+def-third_sg_feminine_adj_orule :=
+%suffix  (* ата)(й ята)(и ата)
+def-third_sg_feminine_adj.
+
+third_sg_neuter_adj_orule :=
+%suffix  (* о)(й е)(и о)
+third_sg_neuter_adj.
+
+def-third_sg_neuter_adj_orule :=
+%suffix  (* ото)(й ето)(и ото)
+def-third_sg_neuter_adj.
+
+pl_adj_orule :=
+%suffix  (* и)(й и)(и и)
+pl_adj.
+
+def-pl_adj_orule :=
+%suffix  (* ите)(й ите)(и ите)
+def-pl_adj.
+
+;;; Pronouns - petya
+
+;;; Personal - nominative
+
+first_sg_nom_pers_pro_noun_irule :=
+first_sg_nom_pers_pro_noun.
+
+first_pl_nom_pers_pro_noun_orule :=
+%suffix  (аз ние)
+first_pl_nom_pers_pro_noun.
+
+second_sg_nom_pers_pro_noun_orule :=
+%suffix  (аз ти)
+second_sg_nom_pers_pro_noun.
+
+second_pl_nom_pers_pro_noun_orule :=
+%suffix  (аз вие)
+second_pl_nom_pers_pro_noun.
+
+third_sg_nom_pers_masc_pro_noun_orule :=
+%suffix  (аз той)
+third_sg_nom_pers_masc_pro_noun.
+
+third_sg_nom_pers_fem_pro_noun_orule :=
+%suffix  (аз тя)
+third_sg_nom_pers_fem_pro_noun.
+
+third_sg_nom_pers_neut_pro_noun_orule :=
+%suffix  (аз то)
+third_sg_nom_pers_neut_pro_noun.
+
+third_pl_nom_pers_pro_noun_orule :=
+%suffix  (аз те)
+third_pl_nom_pers_pro_noun.
+
+;;; Personal - accusative
+
+;;; singular
+
+first_sg_acc_pers_pro_noun_reg_irule :=
+first_sg_acc_pers_pro_noun_reg.
+
+first_sg_acc_pers_pro_noun_clit_irule :=
+first_sg_acc_pers_pro_noun_clit.
+
+second_sg_acc_pers_pro_noun_reg_orule :=
+%suffix  (мен теб)
+second_sg_acc_pers_pro_noun_reg.
+
+second_sg_acc_pers_pro_noun_clit_orule :=
+%suffix  (ме те)
+second_sg_acc_pers_pro_noun_clit.
+
+third_sg_acc_pers_masc_pro_noun_reg_orule :=
+%suffix  (мен него)
+third_sg_acc_pers_masc_pro_noun_reg.
+
+third_sg_acc_pers_masc_pro_noun_clit_orule :=
+%suffix  (ме го)
+third_sg_acc_pers_masc_pro_noun_clit.
+
+third_sg_acc_pers_fem_pro_noun_reg_orule :=
+%suffix  (мен нея)
+third_sg_acc_pers_fem_pro_noun_reg.
+
+third_sg_acc_pers_fem_pro_noun_clit_orule :=
+%suffix  (ме я)
+third_sg_acc_pers_fem_pro_noun_clit.
+
+third_sg_acc_pers_neut_pro_noun_reg_orule :=
+%suffix  (мен него)
+third_sg_acc_pers_neut_pro_noun_reg.
+
+third_sg_acc_pers_neut_pro_noun_clit_orule :=
+%suffix  (ме го)
+third_sg_acc_pers_neut_pro_noun_clit.
+
+;;; plural
+
+first_pl_acc_pers_pro_noun_reg_orule :=
+%suffix  (мен нас)
+first_pl_acc_pers_pro_noun_reg.
+
+first_pl_acc_pers_pro_noun_clit_orule :=
+%suffix  (ме ни)
+first_pl_acc_pers_pro_noun_clit.
+
+second_pl_acc_pers_pro_noun_reg_orule :=
+%suffix  (мен вас)
+second_pl_acc_pers_pro_noun_reg.
+
+second_pl_acc_pers_pro_noun_clit_orule :=
+%suffix  (ме ви)
+second_pl_acc_pers_pro_noun_clit.
+
+third_pl_acc_pers_pro_noun_reg_orule :=
+%suffix  (мен тях)
+third_pl_acc_pers_pro_noun_reg.
+
+third_pl_acc_pers_pro_noun_clit_orule :=
+%suffix  (ме ги)
+third_pl_acc_pers_pro_noun_clit.
+
+;;; Personal - dative
+
+;;; singular
+
+first_sg_dat_pers_pro_noun_clit_irule :=
+first_sg_dat_pers_pro_noun_clit.
+
+second_sg_dat_pers_pro_noun_clit_orule :=
+%suffix  (ми ти)
+second_sg_dat_pers_pro_noun_clit.
+
+third_sg_dat_pers_masc_pro_noun_clit_orule :=
+%suffix  (ми му)
+third_sg_dat_pers_masc_pro_noun_clit.
+
+third_sg_dat_pers_fem_pro_noun_clit_orule :=
+%suffix  (ми й)
+third_sg_dat_pers_fem_pro_noun_clit.
+
+third_sg_dat_pers_neut_pro_noun_clit_orule :=
+%suffix  (ми му)
+third_sg_dat_pers_neut_pro_noun_clit.
+
+;;; plural
+
+first_pl_dat_pers_pro_noun_clit_orule :=
+%suffix  (ми ни)
+first_pl_dat_pers_pro_noun_clit.
+
+second_pl_dat_pers_pro_noun_clit_orule :=
+%suffix  (ми ви)
+second_pl_dat_pers_pro_noun_clit.
+
+third_pl_dat_pers_pro_noun_clit_orule :=
+%suffix  (ми им)
+third_pl_dat_pers_pro_noun_clit.
+
+
+;;; Pronouns - petya
+
+;;; Present tense
+
+;;; Mclass 1, present
+
+first_sg_present_verb_irule :=
+first_sg_present_verb.
+
+second_sg_present_mclass1_verb_orule :=
+%suffix  (а еш)(я еш)(га жеш)
+second_sg_present_mclass1_verb.
+
+third_sg_present_mclass1_verb_orule :=
+%suffix  (а е)(я е)(га же)
+third_sg_present_mclass1_verb.
+
+first_pl_present_mclass1_verb_orule :=
+%suffix  (а ем)(я ем)(га жем)
+first_pl_present_mclass1_verb.
+
+second_pl_present_mclass1_verb_orule :=
+%suffix  (а ете)(я ете)(га жете)
+second_pl_present_mclass1_verb.
+
+third_pl_present_mclass1_verb_orule :=
+%suffix  (* т)
+third_pl_present_mclass1_verb.
+
+;;; Mclass 1-1, imperfect
+
+first_sg_imperfect_mclass1-1_verb_orule :=
+%suffix  (я ех)(а ех)
+first_sg_imperfect_mclass1-1_verb.
+
+2or3_sg_imperfect_mclass1-1_verb_orule :=
+%suffix  (я еше)(а еше)
+2or3_sg_imperfect_mclass1-1_verb.
+
+first_pl_imperfect_mclass1-1_verb_orule :=
+%suffix  (я ехме)(а ехме)
+first_pl_imperfect_mclass1-1_verb.
+
+second_pl_imperfect_mclass1-1_verb_orule :=
+%suffix  (я ехте)(а ехте)
+second_pl_imperfect_mclass1-1_verb.
+
+third_pl_imperfect_mclass1-1_verb_orule :=
+%suffix  (я еха)(а еха)
+third_pl_imperfect_mclass1-1_verb.
+
+;;; Mclass 1-1, aorist
+
+first_sg_aorist_mclass1-1_verb_orule :=
+%suffix  (* х)(я х)(жа зах)
+first_sg_aorist_mclass1-1_verb.
+
+2or3_sg_aorist_mclass1-1_verb_оrule :=
+%suffix  (а а)(ая а)(я я)(ия и)(жа за)
+2or3_sg_aorist_mclass1-1_verb.
+
+first_pl_aorist_mclass1-1_verb_orule :=
+%suffix  (* хме)(я хме)(ия ихме)(жа захме)
+first_pl_aorist_mclass1-1_verb.
+
+second_pl_aorist_mclass1-1_verb_orule :=
+%suffix  (* хте)(я хте)(ия ихте)(жа захте)
+second_pl_aorist_mclass1-1_verb.
+
+third_pl_aorist_mclass1-1_verb_orule :=
+%suffix  (* ха)(я ха)(ия иха)(жа заха)
+third_pl_aorist_mclass1-1_verb.
+
+;;; Mclass 1-2, imperfect
+
+first_sg_imperfect_mclass1-2_verb_orule :=
+%suffix  (га жех)(ша шех)
+first_sg_imperfect_mclass1-2_verb.
+
+2or3_sg_imperfect_mclass1-2_verb_orule :=
+%suffix  (га жеше)(ша шеше)
+2or3_sg_imperfect_mclass1-2_verb.
+
+first_pl_imperfect_mclass1-2_verb_orule :=
+%suffix  (га жехме)(ша шехме)
+first_pl_imperfect_mclass1-2_verb.
+
+second_pl_imperfect_mclass1-2_verb_orule :=
+%suffix  (га жехте)(ша шехте)
+second_pl_imperfect_mclass1-2_verb.
+
+third_pl_imperfect_mclass1-2_verb_orule :=
+%suffix  (га жеха)(ша шеха)
+third_pl_imperfect_mclass1-2_verb.
+
+;;; Mclass 1-2, aorist
+
+first_sg_aorist_mclass1-2_verb_orule :=
+%suffix  (га жах)(ша сах)
+first_sg_aorist_mclass1-2_verb.
+
+2or3_sg_aorist_mclass1-2_verb_оrule :=
+%suffix  (га жа)(ша са)
+2or3_sg_aorist_mclass1-2_verb.
+
+first_pl_aorist_mclass1-2_verb_orule :=
+%suffix  (га жахме)(ша сахме)
+first_pl_aorist_mclass1-2_verb.
+
+second_pl_aorist_mclass1-2_verb_orule :=
+%suffix  (га жахте)(ша сахте)
+second_pl_aorist_mclass1-2_verb.
+
+third_pl_aorist_mclass1-2_verb_orule :=
+%suffix  (га жаха)(ша саха)
+third_pl_aorist_mclass1-2_verb.
+
+
+;;; Mclass 2-1, present
+
+second_sg_present_mclass2-1_verb_orule :=
+%suffix  (я иш)(а иш)
+second_sg_present_mclass2-1_verb.
+
+third_sg_present_mclass2-1_verb_orule :=
+%suffix  (я и)(а и)
+third_sg_present_mclass2-1_verb.
+
+first_pl_present_mclass2-1_verb_orule :=
+%suffix  (я им)(а им)
+first_pl_present_mclass2-1_verb.
+
+second_pl_present_mclass2-1_verb_orule :=
+%suffix  (я ите)(а ите)
+second_pl_present_mclass2-1_verb.
+
+third_pl_present_mclass2-1_verb_orule :=
+%suffix  (* т)
+third_pl_present_mclass2-1_verb.
+
+;;; Mclass 2-2, present
+
+second_sg_present_mclass2-2_verb_orule :=
+%suffix  (я иш)
+second_sg_present_mclass2-2_verb.
+
+third_sg_present_mclass2-2_verb_orule :=
+%suffix  (я и)
+third_sg_present_mclass2-2_verb.
+
+first_pl_present_mclass2-2_verb_orule :=
+%suffix  (я им)
+first_pl_present_mclass2-2_verb.
+
+second_pl_present_mclass2-2_verb_orule :=
+%suffix  (я ите)
+second_pl_present_mclass2-2_verb.
+
+third_pl_present_mclass2-2_verb_orule :=
+%suffix  (* т)
+third_pl_present_mclass2-2_verb.
+
+;;; Mclass 2-3, present
+
+second_sg_present_mclass2-3_verb_orule :=
+%suffix  (я иш)
+second_sg_present_mclass2-3_verb.
+
+third_sg_present_mclass2-3_verb_orule :=
+%suffix  (я и)
+third_sg_present_mclass2-3_verb.
+
+first_pl_present_mclass2-3_verb_orule :=
+%suffix  (я им)
+first_pl_present_mclass2-3_verb.
+
+second_pl_present_mclass2-3_verb_orule :=
+%suffix  (я ите)
+second_pl_present_mclass2-3_verb.
+
+third_pl_present_mclass2-3_verb_orule :=
+%suffix  (* т)
+third_pl_present_mclass2-3_verb.
+
+;;; Mclass 3, present
+
+second_sg_present_mclass3_verb_orule :=
+%suffix  (м ш)
+second_sg_present_mclass3_verb.
+
+third_sg_present_mclass3_verb_orule :=
+%suffix  (ям я)(вам ва)(сам са)(там та)(кам ка)(ждам жда)
+third_sg_present_mclass3_verb.
+
+first_pl_present_mclass3_verb_orule :=
+%suffix  (* е)
+first_pl_present_mclass3_verb.
+
+second_pl_present_mclass3_verb_orule :=
+%suffix  (м те)
+second_pl_present_mclass3_verb.
+
+third_pl_present_mclass3_verb_orule :=
+%suffix  (м т)
+third_pl_present_mclass3_verb.
+
+;;; Mclass 3-1, present
+
+second_sg_present_mclass3-1_verb_orule :=
+%suffix  (м деш)
+second_sg_present_mclass3-1_verb.
+
+third_sg_present_mclass3-1_verb_orule :=
+%suffix  (м де)
+third_sg_present_mclass3-1_verb.
+
+first_pl_present_mclass3-1_verb_orule :=
+%suffix  (м дем)
+first_pl_present_mclass3-1_verb.
+
+second_pl_present_mclass3-1_verb_orule :=
+%suffix  (м дете)
+second_pl_present_mclass3-1_verb.
+
+third_pl_present_mclass3-1_verb_orule :=
+%suffix  (м дат)
+third_pl_present_mclass3-1_verb.
+
+;;; Mclass 3-1, aorist
+
+first_sg_aorist_mclass3-1_verb_orule :=
+%suffix  (м дох)
+first_sg_aorist_mclass3-1_verb.
+
+2or3_sg_aorist_mclass3-1_verb_orule :=
+%suffix  (м де)
+2or3_sg_aorist_mclass3-1_verb.
+
+first_pl_aorist_mclass3-1_verb_orule :=
+%suffix  (м дохме)
+first_pl_aorist_mclass3-1_verb.
+
+second_pl_aorist_mclass3-1_verb_orule :=
+%suffix  (м дохте)
+second_pl_aorist_mclass3-1_verb.
+
+third_pl_aorist_mclass3-1_verb_orule :=
+%suffix  (м доха)
+third_pl_aorist_mclass3-1_verb.
+
+;;; Mclass 3-1, imperfect
+
+first_sg_imperfect_mclass3-1_verb_orule :=
+%suffix  (м дях)
+first_sg_imperfect_mclass3-1_verb.
+
+2or3_sg_imperfect_mclass3-1_verb_orule :=
+%suffix  (м деше)
+2or3_sg_imperfect_mclass3-1_verb.
+
+first_pl_imperfect_mclass3-1_verb_orule :=
+%suffix  (м дяхме)
+first_pl_imperfect_mclass3-1_verb.
+
+second_pl_imperfect_mclass3-1_verb_orule :=
+%suffix  (м дяхте)
+second_pl_imperfect_mclass3-1_verb.
+
+third_pl_imperfect_mclass3-1_verb_orule :=
+%suffix  (м дяха)
+third_pl_imperfect_mclass3-1_verb.
+
+;;; Imperfect tense
+
+;;; Mclass 3, aorist-or-imperfect to imperfect and aorist
+
+first_sg_aorist-or-imperfect_mclass3_verb_orule :=
+%suffix  (м х)
+first_sg_aorist-or-imperfect_mclass3_verb.
+
+2or3_sg_imperfect_mclass3_verb_orule :=
+%suffix  (м ше)
+2or3_sg_imperfect_mclass3_verb.
+
+2or3_sg_aorist_mclass3_verb_orule :=
+%suffix  (вам ва)(сам са)(там та)(кам ка)(ждам жда)(ям я)
+2or3_sg_aorist_mclass3_verb.
+
+first_pl_aorist-or-imperfect_mclass3_verb_orule :=
+%suffix  (м хме)
+first_pl_aorist-or-imperfect_mclass3_verb.
+
+second_pl_aorist-or-imperfect_mclass3_verb_orule :=
+%suffix  (м хте)
+second_pl_aorist-or-imperfect_mclass3_verb.
+
+third_pl_aorist-or-imperfect_mclass3_verb_orule :=
+%suffix  (м ха)
+third_pl_aorist-or-imperfect_mclass3_verb.
+
+;;; Imperatives
+
+;;; nedej imperative
+
+second_sg_imperative_nedej_verb_irule :=
+second_sg_imperative_nedej_verb.
+
+second_pl_imperative_nedej_verb_orule :=
+%suffix  (* те)
+second_pl_imperative_nedej_verb.
+
+;;; Mclass 3 - imperative
+
+#|
+second_sg_imperative_mclass3_verb_orule :=
+%suffix  (м й)
+second_sg_imperative_mclass3_verb.
+|#
+
+#|
+second_pl_imperative_mclass3_verb_orule :=
+%suffix  (м йте)
+second_pl_imperative_mclass3_verb.
+|#
+
+;;; Mclass 1 - imperative
+
+#|
+second_sg_imperative_mclass1_verb_orule :=
+%suffix  (я й)
+second_sg_imperative_mclass1_verb.
+|#
+
+#|
+second_pl_imperative_mclass1_verb_orule :=
+%suffix  (я йте)
+second_pl_imperative_mclass1_verb.
+|#
+
+;;; probata imperative
+
+second_sg_imperative_1-or-3_verb_orule :=
+%suffix  (я й)(м й)
+second_sg_imperative_1-or-3_verb.
+
+second_pl_imperative_1-or-3_verb_orule :=
+%suffix  (я йте)(м йте)
+second_pl_imperative_1-or-3_verb.
+
+;;; Mclass 2, aorist-or-imperfect to imperfect and aorist
+
+;;; Mclass 2-1, types вървя, мълча
+
+first_sg_aorist-or-imperfect_mclass2-1_verb_orule :=
+%suffix  (* х)
+first_sg_aorist-or-imperfect_mclass2-1_verb.
+
+2or3_sg_imperfect_mclass2-1_verb_orule :=
+%suffix  (я еше)(а еше)
+2or3_sg_imperfect_mclass2-1_verb.
+
+2or3_sg_aorist_mclass2-1_verb_irule :=
+2or3_sg_aorist_mclass2-1_verb.
+
+first_pl_aorist-or-imperfect_mclass2-1_verb_orule :=
+%suffix  (* хме)
+first_pl_aorist-or-imperfect_mclass2-1_verb.
+
+second_pl_aorist-or-imperfect_mclass2-1_verb_orule :=
+%suffix  (* хте)
+second_pl_aorist-or-imperfect_mclass2-1_verb.
+
+third_pl_aorist-or-imperfect_mclass2-1_verb_orule :=
+%suffix  (* ха)
+third_pl_aorist-or-imperfect_mclass2-1_verb.
+
+;;; Mclass 2-2, imperfect, types точа, нося
+
+first_sg_imperfect_mclass2-2_verb_orule :=
+%suffix  (а ех)(я ех)
+first_sg_imperfect_mclass2-2_verb.
+
+2or3_sg_imperfect_mclass2-2_verb_orule :=
+%suffix  (а еше)(я еше)
+2or3_sg_imperfect_mclass2-2_verb.
+
+first_pl_imperfect_mclass2-2_verb_orule :=
+%suffix  (а ехме)(я ехме)
+first_pl_imperfect_mclass2-2_verb.
+
+second_pl_imperfect_mclass2-2_verb_orule :=
+%suffix  (а ехте)(я ехте)
+second_pl_imperfect_mclass2-2_verb.
+
+third_pl_imperfect_mclass2-2_verb_orule :=
+%suffix  (а еха)(я еха)
+third_pl_imperfect_mclass2-2_verb.
+
+;;; Mclass 2-3, imperfect, types реша (decide), благодаря, броя
+
+first_sg_imperfect_mclass2-3_verb_orule :=
+%suffix  (* х)
+first_sg_imperfect_mclass2-3_verb.
+
+2or3_sg_imperfect_mclass2-3_verb_orule :=
+%suffix  (а еше)(я еше)
+2or3_sg_imperfect_mclass2-3_verb.
+
+first_pl_imperfect_mclass2-3_verb_orule :=
+%suffix  (* хме)
+first_pl_imperfect_mclass2-3_verb.
+
+second_pl_imperfect_mclass2-3_verb_orule :=
+%suffix  (* хте)
+second_pl_imperfect_mclass2-3_verb.
+
+third_pl_imperfect_mclass2-3_verb_orule :=
+%suffix  (* ха)
+third_pl_imperfect_mclass2-3_verb.
+
+;;; Mclass 2-2, aorist
+
+first_sg_aorist_mclass2-2_verb_orule :=
+%suffix  (а их)(я их)
+first_sg_aorist_mclass2-2_verb.
+
+2or3_sg_aorist_mclass2-2_verb_orule :=
+%suffix  (а и)(я и)
+2or3_sg_aorist_mclass2-2_verb.
+
+first_pl_aorist_mclass2-2_verb_orule :=
+%suffix  (а ихме)(я ихме)
+first_pl_aorist_mclass2-2_verb.
+
+second_pl_aorist_mclass2-2_verb_orule :=
+%suffix  (а ихте)(я ихте)
+second_pl_aorist_mclass2-2_verb.
+
+third_pl_aorist_mclass2-2_verb_orule :=
+%suffix  (а иха)(я иха)
+third_pl_aorist_mclass2-2_verb.
+
+;;; Mclass 2-3, aorist
+
+first_sg_aorist_mclass2-3_verb_orule :=
+%suffix  (а их)(я их)
+first_sg_aorist_mclass2-3_verb.
+
+2or3_sg_aorist_mclass2-3_verb_orule :=
+%suffix  (а и)(я и)
+2or3_sg_aorist_mclass2-3_verb.
+
+first_pl_aorist_mclass2-3_verb_orule :=
+%suffix  (а ихме)(я ихме)
+first_pl_aorist_mclass2-3_verb.
+
+second_pl_aorist_mclass2-3_verb_orule :=
+%suffix  (а ихте)(я ихте)
+second_pl_aorist_mclass2-3_verb.
+
+third_pl_aorist_mclass2-3_verb_orule :=
+%suffix  (а иха)(я иха)
+third_pl_aorist_mclass2-3_verb.
+
+;;; Auxiliaries
+
+; be-pres
+
+second_sg_present_mclass-be_verb_orule :=
+%suffix  (ъм и)
+second_sg_present_mclass-be_verb.
+
+third_sg_present_mclass-be_verb_orule :=
+%suffix  (съм е)
+third_sg_present_mclass-be_verb.
+
+first_pl_present_mclass-be_verb_orule :=
+%suffix  (ъм ме)
+first_pl_present_mclass-be_verb.
+
+second_pl_present_mclass-be_verb_orule :=
+%suffix  (ъм те)
+second_pl_present_mclass-be_verb.
+
+third_pl_present_mclass-be_verb_orule :=
+%suffix  (ъм а)
+third_pl_present_mclass-be_verb.
+
+; be-past
+
+first_sg_past_mclass-be_verb_orule :=
+%suffix  (съм бях)
+first_sg_past_mclass-be_verb.
+
+second_sg_past_mclass-be_verb_orule :=
+%suffix  (съм беше)
+second_sg_past_mclass-be_verb.
+
+third_sg_past_mclass-be_verb_orule :=
+%suffix  (съм беше)
+third_sg_past_mclass-be_verb.
+
+first_pl_past_mclass-be_verb_orule :=
+%suffix  (съм бяхме)
+first_pl_past_mclass-be_verb.
+
+second_pl_past_mclass-be_verb_orule :=
+%suffix  (съм бяхте)
+second_pl_past_mclass-be_verb.
+
+third_pl_past_mclass-be_verb_orule :=
+%suffix  (ъм бяха)
+third_pl_past_mclass-be_verb.
+
+;;; to-be participle
+
+masc_sg_mclass-be_verb_participle_orule :=
+%suffix  (съм бил)
+masc_sg_mclass-be_verb_participle.
+
+; Would (shtyah)
+
+first_sg_imperfect_mclass-would_verb_irule :=
+first_sg_imperfect_mclass-would_verb.
+
+second_sg_imperfect_mclass-would_verb_orule :=
+%suffix  (ях еше)
+second_sg_imperfect_mclass-would_verb.
+
+third_sg_imperfect_mclass-would_verb_orule :=
+%suffix  (ях еше)
+third_sg_imperfect_mclass-would_verb.
+
+first_pl_imperfect_mclass-would_verb_orule :=
+%suffix  (* ме)
+first_pl_imperfect_mclass-would_verb.
+
+second_pl_imperfect_mclass-would_verb_orule :=
+%suffix  (* те)
+second_pl_imperfect_mclass-would_verb.
+
+third_pl_imperfect_mclass-would_verb_orule :=
+%suffix  (* а)
+third_pl_imperfect_mclass-would_verb.
+
+;;; Participles
+
+;;; Mclass 3 aorist
+
+masc_sg_mclass3_aorist-participle_orule :=
+%suffix  (м л)
+masc_sg_mclass3_aorist-participle.
+
+fem_sg_mclass3_aorist-participle_orule :=
+%suffix  (м ла)
+fem_sg_mclass3_aorist-participle.
+
+neut_sg_mclass3_aorist-participle_orule :=
+%suffix  (м ло)
+neut_sg_mclass3_aorist-participle.
+
+pl_mclass3_aorist-participle_orule :=
+%suffix  (м ли)
+pl_mclass3_aorist-participle.
+
+;;; Mclass 3 passive
+
+masc_sg_mclass3_passive-participle_orule :=
+%suffix  (м н)
+masc_sg_mclass3_passive-participle.
+
+def-masc_sg_mclass3_passive-participle_orule :=
+%suffix  (м ния)(м ният)
+def-masc_sg_mclass3_passive-participle.
+
+fem_sg_mclass3_passive-participle_orule :=
+%suffix  (м на)
+fem_sg_mclass3_passive-participle.
+
+def-fem_sg_mclass3_passive-participle_orule :=
+%suffix  (м ната)
+def-fem_sg_mclass3_passive-participle.
+
+neut_sg_mclass3_passive-participle_orule :=
+%suffix  (м но)
+neut_sg_mclass3_passive-participle.
+
+def-neut_sg_mclass3_passive-participle_orule :=
+%suffix  (м ното)
+def-neut_sg_mclass3_passive-participle.
+
+pl_mclass3_passive-participle_orule :=
+%suffix  (м ни)
+pl_mclass3_passive-participle.
+
+def_pl_mclass3_passive-participle_orule :=
+%suffix  (м ните)
+def_pl_mclass3_passive-participle.
+
+;;; Mclass 1-1 aorist
+
+masc_sg_mclass1-1_aorist-participle_orule :=
+%suffix  (* л)
+masc_sg_mclass1-1_aorist-participle.
+
+fem_sg_mclass1-1_aorist-participle_orule :=
+%suffix  (* ла)
+fem_sg_mclass1-1_aorist-participle.
+
+neut_sg_mclass1-1_aorist-participle_orule :=
+%suffix  (* ло)
+neut_sg_mclass1-1_aorist-participle.
+
+pl_mclass1-1_aorist-participle_orule :=
+%suffix  (* ли)
+pl_mclass1-1_aorist-participle.
+
+;;; Mclass 1-1 present
+
+masc_sg_mclass1-1_present-participle_orule :=
+%suffix  (я ещ)
+masc_sg_mclass1-1_present-participle.
+
+def-masc_sg_mclass1-1_present-participle_orule :=
+%suffix  (я ещия)(я ещият)
+def-masc_sg_mclass1-1_present-participle.
+
+fem_sg_mclass1-1_present-participle_orule :=
+%suffix  (я еща)
+fem_sg_mclass1-1_present-participle.
+
+def-fem_sg_mclass1-1_present-participle_orule :=
+%suffix  (я ещата)
+def-fem_sg_mclass1-1_present-participle.
+
+neut_sg_mclass1-1_present-participle_orule :=
+%suffix  (я ещо)
+neut_sg_mclass1-1_present-participle.
+
+def-neut_sg_mclass1-1_present-participle_orule :=
+%suffix  (я ещото)
+def-neut_sg_mclass1-1_present-participle.
+
+pl_mclass1-1_present-participle_orule :=
+%suffix  (я ещи)
+pl_mclass1-1_present-participle.
+
+def_pl_mclass1-1_present-participle_orule :=
+%suffix  (я ещите)
+def_pl_mclass1-1_present-participle.
+
+;;; Impersonal participle
+
+neut_sg_mclass-impers_aorist-participle_orule :=
+%suffix  (и яло)(* ло)
+neut_sg_mclass-impers_aorist-participle.
+
+;;; Nouns
+
+;;; Masculine
+
+third_sg_masculine_noun_irule :=
+third_sg_masculine_noun.
+
+third_count_masculine_noun_orule :=
+%suffix  (* а)
+third_count_masculine_noun.
+
+def-third_sg_masculine_noun_orule :=
+%suffix  (* ът)(* а)(о ото)
+def-third_sg_masculine_noun.
+
+;;; Feminine
+
+third_sg_feminine_noun_irule :=
+third_sg_feminine_noun.
+
+third_pl_feminine_noun_orule :=
+%suffix  (а и)(* и)
+third_pl_feminine_noun.
+
+def-third_sg_feminine_noun_orule :=
+%suffix  (* та)
+def-third_sg_feminine_noun.
+
+def-third_pl_feminine_noun_orule :=
+%suffix  (а ите)(* ите)
+def-third_pl_feminine_noun.
+
+;;; Neuter
+
+third_sg_neuter_noun_irule :=
+third_sg_neuter_noun.
+
+third_pl_neuter_noun_orule :=
+%suffix  (* та)
+third_pl_neuter_noun.
+
+def-third_sg_neuter_noun_orule :=
+%suffix  (* то)
+def-third_sg_neuter_noun.
+
+def-third_pl_neuter_noun_orule :=
+%suffix  (* тата)
+def-third_pl_neuter_noun.
+
+;;; probata
+
+indef-noun-pro-noun_irule :=
+indef-noun-pro-noun.

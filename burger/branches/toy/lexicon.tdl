@@ -1,0 +1,765 @@
+;;; -*- Mode: tdl; coding: mule-utf-8; -*-
+
+
+;;; ProNouns
+
+az := nom-pers-pro-noun-le &
+[ STEM < "аз" > ].
+    
+me := acc-pers-pro-noun-clit-le &
+[ STEM < "ме" > ].
+
+men := acc-pers-pro-noun-reg-le &
+[ STEM < "мен" > ].
+
+mi_1p := dat-pers-pro-noun-clit-le &
+[ STEM < "ми" >].
+
+mi_2p := poss-pro-adj-clit-le &
+[ STEM < "ми" >,
+ SYNSEM.LKEYS.KEYREL.PRED "possessive_rel" ].
+
+se_2 := pers-refl-acc-clitic-lexeme-le &
+[ STEM < "се" >].
+
+sebe_si := reg-pers-refl-pro-noun-le &
+[ STEM < "себе", "си" >,
+ SYNSEM.LKEYS.KEYREL.PRED "себе+си_persreflexive_rel" ].
+
+si_2 := pers-refl-dat-clitic-lexeme-le &
+[ STEM < "си" >].
+
+;;; Possessives
+
+moy := poss-1p-le &
+[ STEM < "мой" >,
+    SYNSEM.LKEYS.KEYREL.PRED "possessive_rel" ].
+
+tvoy := poss-2p-le &
+[ STEM < "твой" >,
+    SYNSEM.LKEYS.KEYREL.PRED "possessive_rel" ].
+
+negov_p1 := poss-3pm-le &
+[ STEM < "негов" >,
+    SYNSEM.LKEYS.KEYREL.PRED "possessive_rel" ].
+
+nein := poss-3pf-le &
+[ STEM < "неин" >,
+    SYNSEM.LKEYS.KEYREL.PRED "possessive_rel" ].
+
+negov_p2 := poss-3pn-le &
+[ STEM < "негов" >,
+    SYNSEM.LKEYS.KEYREL.PRED "possessive_rel" ].
+
+svoy := poss-refl-pro-adj-reg-le &
+[ STEM < "свой" >,
+    SYNSEM.LKEYS.KEYREL.PRED "possessive_rel" ].
+
+si_3 := poss-refl-pro-adj-clit-le &
+[ STEM < "си" >,
+    SYNSEM.LKEYS.KEYREL.PRED "possessive_rel" ].
+
+
+;;; Nouns
+
+;;; Proper nouns
+
+abrams_n1 := n_-_pm_le &
+  [ STEM < "Абрамс" >,
+    SYNSEM.LKEYS.KEYREL.CARG "Абрамс" ].
+
+brown := n_-_pm_le &
+  [ STEM < "Браун" >,
+    SYNSEM.LKEYS.KEYREL.CARG "Браун" ].
+
+;;; Common nouns
+
+vtornik := n_-_cm-week-day_le &
+  [ STEM < "вторник" >,
+    SYNSEM.LKEYS.KEYREL.PRED "вторник_n_rel" ].
+
+gradina_n1 := n_-_cf_le &
+  [ STEM < "градина" >,
+    SYNSEM.LKEYS.KEYREL.PRED "градина_n_1_rel" ].
+
+den := n_-_cm-temporal_le &
+  [ STEM < "ден" >,
+    SYNSEM.LKEYS.KEYREL.PRED "ден_n_rel" ].
+
+dazhd := n_-_cm-non-hum_le &
+  [ STEM < "дъжд" >,
+    SYNSEM.LKEYS.KEYREL.PRED "дъжд_n_rel" ].
+
+ ideya_n1 := n_pp_cf_le &
+  [ STEM < "идея" >,
+    SYNSEM.LKEYS.KEYREL.PRED "идея_n_1_rel" ].
+
+ ideya_n2 := n_cl_cf_le &
+  [ STEM < "идея" >,
+    SYNSEM.LKEYS.KEYREL.PRED "идея_n_2_rel" ].
+
+kola_n1 := n_-_cf_le &
+  [ STEM < "кола" >,
+    SYNSEM.LKEYS.KEYREL.PRED "кола_n_1_rel" ].
+
+kotka_n1 := n_-_cf_le &
+  [ STEM < "котка" >,
+    SYNSEM.LKEYS.KEYREL.PRED "котка_n_1_rel" ].
+
+kuche_n1 := n_-_cn_le &
+  [ STEM < "куче" >,
+    SYNSEM.LKEYS.KEYREL.PRED "куче_n_1_rel" ].
+
+kyshta_n1 := n_-_cf_le &
+  [ STEM < "къща" >,
+    SYNSEM.LKEYS.KEYREL.PRED "къща_n_1_rel" ].
+
+masa_n1 := n_-_cf_le &
+  [ STEM < "маса" >,
+    SYNSEM.LKEYS.KEYREL.PRED "маса_n_1_rel" ].
+
+minuta_n1 := n_-_cf_le &
+  [ STEM < "минута" >,
+    SYNSEM.LKEYS.KEYREL.PRED "минута_n_1_rel" ].
+
+mazh_n1 := n_-_cm-hum_le &
+  [ STEM < "мъж" >,
+    SYNSEM.LKEYS.KEYREL.PRED "мъж_n_1_rel" ].
+
+nachin_n1 := n_pp_cm-non-hum_le &
+  [ STEM < "начин" >,
+    SYNSEM.LKEYS.KEYREL.PRED "начин_n_1_rel" ].
+
+nachin_n2 := n_cl_cm-non-hum_le &
+  [ STEM < "начин" >,
+    SYNSEM.LKEYS.KEYREL.PRED "начин_n_2_rel" ].
+
+prilep := n_-_cm-non-hum_le &
+  [ STEM < "прилеп" >,
+    SYNSEM.LKEYS.KEYREL.PRED "прилеп_n_rel" ].
+
+prozorets := n_-_cm-non-hum_le &
+  [ STEM < "прозорец" >,
+    SYNSEM.LKEYS.KEYREL.PRED "прозорец_n_rel" ].
+
+snimka_n1 := n_pp-relationl_cf_le &
+  [ STEM < "снимка" >,
+    SYNSEM.LKEYS.KEYREL.PRED "снимка_n_1_rel" ].	
+
+sutrin_n1 := n_-_cf-part-day_le &
+  [ STEM < "сутрин" >,
+    SYNSEM.LKEYS.KEYREL.PRED "сутрин_n_1_rel" ].
+
+tyutyun := n_-_cm-non-hum_le &
+  [ STEM < "тютюн" >,
+    SYNSEM.LKEYS.KEYREL.PRED "тютюн_n_rel" ].
+
+tsigara := n_-_cf_le &
+  [ STEM < "цигара" >,
+    SYNSEM.LKEYS.KEYREL.PRED "цигара_n_rel" ].
+
+ chas_n1 := n_-_cm-clock_le &
+ [ STEM < "час" >,
+    SYNSEM.LKEYS.KEYREL.PRED "час_n_1_rel" ].
+
+ chislo_n1 := n_np-compound_cn_le &
+  [ STEM < "число" >,
+    SYNSEM.LKEYS.KEYREL.PRED "число_1_rel" ].
+
+ chicho_n1 := n_-_cm-hum_le &
+  [ STEM < "чичо" >,
+    SYNSEM.LKEYS.KEYREL.PRED "чичо_n_1_rel" ].
+
+ shtastie := n_-_cn-only-sg_le &
+  [ STEM < "щастие" >,
+    SYNSEM.LKEYS.KEYREL.PRED "щастие_n_rel" ].
+  
+ yuni := n_-_cm-non-hum_le &
+  [ STEM < "юни" >,
+    SYNSEM.LKEYS.KEYREL.PRED "юни_n_rel" ].
+
+
+;;; Adjectives atrributive-or-predicative
+
+braunov := a_-_le &
+  [ STEM < "браунов" >,
+    SYNSEM.LKEYS.KEYREL.PRED "браунов_j_rel" ].
+
+gradinski := a_-_le &
+  [ STEM < "градински" >,
+    SYNSEM.LKEYS.KEYREL.PRED "градински_j_rel" ].
+
+ star := a_-_le &
+  [ STEM < "стар" >,
+    SYNSEM.LKEYS.KEYREL.PRED "стар_j_rel" ].
+
+ tyutyunev := a_-_le &
+  [ STEM < "тютюнев" >,
+    SYNSEM.LKEYS.KEYREL.PRED "тютюнев_j_rel" ].
+
+ shtastliv := a_-_le &
+  [ STEM < "щастлив" >,
+    SYNSEM.LKEYS.KEYREL.PRED "щастлив_j_rel" ].
+
+
+;;; Adjectives predicative
+
+sam_j1 := a_-_pred_le &
+  [ STEM < "сам" >,
+    SYNSEM.LKEYS.KEYREL.PRED "сам_j_1_rel" ].
+
+;;; Adjectives comparative
+
+po-shtastliv := a_-_compar_le &
+  [ STEM < "по-щастлив" >,
+    SYNSEM.LKEYS.KEYREL.PRED "щастлив_j_rel" ].
+
+ ;;; Adverbs intersective
+
+ mnogo_r1 := many-few-adj-verb-le &
+  [ STEM < "много" >,
+    SYNSEM.LKEYS.KEYREL.PRED "много_r_1_rel" ].
+
+ mnogo_r2 := many-few-adj-noun-le &
+  [ STEM < "много" >,
+    SYNSEM.LKEYS.KEYREL.PRED "много_r_2_rel" ].
+
+ mnogo_r3 := many-few-adj-adj-le &
+  [ STEM < "много" >,
+    SYNSEM.LKEYS.KEYREL.PRED "много_r_3_rel" ].
+
+ ochevidno_r2 := int-adverb-le &
+  [ STEM < "очевидно" >,
+    SYNSEM.LKEYS.KEYREL.PRED "очевидно_r_2_rel" ].
+
+ pochti_r1 := almost-adv-le &
+  [ STEM < "почти" >,
+    SYNSEM.LKEYS.KEYREL.PRED "почти_r_1_rel" ].
+
+ sega := int-adverb-le &
+  [ STEM < "сега" >,
+    SYNSEM.LKEYS.KEYREL.PRED "сега_r_rel" ].
+
+ tiho_r1 := int-adverb-le &
+  [ STEM < "тихо" >,
+    SYNSEM.LKEYS.KEYREL.PRED "тихо_r_1_rel" ].
+
+ chisto_r1 := int-adverb-le &
+  [ STEM < "чисто" >,
+    SYNSEM.LKEYS.KEYREL.PRED "чисто_r_1_rel" ].
+
+;;; Adverbs scopal
+
+veroyatno_r1 := scopal-adverb-le &
+  [ STEM < "вероятно" >,
+    SYNSEM.LKEYS.KEYREL.PRED "вероятно_r_1_rel" ].
+
+za_shtastie := scopal-adverb-le &
+  [ STEM < "за","щастие" >,
+    SYNSEM.LKEYS.KEYREL.PRED "за+щастие_r_rel" ].
+
+naistina_r1 := scopal-adverb-le &
+  [ STEM < "наистина" >,
+    SYNSEM.LKEYS.KEYREL.PRED "наистина_r_1_rel" ].
+
+ochevidno_r1 := scopal-adverb-le &
+  [ STEM < "очевидно" >,
+    SYNSEM.LKEYS.KEYREL.PRED "очевидно_r_1_rel" ].
+
+sigurno_r1 := scopal-adverb-le &
+  [ STEM < "сигурно" >,
+    SYNSEM.LKEYS.KEYREL.PRED "сигурно_r_1_rel" ].
+
+ 
+
+ ;;; Numerals
+
+edin_m1 := cardinal-one-adj-le &
+  [ STEM < "един" >,
+    SYNSEM.LKEYS.KEYREL.PRED "един_m_1_rel" ].
+
+ tri_1 := cardinal-adj-le &
+  [ STEM < "три" >,
+    SYNSEM.LKEYS.KEYREL.PRED "три_1_rel" ].
+
+ tri_2 := cardinal-adj-clock-le &
+ [ STEM < "три" >,
+   SYNSEM.LKEYS.KEYREL.PRED "три_2_rel" ].
+
+  pet := cardinal-adj-le &
+  [ STEM < "пет" >,
+    SYNSEM.LKEYS.KEYREL.PRED "пет_rel" ].
+
+ deset_m1 := cardinal-adj-le &
+  [ STEM < "десет" >,
+    SYNSEM.LKEYS.KEYREL.PRED "десет_rel" ].
+
+ dvayset_m1 := cardinal-adj-le &
+  [ STEM < "двайсет" >,
+    SYNSEM.LKEYS.KEYREL.PRED "двайсет_rel" ].
+
+ dvayset_i_tri_m1 := cardinal-adj-le &
+  [ STEM < "двайсет","и","три" >,
+    SYNSEM.LKEYS.KEYREL.PRED "двайсет+и+три_rel" ].
+
+ dvesta_i_dvayset_m1 := cardinal-adj-le &
+  [ STEM < "двеста","и","двайсет" >,
+    SYNSEM.LKEYS.KEYREL.PRED "двеста+и+двайсет_m_1_rel" ].
+
+ treti := ordinal-adj-le &
+  [ STEM < "трети" >,
+    SYNSEM.LKEYS.KEYREL.PRED "ordinal_rel" ].
+
+
+;;; Verbs
+
+vali := v_-_imp_i_le &
+  [ STEM < "вали" >,
+    SYNSEM.LKEYS.KEYREL.PRED "вали_v_rel" ].
+
+valya := v_-_i2-1_le &
+  [ STEM < "валя" >,
+    SYNSEM.LKEYS.KEYREL.PRED "валя_v_rel" ].
+
+vecheryam := v_-_i3_le &
+  [ STEM < "вечерям" >,
+    SYNSEM.LKEYS.KEYREL.PRED "вечерям_v_rel" ].
+
+vmakna_v1 := v_np_p1-1_le &
+  [ STEM < "вмъкна" >,
+    SYNSEM.LKEYS.KEYREL.PRED "вмъкна_v_1_rel" ].
+
+vaznameryavam := v_da-vp_i3_le &
+  [ STEM < "възнамерявам" >,
+    SYNSEM.LKEYS.KEYREL.PRED "възнамерявам_v_rel" ].
+
+vracha := v_np-pp_p2-2_le &
+  [ STEM < "връча" >,
+    SYNSEM.LKEYS.KEYREL.PRED "връча_v_rel" ].
+
+ vyarvam := v_che_i3_le &
+  [ STEM < "вярвам" >,
+    SYNSEM.LKEYS.KEYREL.PRED "вярвам_v_rel" ].
+
+dam := v_np-pp_p3-1-dat_le &
+  [ STEM < "дам" >,
+    SYNSEM.LKEYS.KEYREL.PRED "дам_v_rel" ].
+
+doyda := v_-_p1_le &
+  [ STEM < "дойда" >,
+    SYNSEM.LKEYS.KEYREL.PRED "дойда_v_rel" ].
+
+zalaya := v_-_p1-1_le &
+  [ STEM < "залая" >,
+    SYNSEM.LKEYS.KEYREL.PRED "залая_v_rel" ].
+
+znaya_v1 := v_che_i1-1_le &
+  [ STEM < "зная" >,
+    SYNSEM.LKEYS.KEYREL.PRED "зная_v_1_rel" ].
+
+znaya_v2 := v_np_i1-1_le &
+  [ STEM < "зная" >,
+    SYNSEM [ LOCAL.CAT.VAL.COMPS.FIRST.OPT -,
+	     LKEYS.KEYREL.PRED "зная_v_2_rel" ]].
+
+znaya_v3 :=   v_dali_i1-1_le &
+[ STEM < "зная" >,
+    SYNSEM [ LOCAL.CAT.VAL.COMPS.FIRST.OPT -,
+	     LKEYS.KEYREL.PRED "зная_v_3_rel" ]].
+
+ ima_v1 := v_there-is_le &
+  [ STEM < "има" >,
+    SYNSEM.LKEYS.KEYREL.PRED "има_v_1_rel" ].
+
+iskam_v1 := v_np_i3_le &
+  [ STEM < "искам" >,
+    SYNSEM.LKEYS.KEYREL.PRED "искам_v_1_rel" ].
+
+iskam_v2 := v_da-cp_i3_le &
+[ STEM < "искам" >,
+    SYNSEM.LKEYS.KEYREL.PRED "искам_v_2_rel" ].
+
+izbarsha_v1 := v_np_p1_le &
+  [ STEM < "избърша" >,
+    SYNSEM.LKEYS.KEYREL.PRED "избърша_v_1_rel" ].
+
+izglezhda_v1 := v_seem_le &
+  [ STEM < "изглежда" >,
+    SYNSEM.LKEYS.KEYREL.PRED "изглежда_v_1_rel" ].
+
+izglezhda_v2 := v_seem_expl_le &
+  [ STEM < "изглежда" >,
+    SYNSEM.LKEYS.KEYREL.PRED "изглежда_v_1_rel" ].
+
+izglezhda_v3 := v_seem_nosubj_le &
+  [ STEM < "изглежда" >,
+    SYNSEM.LKEYS.KEYREL.PRED "изглежда_v_1_rel" ].
+
+ izglezhdam := v_adj-pp_i3_le &
+  [ STEM < "изглеждам" >,
+    SYNSEM.LKEYS.KEYREL.PRED "изглеждам_v_rel" ].
+
+izlaya := v_-_p1-1_le &
+  [ STEM < "излая" >,
+    SYNSEM.LKEYS.KEYREL.PRED "излая_v_rel" ].
+
+izlayvam := v_-_i3_le &
+  [ STEM < "излайвам" >,
+    SYNSEM.LKEYS.KEYREL.PRED "излая_v_rel" ].
+
+kanya_se := v_se-da-vp_i2-1_le &
+  [ STEM < "каня" >,
+    SYNSEM.LKEYS.KEYREL.PRED "каня+се_v_rel" ].
+
+kazha_v1 := v_np-pp_p1-1-dat_le &
+ [ STEM < "кажа" >,
+    SYNSEM.LKEYS.KEYREL.PRED "кажа_v_rel" ].
+
+kupuvam := v_np-pp_i3-dat_le &
+[ STEM < "купувам" >,
+    SYNSEM.LKEYS.KEYREL.PRED "купувам_v_rel" ].
+
+laya_v1 := v_-_i1-1_le &
+  [ STEM < "лая" >,
+    SYNSEM.LKEYS.KEYREL.PRED "лая_v_rel" ].
+
+moga := modal-can-le &
+  [ STEM < "мога" >,
+    SYNSEM.LKEYS.KEYREL.PRED "мога_rel" ].
+
+namerya := v_np_p2-2_le &
+  [ STEM < "намеря" >,
+    SYNSEM.LKEYS.KEYREL.PRED "намеря_v_rel" ].
+
+obeshtaya_v1 := v_da1-vp_p1-1_dat-le &
+  [ STEM < "обещая" >,
+    SYNSEM.LKEYS.KEYREL.PRED "обещая_v_1_rel" ].
+
+obzalozha_se := v_se-2pp-comp_p2-2_le &
+  [ STEM < "обзаложа">,
+    SYNSEM.LKEYS.KEYREL.PRED "обзаложа+се_v_rel" ].
+
+opitvam_se := v_se-da-vp_i3_le &
+  [ STEM < "опитвам" >,
+    SYNSEM.LKEYS.KEYREL.PRED "опитвам+се_v_rel" ].
+
+ostavya_v1 := v_np_p2-2_le &
+  [ STEM < "оставя" >,
+    SYNSEM.LKEYS.KEYREL.PRED "оставя_v_1_rel" ].
+
+ostavya_v2 := v_da2-vp_p2-2_le &
+  [ STEM < "оставя" >,
+    SYNSEM.LKEYS.KEYREL.PRED "оставя_v_2_rel" ].
+
+otvorya_se := v_se_p2-2_le &
+  [ STEM < "отворя" >,
+    SYNSEM.LKEYS.KEYREL.PRED "отворя+се_v_1_rel" ].
+
+otvorya_v2 := v_np_p2-2_le &
+  [ STEM < "отворя" >,
+    SYNSEM.LKEYS.KEYREL.PRED "отворя_v_2_rel" ].
+
+ podam := v_np-pp_p3-1-dat_le &
+  [ STEM < "подам" >,
+    SYNSEM.LKEYS.KEYREL.PRED "подам_v_rel" ].
+
+pochudya_se := v_se-dali_p2-2_le &
+  [ STEM < "почудя" >,
+    SYNSEM.LKEYS.KEYREL.PRED "чудя+се_v_rel" ].
+
+pochudya_se_v1 := v_se-ques_p2-2_le &
+  [ STEM < "почудя" >,
+    SYNSEM.LKEYS.KEYREL.PRED "чудя+се_v_1_rel" ].
+
+ predam := v_np-pp_p3-1-dat_le &
+  [ STEM < "предам" >,
+    SYNSEM.LKEYS.KEYREL.PRED "предам_v_rel" ].
+
+ presledvam := v_np_i3_le &
+  [ STEM < "преследвам" >,
+    SYNSEM.LKEYS.KEYREL.PRED "преследвам_v_rel" ].
+
+ pristigna := v_-_p1-1_le &
+  [ STEM < "пристигна" >,
+    SYNSEM.LKEYS.KEYREL.PRED "пристигна_v_rel" ].
+
+pritesnya := v_np_p2-3_le &
+  [ STEM < "притесня" >,
+    SYNSEM.LKEYS.KEYREL.PRED "притесня_v_rel" ].
+
+ pritesnyavam := v_np_i3_le &
+  [ STEM < "притеснявам" >,
+    SYNSEM.LKEYS.KEYREL.PRED "притесня_v_rel" ].
+
+prodalzhavam := v_da-vp_i3_le &
+  [ STEM < "продължавам" >,
+    SYNSEM.LKEYS.KEYREL.PRED "продължавам_v_rel" ].
+
+slozha_v1 := v_np-pp_p2-2_loc-le &
+  [ STEM < "сложа" >,
+    SYNSEM.LKEYS.KEYREL.PRED "сложа_v_1_rel" ].
+
+smyatam_v1 := v_np_i3_le &
+  [ STEM < "смятам" >,
+    SYNSEM.LKEYS.KEYREL.PRED "смятам_v_1_rel" ].
+
+smyatam_v2 := v_np-pp_i3-adj-pred_le &
+ [ STEM < "смятам" >,
+  SYNSEM [ LKEYS.KEYREL.PRED "смятам_v_2_rel",
+		     LOCAL.CAT.VAL.COMPS <[OPT -],[OPT -]> ] ].
+
+ spya := v_-_i2-2_le &
+  [ STEM < "спя" >,
+    SYNSEM.LKEYS.KEYREL.PRED "спя_v_rel" ].
+
+tryabva_v1 := v_must_le &
+  [ STEM < "трябва" >,
+    SYNSEM.LKEYS.KEYREL.PRED "трябва_v_1_rel" ].
+
+tryabvam_v2 := v_pp_i3_le &
+  [ STEM < "трябвам" >,
+    SYNSEM.LKEYS.KEYREL.PRED "трябвам_v_2_rel" ].
+
+ ubedya := v_da2-vp_p2-2_le &
+[ STEM < "убедя" >,
+    SYNSEM.LKEYS.KEYREL.PRED "убедя_v_rel" ].
+
+ubiya := v_np_p1-1_le &
+[ STEM < "убия" >,
+    SYNSEM.LKEYS.KEYREL.PRED "убия_v_rel" ].
+
+haresam_v1 := v_np_p3_le &
+  [ STEM < "харесам" >,
+    SYNSEM.LKEYS.KEYREL.PRED "харесам_v_1_rel" ].
+
+haresam_2 := v_pp_p3_le &
+  [ STEM < "харесам" >,
+    SYNSEM.LKEYS.KEYREL.PRED "харесам_v_2_rel" ].
+
+cheta := v_np_i1_le &
+  [ STEM < "чета" >,
+    SYNSEM.LKEYS.KEYREL.PRED "чета_v_rel"].
+
+chudya_se := v_se-dali_i2-2_le &
+  [ STEM < "чудя">,
+    SYNSEM.LKEYS.KEYREL.PRED "чудя+се_v_rel" ].
+
+chudya_se_v1 := v_se-ques_i2-2_le &
+  [ STEM < "чудя">,
+    SYNSEM.LKEYS.KEYREL.PRED "чудя+се_v_1_rel" ].
+
+;;; Auxiliaries
+
+da_1 := da-le &
+ [ STEM < "да" >,
+    SYNSEM.LKEYS.KEYREL.PRED "да_v_1_rel" ].
+
+ne := ne-le &
+  [ STEM < "не" >,
+    SYNSEM.LKEYS.KEYREL.PRED "negation_rel" ].
+
+nyama_v1 := nyama-le &
+ [ STEM < "няма" >,
+    SYNSEM.LKEYS.KEYREL.PRED "negation_rel" ].
+
+sym := pres-be-le &
+  [ STEM < "съм" >].
+
+sym_v2 := past-be-le &
+  [ STEM < "съм" >].
+
+ sym_v3 := pres-copula-prep-le &
+  [ STEM < "съм" >].
+
+ sym_v4 := pres-copula-adj-le &
+  [ STEM < "съм" >].
+
+ sym_v5 := pres-copula-noun-le &
+  [ STEM < "съм" >,
+    SYNSEM.LKEYS.KEYREL.PRED "съм_v_5_rel" ].
+
+ sym_v6 := past-copula-prep-le &
+  [ STEM < "съм" >].
+
+ sym_v7 := past-copula-adj-le &
+  [ STEM < "съм" >].
+
+ sym_v8 := past-copula-noun-le &
+  [ STEM < "съм" >,
+    SYNSEM.LKEYS.KEYREL.PRED "съм_v_8_rel" ].
+
+ sym_v9 := pres-copula-adv-le &
+  [ STEM < "съм" >].
+
+ sym_v10 := past-copula-adv-le &
+  [ STEM < "съм" >].
+
+shte := will-le &
+  [ STEM < "ще" >,
+  SYNSEM.LKEYS.KEYREL.PRED "future_rel" ].
+
+shtyah := would-le &
+[ STEM < "щях" >,
+SYNSEM.LKEYS.KEYREL.PRED "future-past_rel" ].
+
+
+  ;;; Prepositions
+ 
+ v_p1  := prep-le &
+  [ STEM < "в" >,
+    SYNSEM.LKEYS.KEYREL.PRED "в_p_1_rel"].
+
+ v_p2  := loc-prep-le &
+  [ STEM < "в" > ].
+ 
+ vav  := prep-le &
+  [ STEM < "във" >,
+    SYNSEM.LKEYS.KEYREL.PRED "във_p_rel"].
+
+ do  := prep-le &
+   [ STEM < "до" >,
+    SYNSEM.LKEYS.KEYREL.PRED "до_p_rel"].
+
+  za_p1  := prep-le &
+    [ STEM < "за" >,
+    SYNSEM.LKEYS.KEYREL.PRED "за_p_1_rel"].
+
+  za_p2  := pred-prep-le &
+   [ STEM < "за" >].
+
+ na_p1 := prep-le &
+  [ STEM < "на" >,
+    SYNSEM.LKEYS.KEYREL.PRED "на_p_1_rel"].
+
+ na_p2 := dat-prep-le &
+  [ STEM < "на" > ].
+
+  ot_1  := prep-le &
+  [ STEM < "от" >,
+    SYNSEM.LKEYS.KEYREL.PRED "от_p_rel"].
+
+ ot_2  := passive-prep-le &
+  [ STEM < "от" >].
+
+ s_1 := prep-le &
+  [ STEM < "с" >,
+    SYNSEM.LKEYS.KEYREL.PRED "с_p_1_rel"].
+
+ s_2 := loc-prep-le &
+  [ STEM < "с" >,
+    SYNSEM.LKEYS.KEYREL.PRED "с_p_2_rel"].
+
+
+  ;;; Conjunctions
+
+ako := ako-le &
+  [ STEM < "ако" >,
+    SYNSEM.LKEYS.KEYREL.PRED "ако_conj_rel"].
+
+za_da := zada-le &
+  [ STEM < "за","да" >,
+    SYNSEM.LKEYS.KEYREL.PRED "за+да_conj_rel"].
+
+i := norm-conj-lex &
+  [ STEM < "и" >,
+    SYNSEM.LKEYS.KEYREL.PRED "_и_coord_rel",
+    CFORM "1" ].
+
+che_s1 := che-comp-le &
+  [ STEM < "че" >,
+    SYNSEM.LKEYS.KEYREL.PRED "че_comp_rel"].
+
+che_s2 := che-sub-le &
+  [ STEM < "че" >,
+    SYNSEM.LKEYS.KEYREL.PRED "че_conj_rel"].
+
+ ;;; Particles
+
+dali := dali-comp-le &
+  [ STEM <"дали">,
+     SYNSEM.LKEYS.KEYREL.PRED "дали_comp_rel"].
+
+ li_1 := polar-ques-part-le &
+  [ STEM <"ли">,
+     SYNSEM.LKEYS.KEYREL.PRED "ли_1_part_rel"].
+
+ li_2 := polar-quest-verb-part-le &
+  [ STEM <"ли">,
+     SYNSEM.LKEYS.KEYREL.PRED "ли_1_part_rel"].
+
+  nali_1 := nali-comp-le &
+  [ STEM <"нали">,
+     SYNSEM.LKEYS.KEYREL.PRED "нали_comp_rel"].
+
+  nali_2 := polar-mod-ques-part-le &
+    [ STEM <"нали">,
+     SYNSEM.LKEYS.KEYREL.PRED "нали_part_rel"].
+
+ nedej := nedej-aux-le &
+  [ STEM < "недей" >,
+    SYNSEM.LKEYS.KEYREL.PRED "negation_rel"].
+
+ nito := nito-le &
+  [ STEM < "нито" >,
+    SYNSEM.LKEYS.KEYREL.PRED "negation_rel"].
+
+;  se_1 := se-le &
+;  [ STEM < "се" >,
+;    SYNSEM.LKEYS.KEYREL.PRED "се_rel"].
+
+  ;;; Pronouns
+
+ vseki := collective-entity-le &
+  [ STEM < "всеки" >,
+    SYNSEM.LKEYS.KEYREL.PRED "collective_rel"].
+
+ koga := ques-adverb-le &
+  [ STEM < "кога" >,
+    SYNSEM.LKEYS.KEYREL.PRED "кога_pron_rel"].
+
+  koy := question-pro-noun-le &
+  [ STEM < "кой" > ].
+
+  koyto := relative-pro-noun-le &
+  [ STEM < "който" >,
+    SYNSEM.LKEYS.KEYREL.PRED "relative_rel"].
+
+ kolko_1 := kolko-noun-adverb-le &
+  [ STEM < "колко" >,
+    SYNSEM.LKEYS.KEYREL.PRED "колко_1_pron_rel"].
+
+ kolko_2 := kolko-other-adverb-le &
+  [ STEM < "колко" >,
+    SYNSEM.LKEYS.KEYREL.PRED "колко_2_pron_rel"].
+
+ neshto := indefinite-neshto-le &
+  [ STEM < "нещо" >,
+  SYNSEM.LKEYS.KEYREL.PRED "indefinite_rel"].
+
+ njakogo := indefinite-njakogo-le &
+ [ STEM < "някого" >,
+    SYNSEM.LKEYS.KEYREL.PRED "indefinite_rel"].
+
+ njakoy := indefinite-entity-le &
+  [ STEM < "някой" >,
+    SYNSEM.LKEYS.KEYREL.PRED "indefinite_rel"].
+
+ nikogo := negative-nikogo-le &
+  [ STEM < "никого" >,
+    SYNSEM.LKEYS.KEYREL.PRED "negative_rel"].
+
+nikoy := negative-entity-le &
+  [ STEM < "никой" >,
+    SYNSEM.LKEYS.KEYREL.PRED "negative_rel"].
+
+onzi := demonstrative-entity-le &
+[ STEM < "онзи" >,
+    SYNSEM.LKEYS.KEYREL.PRED "demonstrative_rel"].
+
+ tozi := demonstrative-entity-le &
+[ STEM < "този" >,
+    SYNSEM.LKEYS.KEYREL.PRED "demonstrative_rel"].
+
+ chiy := question-poss-pro-noun-le &
+  [ STEM < "чий" > ].
+

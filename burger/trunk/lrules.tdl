@@ -1,0 +1,48 @@
+;; -*- Mode: tdl; coding: mule-utf-8; -*-
+
+
+normal_passive_verb_lr := normal_passive_lr &
+[ ARGS < [SYNSEM.LOCAL.CAT [ HEAD.FORM participle,
+			     VAL [ SUBJ < [LOCAL.CONT.HOOK.INDEX ref-ind & 
+								 #ind1]>,
+				   COMPS.REST #comps ] ] ] >,
+  SYNSEM.LOCAL.CAT [ HEAD.VOICE passive,
+		     VAL.COMPS < [ LOCAL[CAT [ HEAD adp & [ FORM passive-prep],
+					       VAL.COMPS < > ],
+					 CONT.HOOK.INDEX #ind1] ] . #comps >]].
+
+se_passive_verb_lr := se_passive_lr &
+[ ARGS < [SYNSEM.LOCAL.CAT [ HEAD.FORM finite,
+			     VAL [ SUBJ < [LOCAL.CONT.HOOK.INDEX ref-ind & 
+								 #ind1]>,
+				   COMPS [ FIRST synsem,
+					   REST #comps ] ] ],
+	  INFLECTED + ] >,
+  INFLECTED +,
+  SYNSEM.LOCAL.CAT [ VAL.COMPS < anti-synsem & [OPT - ] &
+				 [ LOCAL.CONT.HOOK.INDEX.SORT refl-pro ],
+				 [ LOCAL [CAT [ HEAD adp & 
+						     [ FORM passive-prep],
+						VAL.COMPS < > ],
+					  CONT.HOOK.INDEX #ind1] ] . #comps >] ].
+
+
+;;; davam kniga - davaneto na kniga
+
+np-compl-deverbal-swap-rule := basic-deverbal-swap-lr &
+[ARGS <[SYNSEM.LOCAL.CAT.VAL.COMPS <[LOCAL.CAT [ HEAD noun,
+													     VAL [ COMPS <>,
+															SPR <>] ] ] . #comps >]>,
+SYNSEM.LOCAL.CAT.VAL.COMPS < [ ] . #comps > ].
+
+;;; davam na ivan - davaneto na ivan
+
+no-np-compl-deverbal-swap-rule := basic-deverbal-swap-lr &
+[ARGS <[SYNSEM.LOCAL.CAT.VAL.COMPS #comps & [ FIRST.LOCAL.CAT.HEAD adp ] ]>,
+SYNSEM.LOCAL.CAT.VAL.COMPS < [ ] . #comps > ].
+
+;;;; presledvam za zlato - presledvaneto za zlato
+
+no-compl-deverbal-swap-rule := basic-deverbal-swap-lr &
+[ARGS <[SYNSEM.LOCAL.CAT.VAL.COMPS < > ] >,
+SYNSEM.LOCAL.CAT.VAL.COMPS < [ ] > ].
