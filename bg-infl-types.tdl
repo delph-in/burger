@@ -1,0 +1,1348 @@
+;; -*- Mode: tdl; coding: mule-utf-8; -*-
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;; Grammar of Bulgarian
+;;; created at:
+;;;     Sat Jan 30 20:19:09 UTC 2010
+;;; based on Matrix customization system version of:
+;;;     Fri Jan 29 09:38:10 UTC 2010
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+;;;;;;;;;;;;;;;;;;;;;;;;;
+;;; Matrix Type Addenda
+;;;;;;;;;;;;;;;;;;;;;;;;;
+
+;;; punctuation
+
+
+punct_rule := inflectional-rule&
+[ARGS <[SYNSEM.PUNCT.R-PUNCT no_punct ]>,
+SYNSEM.PUNCT.R-PUNCT punct_mark ].
+
+period-punct := punct_rule & lexeme-to-lexeme-rule &
+			inflecting-lex-rule &
+[ INFLECTED +,
+ARGS <[SYNSEM lex-synsem & [LOCAL #loc ] ]>,
+ SYNSEM [ PUNCT.R-PUNCT period,
+		LOCAL #loc ] ].
+
+quest-punct := punct_rule & lexeme-to-lexeme-rule &
+			inflecting-lex-rule &
+[ INFLECTED +,
+ARGS <[SYNSEM lex-synsem & [LOCAL #loc ] ]>,
+ SYNSEM [ PUNCT.R-PUNCT question_mark,
+		LOCAL #loc ] ].
+
+exclam-punct := punct_rule & lexeme-to-lexeme-rule &
+			inflecting-lex-rule &
+[ INFLECTED +,
+ARGS <[SYNSEM lex-synsem & [LOCAL #loc ] ]>,
+ SYNSEM [ PUNCT.R-PUNCT exclamative_mark,
+		LOCAL #loc ] ].
+
+
+;;; Inflectional types - general
+
+
+inflectional-zero-rule := lex-rule &
+[ARGS <[SYNSEM [ LOCAL [ CAT #cat,
+		       CONT.HOOK #hook,
+		       COORD #coord ],
+		 NON-LOCAL #nonloc ] ]>,
+SYNSEM [ LOCAL [ CAT #cat,
+	       COORD #coord ],
+	 NON-LOCAL #nonloc ],
+   C-CONT [ HOOK #hook, RELS <! !>, HCONS <! !> ] ].
+
+inflectional-rule := inflectional-zero-rule &
+[ ARGS <[SYNSEM.LOCAL.AGR #agr]>,
+SYNSEM.LOCAL.AGR #agr ].
+
+;;; Inflectional types - nouns
+
+
+noun-inflectional-rule := inflectional-rule & 
+[ARGS < [SYNSEM.LOCAL [ AGR.PNG.PERSON 3rd,
+			CAT.HEAD nonpro-noun-hd ] ] > ].
+
+
+#|
+noun-inflectional-rule := inflectional-rule & 
+[ARGS < [SYNSEM [ LOCAL [ AGR.PNG.PERSON 3rd,
+						   CAT.HEAD nonpro-noun-hd ],
+				    PUNCT #punctuation] ]>,
+SYNSEM.PUNCT #punctuation ].
+|#
+
+;;; Masculine
+
+third_sg_masculine_noun := noun-inflectional-rule & lexeme-to-word-rule &
+			constant-lex-rule & 
+[ARGS <[SYNSEM.LOCAL.AGR.PNG.GENDER masculine ]>,
+ SYNSEM.LOCAL.AGR.PNG.NUMBER singular].
+
+third_count_masculine_noun := noun-inflectional-rule & lexeme-to-word-rule &
+			inflecting-lex-rule & 
+[ARGS <[SYNSEM.LOCAL [ AGR.PNG.GENDER masculine,
+						  CONT.HOOK.INDEX.SORT non-human] ]>,
+ SYNSEM.LOCAL.AGR.PNG.NUMBER count].
+
+def-third_sg_masculine_noun := noun-inflectional-rule & lexeme-to-lexeme-rule & 
+				inflecting-lex-rule &
+				[INFLECTED +,
+				 ARGS <[SYNSEM.LOCAL.AGR.PNG [GENDER masculine,
+							      NUMBER singular]]>,
+ SYNSEM.LOCAL.AGR.DEF + ].
+
+
+
+;;; Feminine
+
+third_sg_feminine_noun := noun-inflectional-rule & lexeme-to-word-rule &
+			constant-lex-rule & 
+[ARGS <[SYNSEM.LOCAL.AGR.PNG.GENDER feminine]>,
+ SYNSEM.LOCAL.AGR.PNG.NUMBER singular ].
+
+ third_pl_feminine_noun := noun-inflectional-rule & lexeme-to-word-rule &
+			inflecting-lex-rule & 
+[ARGS <[SYNSEM.LOCAL.AGR.PNG.GENDER feminine]>,
+ SYNSEM.LOCAL.AGR.PNG.NUMBER plural ].
+
+ def-third_sg_feminine_noun := noun-inflectional-rule & lexeme-to-lexeme-rule & 
+			    inflecting-lex-rule &
+[INFLECTED +,
+ ARGS <[SYNSEM.LOCAL.AGR.PNG [GENDER feminine,
+								 NUMBER singular] ]>,
+ SYNSEM.LOCAL [AGR.DEF +,
+				 CONT.HOOK.INDEX.DEF + ] ].
+
+ def-third_pl_feminine_noun := noun-inflectional-rule & lexeme-to-word-rule  & 
+			    inflecting-lex-rule &
+[ARGS <[SYNSEM.LOCAL.AGR.PNG.GENDER feminine ]>,
+ SYNSEM.LOCAL.AGR [ DEF +,
+					   PNG.NUMBER plural ] ].
+
+
+;;; Neuter
+
+third_sg_neuter_noun := noun-inflectional-rule & lexeme-to-word-rule &
+			constant-lex-rule & 
+[ARGS <[SYNSEM.LOCAL.AGR.PNG.GENDER neuter ]>,
+ SYNSEM.LOCAL.AGR.PNG.NUMBER singular].
+
+third_pl_neuter_noun := noun-inflectional-rule & lexeme-to-word-rule &
+			inflecting-lex-rule &
+[ARGS <[SYNSEM.LOCAL.AGR.PNG.GENDER neuter]>,
+ SYNSEM.LOCAL.AGR.PNG.NUMBER plural].
+
+def-third_sg_neuter_noun := noun-inflectional-rule & lexeme-to-lexeme-rule & 
+			    inflecting-lex-rule &
+[INFLECTED +,
+ARGS <[SYNSEM.LOCAL.AGR.PNG [GENDER neuter,
+			      NUMBER singular]]>,
+ SYNSEM.LOCAL.AGR.DEF + ].
+
+ def-third_pl_neuter_noun := noun-inflectional-rule & lexeme-to-word-rule  & 
+			    inflecting-lex-rule &
+[ARGS <[SYNSEM.LOCAL.AGR.PNG.GENDER neuter ]>,
+ SYNSEM.LOCAL.AGR [ DEF +,
+					   PNG.NUMBER plural ] ].
+
+;;; Adjectives - inflections
+
+
+adj-inflectional-rule := inflectional-rule & 
+[ARGS < [SYNSEM.LOCAL.CAT.HEAD adj ] >,
+ SYNSEM.LOCAL.CAT.HEAD.MOD < [ LOCAL.AGR.DEF - ] > ].
+
+
+
+third_sg_masculine_adj := adj-inflectional-rule & lexeme-to-word-rule &
+			constant-lex-rule & 
+ [ SYNSEM.LOCAL [ CAT.HEAD.MOD < [ LOCAL.AGR.PNG [NUMBER singular,
+						GENDER masculine] ] >,
+				     AGR.DEF - ] ].
+
+refl_pro-clit_adj := inflectional-rule & lexeme-to-word-rule &
+			constant-lex-rule & 
+[ARGS <poss-refl-pro-adj-clit &
+       [SYNSEM.LOCAL.CAT.HEAD pro-adj-hd & [FORM clitic] ]>,
+ SYNSEM.LOCAL.CAT.HEAD.MOD < [ LOCAL.AGR.DEF + ] > ].
+
+def-third_sg_masculine_adj := adj-inflectional-rule & lexeme-to-word-rule &
+			inflecting-lex-rule &
+[ SYNSEM.LOCAL.CAT.HEAD.MOD < [ LOCAL [ CONT.HOOK.INDEX.DEF +,
+					AGR.PNG [GENDER masculine,
+						 NUMBER singular]]] > ].
+
+
+third_sg_feminine_adj := adj-inflectional-rule & lexeme-to-word-rule &
+			inflecting-lex-rule &
+ [ SYNSEM.LOCAL [ CAT.HEAD.MOD < [ LOCAL.AGR.PNG [NUMBER singular,
+													GENDER feminine] ] >,
+				     AGR.DEF -] ].
+
+
+def-third_sg_feminine_adj := adj-inflectional-rule & lexeme-to-word-rule &
+			inflecting-lex-rule &
+[SYNSEM.LOCAL [ CAT.HEAD.MOD < [ LOCAL [ CONT.HOOK.INDEX.DEF +,
+											AGR.PNG [GENDER feminine,
+														NUMBER singular] ] ]>,
+				    AGR.DEF + ] ].
+
+third_sg_neuter_adj := adj-inflectional-rule & lexeme-to-word-rule &
+			inflecting-lex-rule & 
+ [ SYNSEM.LOCAL [ CAT.HEAD.MOD < [ LOCAL.AGR.PNG [NUMBER singular,
+						GENDER neuter] ] >,
+				     AGR.DEF - ] ].
+
+def-third_sg_neuter_adj := adj-inflectional-rule & lexeme-to-word-rule &
+			inflecting-lex-rule &
+[SYNSEM.LOCAL.CAT.HEAD.MOD < [ LOCAL [ CONT.HOOK.INDEX.DEF +,
+					AGR.PNG [GENDER neuter,
+						 NUMBER singular]]] > ].
+
+ pl_adj := adj-inflectional-rule & lexeme-to-word-rule &
+			inflecting-lex-rule & 
+ [ SYNSEM.LOCAL [ CAT.HEAD.MOD < [ LOCAL.AGR.PNG.NUMBER plural] >,
+				    AGR.DEF - ] ].
+
+def-pl_adj := adj-inflectional-rule & lexeme-to-word-rule &
+			inflecting-lex-rule &
+[SYNSEM.LOCAL.CAT.HEAD.MOD < [ LOCAL.CONT.HOOK.INDEX.DEF + ] > ].
+
+;;; Adjectives as secondary predication
+
+adj-pred-inflectional-rule := inflectional-rule & 
+[ARGS < [SYNSEM.LOCAL.CAT.HEAD adj ] >,
+ SYNSEM.LOCAL [ CAT.HEAD.MOD < [ LOCAL.CAT.HEAD verb] >,
+				 AGR.DEF - ] ].
+
+third_sg_masculine-pred_adj := adj-pred-inflectional-rule & lexeme-to-word-rule &
+			constant-lex-rule & 
+ [ SYNSEM.LOCAL.CAT.HEAD.MOD < [ LOCAL.CAT.VAL.SUBJ <[LOCAL.AGR.PNG [NUMBER singular,
+																			GENDER masculine] ]>]> ].
+
+third_sg_feminine-pred_adj := adj-pred-inflectional-rule & lexeme-to-word-rule &
+			inflecting-lex-rule & 
+ [ SYNSEM.LOCAL.CAT.HEAD.MOD < [ LOCAL.CAT.VAL.SUBJ <[LOCAL.AGR.PNG [NUMBER singular,
+																			GENDER feminine] ]>]> ].
+
+third_sg_neuter-pred_adj := adj-pred-inflectional-rule & lexeme-to-word-rule &
+			inflecting-lex-rule & 
+ [ SYNSEM.LOCAL.CAT.HEAD.MOD < [ LOCAL.CAT.VAL.SUBJ <[LOCAL.AGR.PNG [NUMBER singular,
+																			GENDER neuter] ]>]> ].
+
+third_pl_pred_adj := adj-pred-inflectional-rule & lexeme-to-word-rule &
+			inflecting-lex-rule & 
+ [ SYNSEM.LOCAL.CAT.HEAD.MOD < [ LOCAL.CAT.VAL.SUBJ <[LOCAL.AGR.PNG.NUMBER plural ]>]> ].
+
+;;;  Numerals - inflections (cardinals and ordinals; ordinals follow the paradigm of edin, edna, edno)
+
+numeral_adj_rule := inflectional-rule &
+[ARGS < [SYNSEM.LOCAL.CAT.HEAD num ] >,
+SYNSEM.LOCAL.CAT.HEAD.MOD < [ LOCAL [ CAT.HEAD noun,
+									              AGR.DEF - ] ] > ].
+
+ 
+cardinal_adj := numeral_adj_rule & lexeme-to-word-rule &
+			constant-lex-rule &
+[ARGS <[ SYNSEM.LOCAL.CONT.HOOK.INDEX.SORT several-sort ]>,
+SYNSEM.LOCAL [CAT.HEAD.MOD < [ LOCAL.AGR.PNG.NUMBER plural-or-count ] >,
+				   AGR.DEF - ] ].
+
+def_cardinal_adj := numeral_adj_rule & lexeme-to-word-rule &
+			inflecting-lex-rule &
+[ARGS <[ SYNSEM.LOCAL.CONT.HOOK.INDEX.SORT several-sort ]>,
+SYNSEM.LOCAL.CAT.HEAD.MOD < [ LOCAL.CONT.HOOK.INDEX.DEF + ] > ].
+
+
+masc-sg_cardinal_adj_one := numeral_adj_rule & lexeme-to-word-rule &
+			constant-lex-rule & 
+ [ ARGS <[ SYNSEM.LOCAL.CONT.HOOK.INDEX.SORT one-sort ]>,
+ SYNSEM.LOCAL [ CAT.HEAD num & [ MOD < [ LOCAL.AGR.PNG #png & [ PERSON 3rd,
+																	NUMBER singular,
+																        GENDER masculine ] ] > ],
+				     AGR [ PNG #png,
+						DEF - ] ] ].
+
+def-masc_sg_cardinal_adj_one := numeral_adj_rule & lexeme-to-word-rule &
+			inflecting-lex-rule &
+[ARGS <[ SYNSEM.LOCAL.CONT.HOOK.INDEX.SORT one-sort ]>,
+SYNSEM.LOCAL.CAT.HEAD.MOD < [ LOCAL [ CONT.HOOK.INDEX.DEF +,
+					AGR.PNG [GENDER masculine,
+						 NUMBER singular]]] > ].
+
+fem-sg_cardinal_adj_one := numeral_adj_rule & lexeme-to-word-rule &
+			inflecting-lex-rule & 
+ [ARGS <[ SYNSEM.LOCAL.CONT.HOOK.INDEX.SORT one-sort ]>,
+ SYNSEM.LOCAL [ CAT.HEAD num & [ MOD < [ LOCAL.AGR.PNG #png & [ PERSON 3rd,
+																                 GENDER feminine,
+																                  NUMBER singular] ] > ],
+				     AGR [ PNG #png,
+						DEF - ] ] ].
+
+def-fem_sg_cardinal_adj_one := numeral_adj_rule & lexeme-to-word-rule &
+			inflecting-lex-rule &
+[ ARGS <[ SYNSEM.LOCAL.CONT.HOOK.INDEX.SORT one-sort ]>,
+SYNSEM.LOCAL.CAT.HEAD.MOD < [ LOCAL [ CONT.HOOK.INDEX.DEF +,
+					AGR.PNG [GENDER feminine,
+						 NUMBER singular]]] > ].
+
+neut-sg_cardinal_adj_one := numeral_adj_rule & lexeme-to-word-rule &
+			inflecting-lex-rule & 
+ [ARGS <[ SYNSEM.LOCAL.CONT.HOOK.INDEX.SORT one-sort ]>,
+ SYNSEM.LOCAL [ CAT.HEAD num & [ MOD < [ LOCAL.AGR.PNG #png & [ PERSON 3rd,
+																                 GENDER neuter,
+																                  NUMBER singular] ] > ],
+				     AGR [ PNG #png,
+						DEF -] ] ].
+
+def-neut_sg_cardinal_adj_one := numeral_adj_rule & lexeme-to-word-rule &
+			inflecting-lex-rule &
+[ARGS <[ SYNSEM.LOCAL.CONT.HOOK.INDEX.SORT one-sort ]>,
+SYNSEM.LOCAL.CAT.HEAD.MOD < [ LOCAL [ CONT.HOOK.INDEX.DEF +,
+					AGR.PNG [GENDER neuter,
+						 NUMBER singular]]] > ].
+
+pl_cardinal_adj_one := numeral_adj_rule & lexeme-to-word-rule &
+			inflecting-lex-rule & 
+ [ARGS <[ SYNSEM.LOCAL.CONT.HOOK.INDEX.SORT one-sort ]>,
+ SYNSEM.LOCAL [ CAT.HEAD num & [ MOD < [ LOCAL.AGR.PNG.NUMBER plural]> ],
+				     AGR [ PNG.NUMBER plural,
+						DEF - ] ] ].
+
+def_pl_cardinal_adj_one := numeral_adj_rule & lexeme-to-word-rule &
+			inflecting-lex-rule &
+[ARGS <[ SYNSEM.LOCAL.CONT.HOOK.INDEX.SORT one-sort ]>,
+SYNSEM.LOCAL.CAT.HEAD.MOD < [ LOCAL [ CONT.HOOK.INDEX.DEF +,
+										    AGR.PNG.NUMBER singular ] ] > ].
+
+;;; Personal pronouns inflectional types
+
+pro-noun-inflectional-rule := inflectional-rule &
+ [SYNSEM.LKEYS.KEYREL pronoun-relation,
+  ARGS < [ SYNSEM.LOCAL.CAT.HEAD pro-head ] > ].
+
+
+;;; Personal nominative
+
+first_sg_nom_pers_pro_noun := pro-noun-inflectional-rule & lexeme-to-word-rule & 
+				constant-lex-rule &
+   [ARGS <[SYNSEM.LOCAL.CAT.HEAD.CASE nom]>,
+    SYNSEM.LOCAL.AGR.PNG [PERSON 1st,
+			  NUMBER singular] ].
+
+first_pl_nom_pers_pro_noun := pro-noun-inflectional-rule & lexeme-to-word-rule & 
+				inflecting-lex-rule &
+   [ARGS <[SYNSEM.LOCAL.CAT.HEAD.CASE nom]>,
+ SYNSEM.LOCAL.AGR.PNG [PERSON 1st,
+						    NUMBER plural] ].
+
+second_sg_nom_pers_pro_noun := pro-noun-inflectional-rule & lexeme-to-word-rule & 
+				 inflecting-lex-rule &
+   [ARGS <[SYNSEM.LOCAL.CAT.HEAD.CASE nom]>,
+ SYNSEM.LOCAL.AGR.PNG [PERSON 2nd,
+						    NUMBER singular] ].
+
+second_pl_nom_pers_pro_noun := pro-noun-inflectional-rule & lexeme-to-word-rule & 
+				inflecting-lex-rule &
+   [ARGS <[SYNSEM.LOCAL.CAT.HEAD.CASE nom]>,
+ SYNSEM.LOCAL.AGR.PNG [PERSON 2nd,
+						    NUMBER plural] ].
+
+third_sg_nom_pers_masc_pro_noun := pro-noun-inflectional-rule & lexeme-to-word-rule & 
+				 inflecting-lex-rule &
+   [ARGS <[SYNSEM.LOCAL.CAT.HEAD.CASE nom]>,
+ SYNSEM.LOCAL.AGR.PNG [PERSON 3rd,
+						    NUMBER singular,
+						    GENDER masculine] ].
+
+third_sg_nom_pers_fem_pro_noun := pro-noun-inflectional-rule & lexeme-to-word-rule & 
+				 inflecting-lex-rule &
+   [ARGS <[SYNSEM.LOCAL.CAT.HEAD.CASE nom]>,
+ SYNSEM.LOCAL.AGR.PNG [PERSON 3rd,
+						    NUMBER singular,
+						    GENDER feminine] ].
+
+third_sg_nom_pers_neut_pro_noun := pro-noun-inflectional-rule & lexeme-to-word-rule & 
+				 inflecting-lex-rule &
+   [ARGS <[SYNSEM.LOCAL.CAT.HEAD.CASE nom]>,
+ SYNSEM.LOCAL.AGR.PNG [PERSON 3rd,
+						    NUMBER singular,
+						    GENDER neuter] ].
+
+third_pl_nom_pers_pro_noun := pro-noun-inflectional-rule & lexeme-to-word-rule & 
+				 inflecting-lex-rule &
+   [ARGS <[SYNSEM.LOCAL.CAT.HEAD.CASE nom]>,
+ SYNSEM.LOCAL.AGR.PNG [PERSON 3rd,
+						    NUMBER plural] ].
+
+;;; Personal accusative
+
+acc_pers_pro_noun_rule := pro-noun-inflectional-rule & 
+			  [ARGS <[SYNSEM.LOCAL [ CAT.HEAD.CASE acc,
+						 CONT.HOOK.INDEX.SORT norm-pro ] ]>].
+
+;;; singular
+
+first_sg_acc_pers_pro_noun_reg := acc_pers_pro_noun_rule & lexeme-to-word-rule & 
+				constant-lex-rule &
+   [ARGS <[SYNSEM.LOCAL.CAT.HEAD.FORM pers-reg] >,
+    SYNSEM.LOCAL.AGR.PNG [PERSON 1st,
+			  NUMBER singular] ].
+
+lexeme-to-lexeme-clitic-rule := lexeme-to-lexeme-rule & word &
+  [ DTR lex-item ].  
+
+first_sg_acc_pers_pro_noun_clit := acc_pers_pro_noun_rule & constant-lex-rule &
+				   lexeme-to-lexeme-clitic-rule & 
+   [ARGS <[SYNSEM.LOCAL.CAT.HEAD.FORM pers-clit] >,
+    SYNSEM.LOCAL.AGR.PNG [PERSON 1st,
+			  NUMBER singular] ].
+
+second_sg_acc_pers_pro_noun_reg := acc_pers_pro_noun_rule & lexeme-to-word-rule & 
+				inflecting-lex-rule &
+   [ARGS <[SYNSEM.LOCAL.CAT.HEAD.FORM pers-reg] >,					 
+ SYNSEM.LOCAL.AGR.PNG [PERSON 2nd,
+						    NUMBER singular] ].
+
+second_sg_acc_pers_pro_noun_clit := acc_pers_pro_noun_rule & 
+				    lexeme-to-lexeme-clitic-rule &
+				    inflecting-lex-rule &
+   [ARGS <[SYNSEM.LOCAL.CAT.HEAD.FORM pers-clit] >,	
+    SYNSEM.LOCAL.AGR.PNG [PERSON 2nd,
+			  NUMBER singular] ].
+
+third_sg_acc_pers_masc_pro_noun_reg := acc_pers_pro_noun_rule & lexeme-to-word-rule & 
+				inflecting-lex-rule &
+   [ARGS <[SYNSEM.LOCAL.CAT.HEAD.FORM pers-reg] >,					 
+ SYNSEM.LOCAL.AGR.PNG [PERSON 3rd,
+						    NUMBER singular,
+						    GENDER masculine] ].
+
+third_sg_acc_pers_masc_pro_noun_clit := acc_pers_pro_noun_rule & 
+					lexeme-to-lexeme-clitic-rule & 
+					inflecting-lex-rule &
+   [ARGS < lex-item &
+	   [SYNSEM.LOCAL.CAT.HEAD.FORM pers-clit] >,
+    SYNSEM.LOCAL.AGR.PNG [PERSON 3rd,
+			  NUMBER singular,
+			  GENDER masculine] ].
+
+third_sg_acc_pers_fem_pro_noun_reg := acc_pers_pro_noun_rule & lexeme-to-word-rule & 
+				inflecting-lex-rule &
+   [ARGS <[SYNSEM.LOCAL.CAT.HEAD.FORM pers-reg] >,					 
+ SYNSEM.LOCAL.AGR.PNG [PERSON 3rd,
+						    NUMBER singular,
+						    GENDER feminine] ].
+
+third_sg_acc_pers_fem_pro_noun_clit := acc_pers_pro_noun_rule & 
+					lexeme-to-lexeme-clitic-rule &
+					inflecting-lex-rule &
+   [ARGS < lex-item &
+	   [SYNSEM.LOCAL.CAT.HEAD.FORM pers-clit] >,
+    SYNSEM.LOCAL.AGR.PNG [PERSON 3rd,
+			  NUMBER singular,
+			  GENDER feminine] ].
+
+third_sg_acc_pers_neut_pro_noun_reg := acc_pers_pro_noun_rule & lexeme-to-word-rule & 
+				inflecting-lex-rule &
+   [ARGS <[SYNSEM.LOCAL.CAT.HEAD.FORM pers-reg] >,					 
+ SYNSEM.LOCAL.AGR.PNG [PERSON 3rd,
+						    NUMBER singular,
+						    GENDER neuter] ].
+
+third_sg_acc_pers_neut_pro_noun_clit := acc_pers_pro_noun_rule & 
+					lexeme-to-lexeme-clitic-rule &
+					inflecting-lex-rule &
+   [ARGS < lex-item &
+	   [SYNSEM.LOCAL.CAT.HEAD.FORM pers-clit] >,
+    SYNSEM.LOCAL.AGR.PNG [PERSON 3rd,
+			  NUMBER singular,
+			  GENDER neuter] ].
+
+;;; plural
+
+first_pl_acc_pers_pro_noun_reg := acc_pers_pro_noun_rule & lexeme-to-lexeme-rule & word &
+					inflecting-lex-rule &
+   [ARGS <[SYNSEM.LOCAL.CAT.HEAD.FORM pers-reg] >,					 
+ SYNSEM.LOCAL.AGR.PNG [PERSON 1st,
+						    NUMBER plural] ].
+
+first_pl_acc_pers_pro_noun_clit := acc_pers_pro_noun_rule & lexeme-to-lexeme-clitic-rule &
+					inflecting-lex-rule &
+   [ARGS <[SYNSEM.LOCAL.CAT.HEAD.FORM pers-clit] >,								 
+ SYNSEM.LOCAL.AGR.PNG [PERSON 1st,
+						    NUMBER plural] ].
+
+second_pl_acc_pers_pro_noun_reg := acc_pers_pro_noun_rule & lexeme-to-word-rule & 
+				inflecting-lex-rule &
+   [ARGS <[SYNSEM.LOCAL.CAT.HEAD.FORM pers-reg] >,					 
+ SYNSEM.LOCAL.AGR.PNG [PERSON 2nd,
+						    NUMBER plural] ].
+
+second_pl_acc_pers_pro_noun_clit := acc_pers_pro_noun_rule & lexeme-to-lexeme-clitic-rule &
+					inflecting-lex-rule &
+   [ARGS <[SYNSEM.LOCAL.CAT.HEAD.FORM pers-clit] >,								 
+ SYNSEM.LOCAL.AGR.PNG [PERSON 2nd,
+						    NUMBER plural] ].
+
+third_pl_acc_pers_pro_noun_reg := acc_pers_pro_noun_rule & lexeme-to-word-rule & 
+				inflecting-lex-rule &
+   [ARGS <[SYNSEM.LOCAL.CAT.HEAD.FORM pers-reg] >,					 
+ SYNSEM.LOCAL.AGR.PNG [PERSON 3rd,
+						    NUMBER plural ] ].
+
+third_pl_acc_pers_pro_noun_clit := acc_pers_pro_noun_rule & 
+					lexeme-to-lexeme-clitic-rule &
+					inflecting-lex-rule &
+   [ARGS < lex-item &
+	   [SYNSEM.LOCAL.CAT.HEAD.FORM pers-clit] >,
+    SYNSEM.LOCAL.AGR.PNG [PERSON 3rd,
+			  NUMBER plural ] ].
+
+
+;;; Personal dative
+
+dat_pers_pro_noun_rule := pro-noun-inflectional-rule & 
+[ARGS <[SYNSEM.LOCAL.CAT.HEAD.CASE dat ]>].
+
+;;; singular
+
+first_sg_dat_pers_pro_noun_clit := dat_pers_pro_noun_rule & 
+				   lexeme-to-lexeme-clitic-rule &
+				   constant-lex-rule &
+  [ARGS < lex-item &
+	  [SYNSEM.LOCAL.CAT.HEAD.FORM pers-clit] >,	
+   SYNSEM.LOCAL.AGR.PNG [PERSON 1st,
+			 NUMBER singular] ].
+
+second_sg_dat_pers_pro_noun_clit := dat_pers_pro_noun_rule & 
+				   lexeme-to-lexeme-clitic-rule &
+				   inflecting-lex-rule &
+  [ARGS < lex-item &
+	  [SYNSEM.LOCAL.CAT.HEAD.FORM pers-clit] >,	
+   SYNSEM.LOCAL.AGR.PNG [PERSON 2nd,
+			 NUMBER singular] ].
+
+third_sg_dat_pers_masc_pro_noun_clit := dat_pers_pro_noun_rule & 
+				   lexeme-to-lexeme-clitic-rule &
+				   inflecting-lex-rule &
+  [ARGS < lex-item &
+	  [SYNSEM.LOCAL.CAT.HEAD.FORM pers-clit] >,	
+   SYNSEM.LOCAL.AGR.PNG [PERSON 3rd,
+			 NUMBER singular,
+			 GENDER masculine] ].
+
+third_sg_dat_pers_fem_pro_noun_clit := dat_pers_pro_noun_rule & 
+				   lexeme-to-lexeme-clitic-rule &
+				   inflecting-lex-rule &
+  [ARGS < lex-item &
+	  [SYNSEM.LOCAL.CAT.HEAD.FORM pers-clit] >,	
+   SYNSEM.LOCAL.AGR.PNG [PERSON 3rd,
+			 NUMBER singular,
+			 GENDER feminine] ].
+
+third_sg_dat_pers_neut_pro_noun_clit := dat_pers_pro_noun_rule & 
+				   lexeme-to-lexeme-clitic-rule &
+				   inflecting-lex-rule &
+  [ARGS < lex-item &
+	  [SYNSEM.LOCAL.CAT.HEAD.FORM pers-clit] >,	
+   SYNSEM.LOCAL.AGR.PNG [PERSON 3rd,
+			 NUMBER singular,
+			 GENDER neuter] ].
+
+;;; plural
+
+first_pl_dat_pers_pro_noun_clit := dat_pers_pro_noun_rule & 
+				   lexeme-to-lexeme-clitic-rule &
+				   inflecting-lex-rule &
+  [ARGS < lex-item &
+	  [SYNSEM.LOCAL.CAT.HEAD.FORM pers-clit] >,	
+   SYNSEM.LOCAL.AGR.PNG [PERSON 1st,
+			 NUMBER plural] ].
+
+second_pl_dat_pers_pro_noun_clit := dat_pers_pro_noun_rule & 
+				   lexeme-to-lexeme-clitic-rule &
+				   inflecting-lex-rule &
+  [ARGS < lex-item &
+	  [SYNSEM.LOCAL.CAT.HEAD.FORM pers-clit] >,	
+   SYNSEM.LOCAL.AGR.PNG [PERSON 2nd,
+			 NUMBER plural] ].
+
+third_pl_dat_pers_pro_noun_clit := dat_pers_pro_noun_rule & 
+				   lexeme-to-lexeme-clitic-rule &
+				   inflecting-lex-rule &
+  [ARGS < lex-item &
+	  [SYNSEM.LOCAL.CAT.HEAD.FORM pers-clit] >,	
+   SYNSEM.LOCAL.AGR.PNG [PERSON 3rd,
+			 NUMBER plural ] ].
+
+;;; Possessives full-forms inflections - follow the adjective rules
+
+
+;;; Possessive clitic
+
+poss_pro_noun_rule := pro-noun-inflectional-rule & lexeme-to-word-rule & word &
+	[ARGS < lex-item &
+		[SYNSEM.LKEYS.KEYREL possessive-relation ]>].
+
+;;; singular
+
+first_sg_poss_pro_noun_clit := poss_pro_noun_rule & 
+				   constant-lex-rule &
+  [ARGS < lex-item &
+	  [SYNSEM.LOCAL.CAT.HEAD.FORM poss-clit ] >,	
+   SYNSEM.LOCAL.AGR.PNG [PERSON 1st,
+			 NUMBER singular] ].
+
+second_sg_poss_pro_noun_clit := poss_pro_noun_rule & 
+				   inflecting-lex-rule &
+  [ARGS < lex-item &
+	  [SYNSEM.LOCAL.CAT.HEAD.FORM poss-clit] >,	
+   SYNSEM.LOCAL.AGR.PNG [PERSON 2nd,
+			 NUMBER singular] ].
+
+third_sg_poss-masc_pro_noun_clit := poss_pro_noun_rule & 
+				   inflecting-lex-rule &
+  [ARGS < lex-item &
+	  [SYNSEM.LOCAL.CAT.HEAD.FORM poss-clit] >,	
+   SYNSEM.LOCAL [ AGR.PNG [PERSON 3rd,
+							NUMBER singular],
+				     CONT.HOOK.INDEX.PNG.GENDER masculine] ].
+
+third_sg_poss-fem_pro_noun_clit := poss_pro_noun_rule & 
+				   inflecting-lex-rule &
+  [ARGS < lex-item &
+	  [SYNSEM.LOCAL.CAT.HEAD.FORM poss-clit] >,	
+   SYNSEM.LOCAL [ AGR.PNG [PERSON 3rd,
+							NUMBER singular],
+				     CONT.HOOK.INDEX.PNG.GENDER feminine] ].
+
+third_sg_poss-neut_pro_noun_clit := poss_pro_noun_rule & 
+				   inflecting-lex-rule &
+  [ARGS < lex-item &
+	  [SYNSEM.LOCAL.CAT.HEAD.FORM poss-clit] >,	
+   SYNSEM.LOCAL [ AGR.PNG [PERSON 3rd,
+							NUMBER singular],
+				     CONT.HOOK.INDEX.PNG.GENDER neuter] ].
+
+;;; plural
+
+first_pl_poss_pro_noun_clit := poss_pro_noun_rule & 
+				   inflecting-lex-rule &
+  [ARGS < lex-item &
+	  [SYNSEM.LOCAL.CAT.HEAD.FORM poss-clit] >,	
+   SYNSEM.LOCAL.AGR.PNG [PERSON 1st,
+			 NUMBER plural] ].
+
+second_pl_poss_pro_noun_clit := poss_pro_noun_rule & 
+				   inflecting-lex-rule &
+  [ARGS < lex-item &
+	  [SYNSEM.LOCAL.CAT.HEAD.FORM poss-clit] >,	
+   SYNSEM.LOCAL.AGR.PNG [PERSON 2nd,
+			 NUMBER plural] ].
+
+third_pl_poss_pro_noun_clit := poss_pro_noun_rule & 
+				   inflecting-lex-rule &
+  [ARGS < lex-item &
+	  [SYNSEM.LOCAL.CAT.HEAD.FORM poss-clit] >,	
+   SYNSEM.LOCAL.AGR.PNG [PERSON 3rd,
+			 NUMBER plural] ].
+
+;;; Verb Inflectional types
+
+deverbal-inflectional-rule := inflecting-lex-rule &
+  [ INFLECTED na,
+    SYNSEM [ LOCAL [ CAT [ HEAD verb & [ MOD <>,
+					 VOICE #voice,
+					 FORM deverbal ],
+			   VAL #val & [SUBJ < [ ] >] ],
+		     COORD #coord ],
+	     MODIFIED #xmod,
+	     NON-LOCAL #nonloc ],
+   ARGS <[INFLECTED +,
+	  SYNSEM [ MODIFIED #xmod,
+		   LOCAL [ CAT [ HEAD verb & [FORM finite,
+					      VOICE #voice & active],
+				 VAL #val],
+			   CONT.HOOK #hook & [INDEX.E.ASPECT imperfective],
+			   COORD #coord ],
+		   NON-LOCAL #nonloc ] ]>,
+    C-CONT [ HOOK #hook, RELS <! !>, HCONS <! !> ] ].
+
+deverbal-neut-sg-ndet := deverbal-inflectional-rule &
+[ ARGS <[SYNSEM.LOCAL.CAT.HEAD.MCLASS.DEVERBAL.NEUT-SG-NDET neut-sg-ndet]>,
+SYNSEM.LOCAL.AGR.DEF - ].
+
+deverbal-neut-sg-det := deverbal-inflectional-rule &
+[ ARGS <[SYNSEM.LOCAL.CAT.HEAD.MCLASS.DEVERBAL.NEUT-SG-DET neut-sg-det]>,
+SYNSEM.LOCAL.AGR.DEF + ].
+
+;;; Present tense
+
+#|
+verb-inflectional-rule := inflectional-rule & lexeme-to-word-rule &
+  [ SYNSEM.LOCAL.CAT.VAL.SUBJ < [ LOCAL [ AGR #agr,
+					  CONT.HOOK.INDEX #agr ] ] > ].
+|#
+
+verb-inflectional-rule := inflectional-rule & lexeme-to-word-rule &
+  [ SYNSEM [ LOCAL.CAT [ HEAD [ MOD <>,
+								FORM finite ],
+						VAL.SUBJ < [ LOCAL [ AGR.PNG #png,
+									CAT.HEAD.CASE nom,
+									CONT.HOOK.INDEX.PNG #png ] ] >],
+			MODIFIED #xmod ],
+   ARGS <[SYNSEM.MODIFIED #xmod ]> ].
+
+
+finite-present-first-sg := verb-inflectional-rule & 
+				 constant-lex-rule &
+   [ ARGS <[SYNSEM.LOCAL.CAT.HEAD.MCLASS.FIN-PRESENT.FIRST-SG first-sg]>,
+     SYNSEM.LOCAL [AGR.E.TENSE present,
+		                  CAT.VAL.SUBJ <[LOCAL.AGR.PNG [ PERSON 1st,
+						NUMBER singular]]>]].
+
+finite-present-second-sg := verb-inflectional-rule & 
+				 inflecting-lex-rule &
+ [ ARGS <[SYNSEM.LOCAL.CAT.HEAD.MCLASS.FIN-PRESENT.SECOND-SG second-sg]>,
+   SYNSEM.LOCAL [AGR.E.TENSE present,
+		                  CAT.VAL.SUBJ <[LOCAL.AGR.PNG [ PERSON 2nd,
+						NUMBER singular]]>]].
+
+finite-present-third-sg := verb-inflectional-rule & 
+				 inflecting-lex-rule &
+ [ ARGS <[SYNSEM.LOCAL.CAT.HEAD.MCLASS.FIN-PRESENT.THIRD-SG third-sg]>,
+   SYNSEM.LOCAL [AGR.E.TENSE present,
+		 CAT.VAL.SUBJ <[LOCAL.AGR.PNG [ PERSON 3rd,
+						NUMBER singular]]>]].
+
+finite-present-first-pl := verb-inflectional-rule & 
+				 inflecting-lex-rule &
+ [ ARGS <[SYNSEM.LOCAL.CAT.HEAD.MCLASS.FIN-PRESENT.FIRST-PL first-pl]>,
+   SYNSEM.LOCAL [AGR.E.TENSE present,
+		 CAT.VAL.SUBJ <[LOCAL.AGR.PNG [ PERSON 1st,
+						NUMBER plural]]>]].
+
+finite-present-second-pl := verb-inflectional-rule & 
+				 inflecting-lex-rule &
+ [ ARGS <[SYNSEM.LOCAL.CAT.HEAD.MCLASS.FIN-PRESENT.SECOND-PL second-pl]>,
+   SYNSEM.LOCAL [AGR.E.TENSE present,
+		 CAT.VAL.SUBJ <[LOCAL.AGR.PNG [ PERSON 2nd,
+						NUMBER plural]]>]].
+
+finite-present-third-pl := verb-inflectional-rule & 
+				 inflecting-lex-rule &
+ [ ARGS <[SYNSEM.LOCAL.CAT.HEAD.MCLASS.FIN-PRESENT.THIRD-PL third-pl]>,
+   SYNSEM.LOCAL [AGR.E.TENSE present,
+		 CAT.VAL.SUBJ <[LOCAL.AGR.PNG [ PERSON 3rd,
+						NUMBER plural-or-count]]>]].
+
+
+;;; Imperfect tense
+
+finite-imperf-first-sg := verb-inflectional-rule & 
+				  inflecting-lex-rule &
+   [ ARGS <[SYNSEM.LOCAL.CAT.HEAD.MCLASS.FIN-IMPERF.FIRST-SG first-sg]>,
+     SYNSEM.LOCAL [AGR.E.TENSE imperfect,
+		                  CAT.VAL.SUBJ <[LOCAL.AGR.PNG [ PERSON 1st,
+						NUMBER singular]]>]].
+
+finite-imperf-second-sg := verb-inflectional-rule & 
+				 inflecting-lex-rule &
+ [ ARGS <[SYNSEM.LOCAL.CAT.HEAD.MCLASS.FIN-IMPERF.SECOND-SG second-sg]>,
+   SYNSEM.LOCAL [AGR.E.TENSE imperfect,
+		                  CAT.VAL.SUBJ <[LOCAL.AGR.PNG [ PERSON 2nd,
+						NUMBER singular]]>]].
+
+finite-imperf-third-sg := verb-inflectional-rule & 
+				 inflecting-lex-rule &
+ [ ARGS <[SYNSEM.LOCAL.CAT.HEAD.MCLASS.FIN-IMPERF.THIRD-SG third-sg]>,
+   SYNSEM.LOCAL [AGR.E.TENSE imperfect,
+		 CAT.VAL.SUBJ <[LOCAL.AGR.PNG [ PERSON 3rd,
+						NUMBER singular]]>]].
+
+finite-imperf-first-pl := verb-inflectional-rule & 
+				 inflecting-lex-rule &
+ [ ARGS <[SYNSEM.LOCAL.CAT.HEAD.MCLASS.FIN-IMPERF.FIRST-PL first-pl]>,
+   SYNSEM.LOCAL [AGR.E.TENSE imperfect,
+		 CAT.VAL.SUBJ <[LOCAL.AGR.PNG [ PERSON 1st,
+						NUMBER plural]]>]].
+
+finite-imperf-second-pl := verb-inflectional-rule & 
+				 inflecting-lex-rule &
+ [ ARGS <[SYNSEM.LOCAL.CAT.HEAD.MCLASS.FIN-IMPERF.SECOND-PL second-pl]>,
+   SYNSEM.LOCAL [AGR.E.TENSE imperfect,
+		 CAT.VAL.SUBJ <[LOCAL.AGR.PNG [ PERSON 2nd,
+						NUMBER plural]]>]].
+finite-imperf-third-pl := verb-inflectional-rule & 
+				 inflecting-lex-rule &
+ [ ARGS <[SYNSEM.LOCAL.CAT.HEAD.MCLASS.FIN-IMPERF.THIRD-PL third-pl]>,
+   SYNSEM.LOCAL [AGR.E.TENSE imperfect,
+		 CAT.VAL.SUBJ <[LOCAL.AGR.PNG [ PERSON 3rd,
+						NUMBER plural-or-count]]>]].
+
+
+;;; Aorist tense
+
+finite-aorist-first-sg := verb-inflectional-rule & 
+				  inflecting-lex-rule &
+   [ ARGS <[SYNSEM.LOCAL.CAT.HEAD.MCLASS.FIN-AORIST.FIRST-SG first-sg]>,
+     SYNSEM.LOCAL [AGR.E.TENSE aorist,
+		                  CAT.VAL.SUBJ <[LOCAL.AGR.PNG [ PERSON 1st,
+						NUMBER singular]]>]].
+
+finite-aorist-second-sg := verb-inflectional-rule & 
+				 inflecting-lex-rule &
+ [ ARGS <[SYNSEM.LOCAL.CAT.HEAD.MCLASS.FIN-AORIST.SECOND-SG second-sg]>,
+   SYNSEM.LOCAL [AGR.E.TENSE aorist,
+		                  CAT.VAL.SUBJ <[LOCAL.AGR.PNG [ PERSON 2nd,
+						NUMBER singular]]>]].
+
+finite-aorist-third-sg := verb-inflectional-rule & 
+				 inflecting-lex-rule &
+ [ ARGS <[SYNSEM.LOCAL.CAT.HEAD.MCLASS.FIN-AORIST.THIRD-SG third-sg]>,
+   SYNSEM.LOCAL [AGR.E.TENSE aorist,
+		 CAT.VAL.SUBJ <[LOCAL.AGR.PNG [ PERSON 3rd,
+						NUMBER singular]]>]].
+
+finite-aorist-first-pl := verb-inflectional-rule & 
+				 inflecting-lex-rule &
+ [ ARGS <[SYNSEM.LOCAL.CAT.HEAD.MCLASS.FIN-AORIST.FIRST-PL first-pl]>,
+   SYNSEM.LOCAL [AGR.E.TENSE aorist,
+		 CAT.VAL.SUBJ <[LOCAL.AGR.PNG [ PERSON 1st,
+						NUMBER plural]]>]].
+
+finite-aorist-second-pl := verb-inflectional-rule & 
+				 inflecting-lex-rule &
+ [ ARGS <[SYNSEM.LOCAL.CAT.HEAD.MCLASS.FIN-AORIST.SECOND-PL second-pl]>,
+   SYNSEM.LOCAL [AGR.E.TENSE aorist,
+		 CAT.VAL.SUBJ <[LOCAL.AGR.PNG [ PERSON 2nd,
+						NUMBER plural]]>]].
+
+finite-aorist-third-pl := verb-inflectional-rule & 
+				 inflecting-lex-rule &
+ [ ARGS <[SYNSEM.LOCAL.CAT.HEAD.MCLASS.FIN-AORIST.THIRD-PL third-pl]>,
+   SYNSEM.LOCAL [AGR.E.TENSE aorist,
+		 CAT.VAL.SUBJ <[LOCAL.AGR.PNG [ PERSON 3rd,
+						NUMBER plural-or-count]]>]].
+
+;;; Imperative
+
+;;; Check the encoding of MOOD
+
+second_sg_imperative_verb := verb-inflectional-rule &
+				 inflecting-lex-rule &
+ [ ARGS <[SYNSEM.LOCAL.CAT.HEAD.MCLASS.FIN-IMPERATIVE.SECOND-SG second-sg]>,
+ SYNSEM.LOCAL [AGR.E.MOOD imperative,
+				CAT.VAL.SUBJ <[LOCAL.AGR.PNG [ PERSON 2nd,
+										NUMBER singular ]]>,
+				 CONT.HOOK.INDEX.SF comm ] ].
+
+
+second_pl_imperative_verb := verb-inflectional-rule &
+				 inflecting-lex-rule &
+ [ ARGS <[SYNSEM.LOCAL.CAT.HEAD.MCLASS.FIN-IMPERATIVE.SECOND-PL second-pl]>,
+ SYNSEM.LOCAL [AGR.E.MOOD imperative,
+		 CAT.VAL.SUBJ <[LOCAL.AGR.PNG [ PERSON 2nd,
+						NUMBER plural ]]>,
+		 CONT.HOOK.INDEX.SF comm ] ].
+#|
+imperative-second-sg := verb-inflectional-rule & 
+				 inflecting-lex-rule &
+ [ ARGS <[SYNSEM.LOCAL.CAT.HEAD.MCLASS.FIN-IMPERATIVE.SECOND-SG second-sg]>,
+   SYNSEM.LOCAL [AGR.E.MOOD imperative,
+		                  CAT.VAL.SUBJ <[LOCAL.AGR.PNG [ PERSON 2nd,
+						NUMBER singular]]>]].
+
+
+imperative-second-pl := verb-inflectional-rule & 
+				 inflecting-lex-rule &
+ [ ARGS <[SYNSEM.LOCAL.CAT.HEAD.MCLASS.FIN-IMPERATIVE.SECOND-PL second-pl]>,
+   SYNSEM.LOCAL [AGR.E.MOOD imperative,
+		 CAT.VAL.SUBJ <[LOCAL.AGR.PNG [ PERSON 2nd,
+						NUMBER plural]]>]].
+|#
+
+;;; Participle
+
+basic-verb-participle-inflectional-rule := inflectional-rule &
+  [ SYNSEM [ LOCAL [ CAT [ HEAD.MOD < [ LOCAL intersective-mod &
+					    [ CAT [ HEAD noun,
+						    VAL.SPR < [] > ] ] ] >,
+			   VAL.SUBJ < [ LOCAL [ CAT.HEAD.CASE nom ] ] >]],
+	     MODIFIED #xmod ],
+   ARGS <[SYNSEM.MODIFIED #xmod]> ].
+
+verb-participle-inflectional-rule := basic-verb-participle-inflectional-rule &
+				     lexeme-to-word-rule &
+  [ SYNSEM.LOCAL [ CAT [ HEAD.MOD < [ LOCAL.CONT.HOOK.INDEX #ind ] >,
+			 VAL.SUBJ < [ LOCAL [ AGR.PNG #png,
+					      CONT.HOOK.INDEX.PNG #png ] ] > ],
+		   CONT.HOOK.XARG #ind ] ].
+
+;;; Present
+
+participle-present-masc-sg-ndet := verb-participle-inflectional-rule & 
+				 inflecting-lex-rule &
+ [ ARGS <[SYNSEM.LOCAL.CAT.HEAD.MCLASS.PART-PRESENT.MASC-SG-NDET masc-sg-ndet]>,
+   SYNSEM.LOCAL [AGR [E.TENSE present],
+                                    CAT [ HEAD.FORM participle,
+					       VAL.SUBJ <[LOCAL.AGR.PNG [GENDER masculine,
+						  NUMBER singular]]>],
+				    CONT.HOOK.INDEX.SVOICE active ] ].
+
+participle-present-masc-sg-hdet := verb-participle-inflectional-rule & 
+				 inflecting-lex-rule &
+ [ ARGS <[SYNSEM.LOCAL.CAT.HEAD.MCLASS.PART-PRESENT.MASC-SG-HDET masc-sg-hdet]>,
+   SYNSEM.LOCAL [AGR [E.TENSE present],
+                                    CAT.HEAD [ FORM participle,
+							MOD <[LOCAL [ AGR.PNG [GENDER masculine,
+													  NUMBER singular],
+											 CONT.HOOK.INDEX.DEF + ] ] > ],
+				    CONT.HOOK.INDEX.SVOICE active ] ].
+
+
+participle-present-masc-sg-fdet := verb-participle-inflectional-rule & 
+				 inflecting-lex-rule &
+ [ ARGS <[SYNSEM.LOCAL.CAT.HEAD.MCLASS.PART-PRESENT.MASC-SG-FDET masc-sg-fdet]>,
+   SYNSEM.LOCAL [AGR [E.TENSE present],
+                                    CAT.HEAD [ FORM participle,
+				             MOD <[LOCAL [ AGR.PNG [GENDER masculine,
+												NUMBER singular],
+											    CONT.HOOK.INDEX.DEF + ] ] > ],
+				    CONT.HOOK.INDEX.SVOICE active ] ].
+
+participle-present-fem-sg-ndet := verb-participle-inflectional-rule & 
+				 inflecting-lex-rule &
+ [ ARGS <[SYNSEM.LOCAL.CAT.HEAD.MCLASS.PART-PRESENT.FEM-SG-NDET fem-sg-ndet]>,
+   SYNSEM.LOCAL [AGR [E.TENSE present],
+                                    CAT [ HEAD.FORM participle,
+						VAL.SUBJ <[LOCAL.AGR.PNG [GENDER feminine,
+													NUMBER singular] ] >],
+				    CONT.HOOK.INDEX.SVOICE active ] ].
+
+participle-present-fem-sg-det := verb-participle-inflectional-rule & 
+				 inflecting-lex-rule &
+ [ ARGS <[SYNSEM.LOCAL.CAT.HEAD.MCLASS.PART-PRESENT.FEM-SG-DET fem-sg-det]>,
+   SYNSEM.LOCAL [AGR [E.TENSE present],
+                                     CAT.HEAD [ FORM participle,
+				             MOD <[LOCAL [ AGR.PNG [GENDER feminine,
+												NUMBER singular],
+											    CONT.HOOK.INDEX.DEF + ] ] > ],
+				    CONT.HOOK.INDEX.SVOICE active ] ].
+
+participle-present-neut-sg-ndet := verb-participle-inflectional-rule & 
+				 inflecting-lex-rule &
+ [ ARGS <[SYNSEM.LOCAL.CAT.HEAD.MCLASS.PART-PRESENT.NEUT-SG-NDET neut-sg-ndet]>,
+   SYNSEM.LOCAL [AGR [E.TENSE present],
+                                    CAT [HEAD.FORM participle,
+				             VAL.SUBJ <[LOCAL.AGR.PNG [GENDER neuter,
+						  NUMBER singular] ] >],
+				   CONT.HOOK.INDEX.SVOICE active ] ].
+
+participle-present-neut-sg-det := verb-participle-inflectional-rule & 
+				 inflecting-lex-rule &
+ [ ARGS <[SYNSEM.LOCAL.CAT.HEAD.MCLASS.PART-PRESENT.NEUT-SG-DET neut-sg-det]>,
+   SYNSEM.LOCAL [AGR [E.TENSE present],
+                                    CAT.HEAD [ FORM participle,
+							MOD <[LOCAL [ AGR.PNG [GENDER neuter,
+													  NUMBER singular],
+											    CONT.HOOK.INDEX.DEF + ] ] > ],
+				   CONT.HOOK.INDEX.SVOICE active ] ].
+
+participle-present-pl-ndet := verb-participle-inflectional-rule & 
+				 inflecting-lex-rule &
+ [ ARGS <[SYNSEM.LOCAL.CAT.HEAD.MCLASS.PART-PRESENT.PL-NDET pl-ndet]>,
+   SYNSEM.LOCAL [AGR [E.TENSE present],
+                                    CAT [HEAD.FORM participle,
+				             VAL.SUBJ <[LOCAL.AGR.PNG.NUMBER plural ] >],
+				    CONT.HOOK.INDEX.SVOICE active ] ].
+
+participle-present-pl-det := verb-participle-inflectional-rule & 
+				 inflecting-lex-rule &
+ [ ARGS <[SYNSEM.LOCAL.CAT.HEAD.MCLASS.PART-PRESENT.PL-DET pl-det]>,
+   SYNSEM.LOCAL [AGR [E.TENSE present],
+                                    CAT.HEAD [ FORM participle,
+				             MOD <[LOCAL [ AGR.PNG.NUMBER plural,
+									   CONT.HOOK.INDEX.DEF + ] ] > ],
+				    CONT.HOOK.INDEX.SVOICE active ] ].
+
+
+;;; Aorist
+
+participle-aorist-masc-sg-ndet := verb-participle-inflectional-rule & 
+				 inflecting-lex-rule &
+ [ ARGS <[SYNSEM.LOCAL.CAT.HEAD.MCLASS.PART-AORIST.MASC-SG-NDET masc-sg-ndet]>,
+   SYNSEM.LOCAL [AGR [E.TENSE aorist],
+                                    CAT [ HEAD.FORM participle,
+					       VAL.SUBJ <[LOCAL.AGR.PNG [GENDER masculine,
+													NUMBER singular] ] >],
+				    CONT.HOOK.INDEX.SVOICE active]].
+
+participle-aorist-masc-sg-hdet := verb-participle-inflectional-rule & 
+				 inflecting-lex-rule &
+ [ ARGS <[SYNSEM.LOCAL.CAT.HEAD.MCLASS.PART-AORIST.MASC-SG-HDET masc-sg-hdet]>,
+   SYNSEM.LOCAL [AGR [E.TENSE aorist],
+                                    CAT.HEAD [ FORM participle,
+							  MOD <[LOCAL [ AGR.PNG [GENDER masculine,
+												NUMBER singular],
+									     CONT.HOOK.INDEX.DEF +] ] >],
+				     CONT.HOOK.INDEX.SVOICE active]].
+
+participle-aorist-masc-sg-fdet := verb-participle-inflectional-rule & 
+				 inflecting-lex-rule &
+ [ ARGS <[SYNSEM.LOCAL.CAT.HEAD.MCLASS.PART-AORIST.MASC-SG-FDET masc-sg-fdet]>,
+   SYNSEM.LOCAL [AGR [E.TENSE aorist],
+                                    CAT.HEAD [ FORM participle,
+					       MOD <[LOCAL [ AGR.PNG [GENDER masculine,
+												NUMBER singular],
+									     CONT.HOOK.INDEX.DEF +] ] >],
+				    CONT.HOOK.INDEX.SVOICE active]].
+
+participle-aorist-fem-sg-ndet := verb-participle-inflectional-rule & 
+				 inflecting-lex-rule &
+ [ ARGS <[SYNSEM.LOCAL.CAT.HEAD.MCLASS.PART-AORIST.FEM-SG-NDET fem-sg-ndet]>,
+   SYNSEM.LOCAL [AGR [E.TENSE aorist],
+                                    CAT [ HEAD.FORM participle,
+					       VAL.SUBJ <[LOCAL.AGR.PNG [GENDER feminine,
+						  NUMBER singular] ] >],
+				     CONT.HOOK.INDEX.SVOICE active]].
+
+
+participle-aorist-fem-sg-det := verb-participle-inflectional-rule & 
+				 inflecting-lex-rule &
+ [ ARGS <[SYNSEM.LOCAL.CAT.HEAD.MCLASS.PART-AORIST.FEM-SG-DET fem-sg-det]>,
+   SYNSEM.LOCAL [AGR [E.TENSE aorist],
+                                    CAT.HEAD [ FORM participle,
+					       MOD <[LOCAL [ AGR.PNG [GENDER feminine,
+												NUMBER singular],
+									     CONT.HOOK.INDEX.DEF +] ] >],
+				    CONT.HOOK.INDEX.SVOICE active]].
+
+participle-aorist-neut-sg-ndet := verb-participle-inflectional-rule & 
+				 inflecting-lex-rule &
+ [ ARGS <[SYNSEM.LOCAL.CAT.HEAD.MCLASS.PART-AORIST.NEUT-SG-NDET neut-sg-ndet]>,
+   SYNSEM.LOCAL [AGR [E.TENSE aorist],
+                                    CAT [ HEAD.FORM participle,
+					       VAL.SUBJ <[LOCAL.AGR.PNG [GENDER neuter,
+						  NUMBER singular] ] >],
+				    CONT.HOOK.INDEX.SVOICE active]].
+
+participle-aorist-neut-sg-det := verb-participle-inflectional-rule & 
+				 inflecting-lex-rule &
+ [ ARGS <[SYNSEM.LOCAL.CAT.HEAD.MCLASS.PART-AORIST.NEUT-SG-DET neut-sg-det]>,
+   SYNSEM.LOCAL [AGR [E.TENSE aorist],
+                                    CAT.HEAD [ FORM participle,
+					       MOD <[LOCAL [ AGR.PNG [GENDER neuter,
+												NUMBER singular],
+									     CONT.HOOK.INDEX.DEF +] ] >],
+				     CONT.HOOK.INDEX.SVOICE active]].
+
+participle-aorist-pl-ndet := verb-participle-inflectional-rule & 
+				 inflecting-lex-rule &
+ [ ARGS <[SYNSEM.LOCAL.CAT.HEAD.MCLASS.PART-AORIST.PL-NDET pl-ndet]>,
+   SYNSEM.LOCAL [AGR [E.TENSE present],
+                                    CAT [HEAD.FORM participle,
+				             VAL.SUBJ <[LOCAL.AGR.PNG.NUMBER plural ] >],
+				     CONT.HOOK.INDEX.SVOICE active]].
+
+participle-aorist-pl-det := verb-participle-inflectional-rule & 
+				 inflecting-lex-rule &
+ [ ARGS <[SYNSEM.LOCAL.CAT.HEAD.MCLASS.PART-AORIST.PL-DET pl-det]>,
+   SYNSEM.LOCAL [AGR [E.TENSE present],
+                                    CAT.HEAD [ FORM participle,
+				             MOD <[LOCAL [ AGR.PNG.NUMBER plural,
+									    CONT.HOOK.INDEX.DEF +] ] >],
+				     CONT.HOOK.INDEX.SVOICE active]].
+
+
+;;; Imperfect
+
+participle-imperf-masc-sg-ndet := verb-participle-inflectional-rule & 
+				 inflecting-lex-rule &
+ [ ARGS <[SYNSEM.LOCAL.CAT.HEAD.MCLASS.PART-IMPERF.MASC-SG-NDET masc-sg-ndet]>,
+   SYNSEM.LOCAL [AGR [E.TENSE imperfect],
+                                    CAT [ HEAD.FORM participle,
+					       VAL.SUBJ <[LOCAL.AGR.PNG [GENDER masculine,
+						  NUMBER singular] ] >],
+				    CONT.HOOK.INDEX.SVOICE active]].
+
+
+participle-imperf-fem-sg-ndet := verb-participle-inflectional-rule & 
+				 inflecting-lex-rule &
+ [ ARGS <[SYNSEM.LOCAL.CAT.HEAD.MCLASS.PART-IMPERF.FEM-SG-NDET fem-sg-ndet]>,
+   SYNSEM.LOCAL [AGR [E.TENSE imperfect],
+                                    CAT [ HEAD.FORM participle,
+					       VAL.SUBJ <[LOCAL.AGR.PNG [GENDER feminine,
+						  NUMBER singular] ] >],
+				    CONT.HOOK.INDEX.SVOICE active]].
+
+
+participle-imperf-neut-sg-ndet := verb-participle-inflectional-rule & 
+				 inflecting-lex-rule &
+ [ ARGS <[SYNSEM.LOCAL.CAT.HEAD.MCLASS.PART-IMPERF.NEUT-SG-NDET neut-sg-ndet]>,
+   SYNSEM.LOCAL [AGR [E.TENSE imperfect],
+                                    CAT [ HEAD.FORM participle,
+					       VAL.SUBJ <[LOCAL.AGR.PNG [GENDER neuter,
+						  NUMBER singular] ] >],
+				   CONT.HOOK.INDEX.SVOICE active]].
+
+participle-imperf-pl-ndet := verb-participle-inflectional-rule & 
+				 inflecting-lex-rule &
+ [ ARGS <[SYNSEM.LOCAL.CAT.HEAD.MCLASS.PART-IMPERF.PL-NDET pl-ndet]>,
+   SYNSEM.LOCAL [AGR [E.TENSE imperfect],
+                                    CAT [HEAD.FORM participle,
+				             VAL.SUBJ <[LOCAL.AGR.PNG.NUMBER plural ] >],
+				    CONT.HOOK.INDEX.SVOICE active]].
+
+
+;;; Passive participle
+
+passive-participle-rule := basic-verb-participle-inflectional-rule &
+		      inflecting-lex-rule & lexeme-to-lexeme-rule &
+[ INFLECTED - ].
+
+participle-passive-masc-sg-ndet := passive-participle-rule  & 
+ [ ARGS <[SYNSEM.LOCAL.CAT.HEAD.MCLASS.PART-PASSIVE.MASC-SG-NDET masc-sg-ndet]>,
+   SYNSEM.LOCAL [AGR [E.TENSE aorist],
+                                    CAT [ HEAD.FORM participle,
+					       VAL.SUBJ <[LOCAL.AGR.PNG [GENDER masculine,
+						  NUMBER singular] ] >],
+				    CONT.HOOK.INDEX.SVOICE passive ] ].
+
+participle-passive-masc-sg-hdet := passive-participle-rule & 
+ [ ARGS <[SYNSEM.LOCAL.CAT.HEAD.MCLASS.PART-PASSIVE.MASC-SG-HDET masc-sg-hdet]>,
+   SYNSEM.LOCAL [AGR [E.TENSE aorist],
+                                    CAT.HEAD [ FORM participle,
+					       MOD <[LOCAL [ AGR.PNG [GENDER masculine,
+												NUMBER singular],
+											    CONT.HOOK.INDEX.DEF + ] ] > ],
+				    CONT.HOOK.INDEX.SVOICE passive ] ].
+
+participle-passive-masc-sg-fdet := passive-participle-rule & 
+ [ ARGS <[SYNSEM.LOCAL.CAT.HEAD.MCLASS.PART-PASSIVE.MASC-SG-FDET masc-sg-fdet]>,
+   SYNSEM.LOCAL [AGR [E.TENSE aorist],
+                                    CAT.HEAD [ FORM participle,
+					       MOD <[LOCAL [ AGR.PNG [GENDER masculine,
+												NUMBER singular],
+											    CONT.HOOK.INDEX.DEF + ] ] > ],
+				     CONT.HOOK.INDEX.SVOICE passive ] ].
+
+participle-passive-fem-sg-ndet := passive-participle-rule & 
+ [ ARGS <[SYNSEM.LOCAL.CAT.HEAD.MCLASS.PART-PASSIVE.FEM-SG-NDET fem-sg-ndet]>,
+   SYNSEM.LOCAL [AGR [E.TENSE aorist],
+                                    CAT [ HEAD.FORM participle,
+					       VAL.SUBJ <[LOCAL.AGR.PNG [GENDER feminine,
+						  NUMBER singular] ] >],
+				    CONT.HOOK.INDEX.SVOICE passive ] ].
+
+participle-passive-fem-sg-det := passive-participle-rule & 
+ [ ARGS <[SYNSEM.LOCAL.CAT.HEAD.MCLASS.PART-PASSIVE.FEM-SG-DET fem-sg-det]>,
+   SYNSEM.LOCAL [AGR [E.TENSE aorist],
+                                    CAT.HEAD [ FORM participle,
+					       MOD <[LOCAL [ AGR.PNG [GENDER feminine,
+												NUMBER singular],
+											    CONT.HOOK.INDEX.DEF + ] ] > ],
+				   CONT.HOOK.INDEX.SVOICE passive ] ].
+
+participle-passive-neut-sg-ndet := passive-participle-rule & 
+ [ ARGS <[SYNSEM.LOCAL.CAT.HEAD.MCLASS.PART-PASSIVE.NEUT-SG-NDET neut-sg-ndet]>,
+   SYNSEM.LOCAL [AGR [E.TENSE aorist],
+                                    CAT [ HEAD.FORM participle,
+					       VAL.SUBJ <[LOCAL.AGR.PNG [GENDER neuter,
+						  NUMBER singular] ] >],
+				    CONT.HOOK.INDEX.SVOICE passive ] ].
+
+participle-passive-neut-sg-det := passive-participle-rule & 
+ [ ARGS <[SYNSEM.LOCAL.CAT.HEAD.MCLASS.PART-PASSIVE.NEUT-SG-DET neut-sg-det]>,
+   SYNSEM.LOCAL [AGR [E.TENSE aorist],
+                                    CAT.HEAD [ FORM participle,
+					       MOD <[LOCAL [ AGR.PNG [GENDER neuter,
+												NUMBER singular],
+											    CONT.HOOK.INDEX.DEF + ] ] > ],
+				    CONT.HOOK.INDEX.SVOICE passive ] ].
+
+participle-passive-pl-ndet := passive-participle-rule & 
+ [ ARGS <[SYNSEM.LOCAL.CAT.HEAD.MCLASS.PART-PASSIVE.PL-NDET pl-ndet]>,
+   SYNSEM.LOCAL [AGR [E.TENSE aorist],
+                                    CAT [ HEAD.FORM participle,
+					       VAL.SUBJ <[LOCAL.AGR.PNG.NUMBER plural ] >],
+				    CONT.HOOK.INDEX.SVOICE passive ] ].
+
+participle-passive-pl-det := passive-participle-rule & 
+ [ ARGS <[SYNSEM.LOCAL.CAT.HEAD.MCLASS.PART-PASSIVE.PL-DET pl-det]>,
+   SYNSEM.LOCAL [AGR [E.TENSE aorist],
+                                    CAT.HEAD [ FORM participle,
+					       MOD <[LOCAL [ AGR.PNG.NUMBER plural,
+									    CONT.HOOK.INDEX.DEF + ] ] > ],
+				    CONT.HOOK.INDEX.SVOICE passive ] ].
+
+;;; Gerund
+
+basic-verb-gerund-inflectional-rule := inflectional-rule &
+  [ SYNSEM [ LOCAL [ CAT [ HEAD [ MOD < [ LOCAL intersective-mod &
+					    [ CAT [ HEAD verb,
+						    VAL [COMPS <> ,
+							 SPR < anti-synsem >] ] ] ] >,
+				  TAM.ASPECT imperfective ],
+			   VAL.SUBJ < [ LOCAL.CAT.HEAD.CASE nom ] >]],
+	     MODIFIED #xmod ],
+   ARGS <[SYNSEM.MODIFIED #xmod]> ].
+
+verb-gerund-inflectional-rule := basic-verb-gerund-inflectional-rule &
+				     lexeme-to-word-rule &
+  [ SYNSEM.LOCAL [ CAT [ HEAD.MOD < [ LOCAL.CAT.VAL.SUBJ.FIRST.LOCAL.CONT.HOOK.INDEX #ind ] >,
+			 VAL.SUBJ < [ LOCAL [ AGR.PNG #png,
+					      CONT.HOOK.INDEX.PNG #png ] ] > ],
+		   CONT.HOOK.XARG #ind ] ].
+
+
+gerund-form := verb-gerund-inflectional-rule & 
+				 inflecting-lex-rule &
+ [ ARGS <[SYNSEM.LOCAL.CAT.HEAD.MCLASS.GERUND gerund-par]>,
+   SYNSEM.LOCAL [AGR.E.TENSE present,
+                                    CAT.HEAD.FORM gerund]].
+
+
+;;; Determiner inflection (tozi, tazi, tova, tezi)
+
+;;; substantivization rules
+
+det_to_noun_prep := constant-lex-rule & lexeme-to-lexeme-rule &
+			      same-modified-lex-rule &
+			      same-light-lex-rule &
+[ARGS <[SYNSEM.LOCAL [ CAT.HEAD det,
+		       CONT [ HOOK.INDEX #ind,
+			      HCONS <! [ LARG #lbl ] !> ] ] ] >,
+SYNSEM [ LOCAL [ CAT [ HEAD noun & [MOD <>],
+		       VAL [SUBJ <>,
+			    COMPS <[LOCAL [ CAT.HEAD adp,
+					    CONT.HOOK.INDEX #arg1 ] ] >,
+			    SPR < anti-synsem >] ],
+		 CONT.HOOK  #hook & [ INDEX #ind ] ],
+	 NON-LOCAL [ SLASH 0-dlist,
+				   REL 0-dlist ],
+	 LKEYS.KEYREL noun-relation ],
+ C-CONT [ HOOK #hook,
+	  RELS <! [ LBL #lbl,
+		   PRED "partitive_rel",
+		   ARG0 #ind,
+		   ARG1 #arg1 ] !>,
+	 HCONS <! !> ],
+INFLECTED + ].
+
+
+def_to_noun := constant-lex-rule & lexeme-to-lexeme-rule & local-change-only-lex-rule &
+[ARGS <[SYNSEM.LOCAL [CAT.HEAD +jm & [MOD <[LOCAL.CAT [ HEAD noun,
+															 VAL [ COMPS <>,
+																    SPR <[]>] ] ]>],
+						AGR [ DEF +,
+							PNG [NUMBER #number,
+							GENDER #gender]] ] ]>,
+ SYNSEM.LOCAL [ CAT [ HEAD noun & [MOD <>],
+					VAL [SUBJ <>,
+					COMPS <>,
+					SPR < [] >]],
+				AGR [ PNG [NUMBER #number,
+						GENDER #gender,
+						PERSON 3rd],
+					DEF + ] ],
+INFLECTED + ].
+
+
+;;; probata
+
+part-num_to_noun := constant-lex-rule & lexeme-to-lexeme-rule & 
+		    same-non-local-lex-rule &
+[ARGS <[SYNSEM.LOCAL [CAT.HEAD num & 
+			       [ MOD < [LOCAL.CONT.HOOK.INDEX #ind ] > ],
+		      AGR.PNG [NUMBER #number,
+			       GENDER #gender] ] ] >,
+ SYNSEM.LOCAL [ CAT [ HEAD noun & [MOD <>],
+		      VAL [SUBJ < anti-synsem >,
+			   COMPS < [LOCAL [ CAT [ HEAD adp,
+						  VAL.COMPS < > ],
+					    CONT.HOOK.INDEX #arg1 ] ]>,
+			   SPR < [] >]],
+		AGR.PNG [NUMBER #number,
+			 GENDER #gender,
+			 PERSON 3rd]],
+C-CONT [ HOOK.INDEX #ind & ref-ind,
+	 RELS <! [ PRED "partitive_rel",
+		   ARG0 #ind,
+		   ARG1 #arg1 ] !>,
+	 HCONS <! !> ],
+INFLECTED + ].
+
+
+
+determiner-infl-rule := inflectional-rule & lexeme-to-word-rule &
+[ARGS <[SYNSEM.LOCAL.CAT.HEAD det]>,
+SYNSEM.LOCAL.CAT.VAL.SPEC < [ LOCAL.CONT.HOOK.INDEX.DEF - ] > ].
+
+sg_masc_demonstr_entity_pro_noun := determiner-infl-rule & 
+				constant-lex-rule &
+  [ SYNSEM.LOCAL.CAT.VAL.SPEC <[LOCAL.AGR.PNG [GENDER masculine,
+			                                                                            NUMBER singular] ]>].
+
+sg_fem_demonstr_entity_pro_noun := determiner-infl-rule & 
+				inflecting-lex-rule &
+  [ SYNSEM.LOCAL.CAT.VAL.SPEC <[LOCAL.AGR.PNG [GENDER feminine,
+			                                                                            NUMBER singular] ]>].
+
+sg_neut_demonstr_entity_pro_noun := determiner-infl-rule & 
+				inflecting-lex-rule &
+  [ SYNSEM.LOCAL.CAT.VAL.SPEC <[LOCAL.AGR.PNG [GENDER neuter,
+			                                                                            NUMBER singular] ]>].
+
+pl_demonstr_entity_pro_noun := determiner-infl-rule & 
+				inflecting-lex-rule &
+  [ SYNSEM.LOCAL.CAT.VAL.SPEC <[LOCAL.AGR.PNG.NUMBER plural]>].
+
+
+;;; Relatives (do not follow the adjective rules, because they do not have MOD feature themselves)
+
+rel-infl-rule := pro-noun-inflectional-rule & lexeme-to-word-rule &
+[ARGS <[SYNSEM [LOCAL.CAT.HEAD pro-adj-hd & [FORM relative-reg],
+				 NON-LOCAL.REL 1-dlist] ]>].
+
+sg_masc_rel_entity_pro_noun := rel-infl-rule & 
+				constant-lex-rule &
+  [ SYNSEM.LOCAL.AGR [ PNG [GENDER masculine,
+			                              NUMBER singular],
+						 DEF - ] ].
+
+sg_fem_rel_entity_pro_noun := rel-infl-rule & 
+				inflecting-lex-rule &
+  [ SYNSEM.LOCAL.AGR [ PNG [GENDER feminine,
+			                               NUMBER singular],
+						DEF - ] ].
+
+sg_neut_rel_entity_pro_noun := rel-infl-rule & 
+				inflecting-lex-rule &
+  [ SYNSEM.LOCAL.AGR [ PNG [GENDER neuter,
+			                               NUMBER singular],
+						DEF - ] ].
+
+pl_rel_entity_pro_noun := rel-infl-rule & 
+				inflecting-lex-rule &
+  [ SYNSEM.LOCAL.AGR [ PNG.NUMBER plural,
+						DEF - ] ].
+
+
+;;; probata
+
+indef-noun-pro-noun := inflectional-rule & lexeme-to-word-rule &
+				constant-lex-rule &
+[ARGS < [SYNSEM.LOCAL.CAT.HEAD pro-noun-hd & [FORM indef-reg] ] >,
+SYNSEM.LOCAL.AGR.PNG [ NUMBER singular,
+						    GENDER neuter,
+						    PERSON 3rd] ].
+
+
+
+
+
