@@ -313,783 +313,240 @@ edin_m1 := cardinal-one-adj-le &
 
 ;;; Verbs
 
-vali_v2 := v_-_i_im_le &
-[ STEM < "вали" >,
-    SYNSEM [LKEYS.KEYREL.PRED "вали_v_2_rel",
-        LOCAL.CAT.HEAD.MCLASS [FIN-PRESENT finite-present-100,
-							     FIN-AORIST finite-aorist-078,
-							     FIN-IMPERF finite-imperf-024,
-							     PART-IMPERF participle-imperf-023,
-							     PART-AORIST participle-aorist-093]
-                                ]
-   ].
+vali := v_-_imp_i_le &
+  [ STEM < "вали" >,
+    SYNSEM.LKEYS.KEYREL.PRED "вали_v_rel" ].
 
-valya := v_-_i_le &
+valya := v_-_i2-1_le &
   [ STEM < "валя" >,
-    SYNSEM [LKEYS.KEYREL.PRED "валя_v_rel",
-        LOCAL.CAT.HEAD.MCLASS [FIN-PRESENT finite-present-004,
-                               FIN-AORIST finite-aorist-008,
-                               PART-AORIST participle-aorist-003,
-                               FIN-IMPERF finite-imperf-004,
-                               PART-IMPERF participle-imperf-002,
-                               PART-PRESENT participle-present-001,
-                               GERUND gerund-ya-ejki,
-                               FIN-IMPERATIVE imperative-002]
-                                ]
-   ].
+    SYNSEM.LKEYS.KEYREL.PRED "валя_v_rel" ].
 
-vecheryam := v_-_i_le &
+vecheryam := v_-_i3_le &
   [ STEM < "вечерям" >,
-    SYNSEM [ LKEYS.KEYREL.PRED "вечерям_v_rel",
-    LOCAL.CAT.HEAD.MCLASS [FIN-PRESENT finite-present-017,
-                               FIN-AORIST finite-aorist-072,
-                               PART-AORIST participle-aorist-059,
-                               FIN-IMPERF finite-imperf-020,
-                               PART-IMPERF participle-imperf-021,
-                               PART-PRESENT participle-present-010,
-                               GERUND gerund-m-jki,
-                               PART-PASSIVE participle-passive-040,
-                               FIN-IMPERATIVE imperative-017]
-                                ]
-   ].
+    SYNSEM.LKEYS.KEYREL.PRED "вечерям_v_rel" ].
 
-vmakna_v1 := v_np_p_le &
+vmakna_v1 := v_np_p1-1_le &
   [ STEM < "вмъкна" >,
-    SYNSEM [LKEYS.KEYREL.PRED "вмъкна_v_rel",
-        LOCAL.CAT.HEAD.MCLASS [FIN-PRESENT finite-present-013,
-                               FIN-AORIST finite-aorist-002,
-                               PART-AORIST participle-aorist-002,
-                               FIN-IMPERF finite-imperf-015,
-                               PART-IMPERF participle-imperf-016,
-                               PART-PASSIVE participle-passive-006,
-                               FIN-IMPERATIVE imperative-012]
-                                ]
-   ].
+    SYNSEM.LKEYS.KEYREL.PRED "вмъкна_v_1_rel" ].
 
-vaznameryavam := v_da-vp_i_le &
+vaznameryavam := v_da-vp_i3_le &
   [ STEM < "възнамерявам" >,
-    SYNSEM [LKEYS.KEYREL.PRED "възнамерявам_v_rel",
-        LOCAL.CAT.HEAD.MCLASS [FIN-PRESENT finite-present-017,
-                               FIN-AORIST finite-aorist-072,
-                               PART-AORIST participle-aorist-059,
-                               FIN-IMPERF finite-imperf-020,
-                               PART-IMPERF participle-imperf-021,
-                               PART-PRESENT participle-present-010,
-                               GERUND gerund-m-jki,
-                               FIN-IMPERATIVE imperative-017]
-                                ]
-   ].
+    SYNSEM.LKEYS.KEYREL.PRED "възнамерявам_v_rel" ].
 
-vracha := v_np-pp_p_le &
+vracha := v_np-pp_p2-2_le &
   [ STEM < "връча" >,
-    SYNSEM [LKEYS.KEYREL.PRED "връча_v_rel",
-        LOCAL.CAT.HEAD.MCLASS [FIN-PRESENT finite-present-014,
-                               FIN-AORIST finite-aorist-026,
-                               PART-AORIST participle-aorist-038,
-                               FIN-IMPERF finite-imperf-015,
-                               PART-IMPERF participle-imperf-016,
-                               PART-PASSIVE participle-passive-022,
-                               FIN-IMPERATIVE imperative-012]
-                                ]
-   ].
+    SYNSEM.LKEYS.KEYREL.PRED "връча_v_rel" ].
 
- vyarvam := v_che_i_le &
+ vyarvam := v_che_i3_le &
   [ STEM < "вярвам" >,
-    SYNSEM [LKEYS.KEYREL.PRED "вярвам_v_rel",
-        LOCAL.CAT.HEAD.MCLASS [FIN-PRESENT finite-present-017,
-                               FIN-AORIST finite-aorist-062,
-                               PART-AORIST participle-aorist-076,
-                               FIN-IMPERF finite-imperf-020,
-                               PART-IMPERF participle-imperf-021,
-                               PART-PRESENT participle-present-010,
-                               GERUND gerund-m-jki,
-                               PART-PASSIVE participle-passive-040,
-                               FIN-IMPERATIVE imperative-017]
-                                ]
-   ].
+    SYNSEM.LKEYS.KEYREL.PRED "вярвам_v_rel" ].
 
-dam := v_np-pp_p-dat_le &
+dam := v_np-pp_p3-1-dat_le &
   [ STEM < "дам" >,
-    SYNSEM [LKEYS.KEYREL.PRED "дам_v_rel",
-        LOCAL.CAT.HEAD.MCLASS [FIN-PRESENT finite-present-018,
-                               FIN-AORIST finite-aorist-045,
-                               PART-AORIST participle-aorist-059,
-                               FIN-IMPERF finite-imperf-018,
-                               PART-IMPERF participle-imperf-019,
-                               PART-PASSIVE participle-passive-039,
-                               FIN-IMPERATIVE imperative-017]
-                                ]
-   ].
+    SYNSEM.LKEYS.KEYREL.PRED "дам_v_rel" ].
 
-doyda := v_-_p_le &
+doyda := v_-_p1_le &
   [ STEM < "дойда" >,
-    SYNSEM [LKEYS.KEYREL.PRED "дойда_v_rel",
-        LOCAL.CAT.HEAD.MCLASS [FIN-PRESENT finite-present-013,
-                               FIN-AORIST finite-aorist-028,
-                               PART-AORIST participle-aorist-056,
-                               FIN-IMPERF finite-imperf-015,
-                               PART-IMPERF participle-imperf-016,
-                               FIN-IMPERATIVE imperative-012]
-                                ]
-   ].
+    SYNSEM.LKEYS.KEYREL.PRED "дойда_v_rel" ].
 
-zalaya := v_-_p_le &
+zalaya := v_-_p1-1_le &
   [ STEM < "залая" >,
-    SYNSEM [LKEYS.KEYREL.PRED "залая_v_rel",
-        LOCAL.CAT.HEAD.MCLASS [FIN-PRESENT finite-present-002,
-                               FIN-AORIST finite-aorist-008,
-                               PART-AORIST participle-aorist-002,
-                               FIN-IMPERF finite-imperf-006,
-                               PART-IMPERF participle-imperf-006,
-                               PART-PASSIVE participle-passive-001,
-                               FIN-IMPERATIVE imperative-003]
-                                ]
-   ].
+    SYNSEM.LKEYS.KEYREL.PRED "залая_v_rel" ].
 
-znaya_v1 := v_che_i_le &
+znaya_v1 := v_che_i1-1_le &
   [ STEM < "зная" >,
-    SYNSEM [LKEYS.KEYREL.PRED "знам_v_1_rel",
-        LOCAL.CAT.HEAD.MCLASS [FIN-PRESENT finite-present-002,
-                               FIN-AORIST finite-aorist-008,
-                               PART-AORIST participle-aorist-002,
-                               FIN-IMPERF finite-imperf-006,
-                               PART-IMPERF participle-imperf-006,
-                               PART-PRESENT participle-present-005,
-                               GERUND gerund-ya-ejki,
-                               FIN-IMPERATIVE imperative-003]
-                                ]
-   ].
+    SYNSEM.LKEYS.KEYREL.PRED "зная_v_1_rel" ].
 
-znaya_v2 := v_np_i_le &
+znaya_v2 := v_np_i1-1_le &
   [ STEM < "зная" >,
-    SYNSEM [LKEYS.KEYREL.PRED "знам_v_2_rel",
-        LOCAL.CAT.HEAD.MCLASS [FIN-PRESENT finite-present-002,
-                               FIN-AORIST finite-aorist-008,
-                               PART-AORIST participle-aorist-002,
-                               FIN-IMPERF finite-imperf-006,
-                               PART-IMPERF participle-imperf-006,
-                               PART-PRESENT participle-present-005,
-                               GERUND gerund-ya-ejki,
-                               FIN-IMPERATIVE imperative-003]
-                                ]
-   ].
+    SYNSEM [ LOCAL.CAT.VAL.COMPS.FIRST.OPT -,
+	     LKEYS.KEYREL.PRED "зная_v_2_rel" ]].
 
-znaya_v3 :=   v_dali_i_le &
+znaya_v3 :=   v_dali_i1-1_le &
 [ STEM < "зная" >,
-   SYNSEM [LKEYS.KEYREL.PRED "знам_v_3_rel",
-        LOCAL.CAT.HEAD.MCLASS [FIN-PRESENT finite-present-002,
-                               FIN-AORIST finite-aorist-008,
-                               PART-AORIST participle-aorist-002,
-                               FIN-IMPERF finite-imperf-006,
-                               PART-IMPERF participle-imperf-006,
-                               PART-PRESENT participle-present-005,
-                               GERUND gerund-ya-ejki,
-                               FIN-IMPERATIVE imperative-003]
-                                ]
-   ].
+    SYNSEM [ LOCAL.CAT.VAL.COMPS.FIRST.OPT -,
+	     LKEYS.KEYREL.PRED "зная_v_3_rel" ]].
 
  ima_v1 := v_there-is_le &
   [ STEM < "има" >,
-    SYNSEM [ LKEYS.KEYREL.PRED "има_v_1_rel",
-		     LOCAL.CAT.HEAD.MCLASS [FIN-PRESENT finite-present-101,
-							     FIN-AORIST finite-aorist-080,
-							     FIN-IMPERF finite-imperf-025,
-							     PART-IMPERF participle-imperf-024,
-							     PART-AORIST participle-aorist-095]
-                                ]
-   ].
+    SYNSEM.LKEYS.KEYREL.PRED "има_v_1_rel" ].
 
-iskam_v1 := v_np_i_le &
+iskam_v1 := v_np_i3_le &
   [ STEM < "искам" >,
-    SYNSEM [LKEYS.KEYREL.PRED "искам_v_1_rel",
-        LOCAL.CAT.HEAD.MCLASS [FIN-PRESENT finite-present-017,
-                               FIN-AORIST finite-aorist-072,
-                               PART-AORIST participle-aorist-059,
-                               FIN-IMPERF finite-imperf-020,
-                               PART-IMPERF participle-imperf-021,
-                               PART-PRESENT participle-present-010,
-                               GERUND gerund-m-jki,
-                               PART-PASSIVE participle-passive-040,
-                               FIN-IMPERATIVE imperative-017]
-                                ]
-   ].
+    SYNSEM.LKEYS.KEYREL.PRED "искам_v_1_rel" ].
 
-
-iskam_v2 := v_da-cp_i_le &
+iskam_v2 := v_da-cp_i3_le &
 [ STEM < "искам" >,
-    SYNSEM [LKEYS.KEYREL.PRED "искам_v_2_rel",
-        LOCAL.CAT.HEAD.MCLASS [FIN-PRESENT finite-present-017,
-                               FIN-AORIST finite-aorist-072,
-                               PART-AORIST participle-aorist-059,
-                               FIN-IMPERF finite-imperf-020,
-                               PART-IMPERF participle-imperf-021,
-                               PART-PRESENT participle-present-010,
-                               GERUND gerund-m-jki,
-                               PART-PASSIVE participle-passive-040,
-                               FIN-IMPERATIVE imperative-017]
-                                ]
-   ].
+    SYNSEM.LKEYS.KEYREL.PRED "искам_v_2_rel" ].
 
-
-izbarsha_v1 := v_np_p_le &
+izbarsha_v1 := v_np_p1_le &
   [ STEM < "избърша" >,
-    SYNSEM [LKEYS.KEYREL.PRED "избърша_v_1_rel",
-        LOCAL.CAT.HEAD.MCLASS [FIN-PRESENT finite-present-013,
-                               FIN-AORIST finite-aorist-018,
-                               PART-AORIST participle-aorist-024,
-                               FIN-IMPERF finite-imperf-015,
-                               PART-IMPERF participle-imperf-016,
-                               PART-PASSIVE participle-passive-014,
-                               FIN-IMPERATIVE imperative-012]
-                                ]
-   ].
+    SYNSEM.LKEYS.KEYREL.PRED "избърша_v_1_rel" ].
 
 izglezhda_v1 := v_seem_le &
   [ STEM < "изглежда" >,
-    SYNSEM [ LKEYS.KEYREL.PRED "изглежда_v_1_rel",
-			LOCAL.CAT.HEAD.MCLASS [FIN-PRESENT finite-present-101,
-							     FIN-AORIST finite-aorist-080,
-							     FIN-IMPERF finite-imperf-025,
-							     PART-IMPERF participle-imperf-024,
-							     PART-AORIST participle-aorist-095]
-                                ]
-   ].
+    SYNSEM.LKEYS.KEYREL.PRED "изглежда_v_1_rel" ].
 
 izglezhda_v2 := v_seem_expl_le &
   [ STEM < "изглежда" >,
-    SYNSEM [LKEYS.KEYREL.PRED "изглежда_v_1_rel",
-    LOCAL.CAT.HEAD.MCLASS [FIN-PRESENT finite-present-101,
-							     FIN-AORIST finite-aorist-080,
-							     FIN-IMPERF finite-imperf-025,
-							     PART-IMPERF participle-imperf-024,
-							     PART-AORIST participle-aorist-095]
-                                ]
-   ].
+    SYNSEM.LKEYS.KEYREL.PRED "изглежда_v_1_rel" ].
 
 izglezhda_v3 := v_seem_nosubj_le &
   [ STEM < "изглежда" >,
-    SYNSEM [LKEYS.KEYREL.PRED "изглежда_v_1_rel",
-    LOCAL.CAT.HEAD.MCLASS [FIN-PRESENT finite-present-101,
-							     FIN-AORIST finite-aorist-080,
-							     FIN-IMPERF finite-imperf-025,
-							     PART-IMPERF participle-imperf-024,
-							     PART-AORIST participle-aorist-095]
-                                ]
-   ].
+    SYNSEM.LKEYS.KEYREL.PRED "изглежда_v_1_rel" ].
 
- izglezhdam := v_adj-pp_i_le &
+ izglezhdam := v_adj-pp_i3_le &
   [ STEM < "изглеждам" >,
-    SYNSEM [ LKEYS.KEYREL.PRED "изглеждам_v_rel",
-			LOCAL.CAT.HEAD.MCLASS [FIN-PRESENT finite-present-017,
-                               FIN-AORIST finite-aorist-072,
-                               PART-AORIST participle-aorist-059,
-                               FIN-IMPERF finite-imperf-020,
-                               PART-IMPERF participle-imperf-021,
-                               PART-PRESENT participle-present-010,
-                               GERUND gerund-m-jki,
-                               PART-PASSIVE participle-passive-001,
-                               FIN-IMPERATIVE imperative-017]
-                                ]
-   ].
+    SYNSEM.LKEYS.KEYREL.PRED "изглеждам_v_rel" ].
 
-izlaya := v_-_p_le &
+izlaya := v_-_p1-1_le &
   [ STEM < "излая" >,
-    SYNSEM [LKEYS.KEYREL.PRED "излая_v_rel",
-        LOCAL.CAT.HEAD.MCLASS [FIN-PRESENT finite-present-002,
-                               FIN-AORIST finite-aorist-008,
-                               PART-AORIST participle-aorist-002,
-                               FIN-IMPERF finite-imperf-006,
-                               PART-IMPERF participle-imperf-006,
-                               FIN-IMPERATIVE imperative-003]
-                                ]
-   ].
+    SYNSEM.LKEYS.KEYREL.PRED "излая_v_rel" ].
 
-izlayvam := v_-_i_le &
+izlayvam := v_-_i3_le &
   [ STEM < "излайвам" >,
-    SYNSEM [LKEYS.KEYREL.PRED "излая_v_rel",
-        LOCAL.CAT.HEAD.MCLASS [FIN-PRESENT finite-present-017,
-                               FIN-AORIST finite-aorist-072,
-                               PART-AORIST participle-aorist-059,
-                               FIN-IMPERF finite-imperf-020,
-                               PART-IMPERF participle-imperf-021,
-                               PART-PRESENT participle-present-010,
-                               GERUND gerund-m-jki,
-                               FIN-IMPERATIVE imperative-017]
-                                ]
-   ].
+    SYNSEM.LKEYS.KEYREL.PRED "излая_v_rel" ].
 
-kanya_se := v_se-da-vp_i_le &
+kanya_se := v_se-da-vp_i2-1_le &
   [ STEM < "каня" >,
-    SYNSEM [LKEYS.KEYREL.PRED "каня+се_v_rel",
-        LOCAL.CAT.HEAD.MCLASS [FIN-PRESENT finite-present-004,
-                               FIN-AORIST finite-aorist-015,
-                               PART-AORIST participle-aorist-017,
-                               FIN-IMPERF finite-imperf-006,
-                               PART-IMPERF participle-imperf-006,
-                               PART-PRESENT participle-present-005,
-                               GERUND gerund-ya-ejki,
-                               PART-PASSIVE participle-passive-009,
-                               FIN-IMPERATIVE imperative-002]
-                                ]
-   ].
+    SYNSEM.LKEYS.KEYREL.PRED "каня+се_v_rel" ].
 
-kazha_v1 := v_np-pp_p-dat_le &
+kazha_v1 := v_np-pp_p1-1-dat_le &
  [ STEM < "кажа" >,
-    SYNSEM [ LKEYS.KEYREL.PRED "кажа_v_rel",
-     LOCAL.CAT.HEAD.MCLASS [FIN-PRESENT finite-present-013,
-                               FIN-AORIST finite-aorist-020,
-                               PART-AORIST participle-aorist-029,
-                               FIN-IMPERF finite-imperf-015,
-                               PART-IMPERF participle-imperf-016,
-                               PART-PASSIVE participle-passive-017,
-                               FIN-IMPERATIVE imperative-012]
-                                ]
-   ].
+    SYNSEM.LKEYS.KEYREL.PRED "кажа_v_rel" ].
 
-kupuvam := v_np-pp_i-dat_le &
+kupuvam := v_np-pp_i3-dat_le &
 [ STEM < "купувам" >,
-    SYNSEM [ LKEYS.KEYREL.PRED "купувам_v_rel",
-    LOCAL.CAT.HEAD.MCLASS [FIN-PRESENT finite-present-017,
-                               FIN-AORIST finite-aorist-072,
-                               PART-AORIST participle-aorist-059,
-                               FIN-IMPERF finite-imperf-020,
-                               PART-IMPERF participle-imperf-021,
-                               PART-PRESENT participle-present-010,
-                               GERUND gerund-m-jki,
-                               PART-PASSIVE participle-passive-040,
-                               FIN-IMPERATIVE imperative-017]
-                                ]
-   ].
+    SYNSEM.LKEYS.KEYREL.PRED "купувам_v_rel" ].
 
-laya_v1 := v_-_i_le &
+laya_v1 := v_-_i1-1_le &
   [ STEM < "лая" >,
-    SYNSEM [LKEYS.KEYREL.PRED "лая_v_rel",
-        LOCAL.CAT.HEAD.MCLASS [FIN-PRESENT finite-present-002,
-                               FIN-AORIST finite-aorist-008,
-                               PART-AORIST participle-aorist-002,
-                               FIN-IMPERF finite-imperf-006,
-                               PART-IMPERF participle-imperf-006,
-                               PART-PRESENT participle-present-005,
-                               GERUND gerund-ya-ejki,
-                               PART-PASSIVE participle-passive-001,
-                               FIN-IMPERATIVE imperative-003]
-                                ]
-   ].
+    SYNSEM.LKEYS.KEYREL.PRED "лая_v_rel" ].
 
 moga := modal-can-le &
-   [ STEM < "мога" >,
-    SYNSEM [LKEYS.KEYREL.PRED "мога_v_rel",
-        LOCAL.CAT.HEAD.MCLASS [FIN-PRESENT finite-present-015,
-                                                            FIN-AORIST finite-aorist-043,
-                                                            PART-AORIST participle-aorist-055,
-                                                            FIN-IMPERF finite-imperf-016,
-                                                            PART-IMPERF participle-imperf-017,
-                                                            PART-PRESENT participle-present-008,
-                                                            GERUND gerund-ga-zhejki,
-                                                            FIN-IMPERATIVE imperative-014]
-                                ]
-   ].
+  [ STEM < "мога" >,
+    SYNSEM.LKEYS.KEYREL.PRED "мога_rel" ].
 
-
-namerya := v_np_p_le &
+namerya := v_np_p2-2_le &
   [ STEM < "намеря" >,
-    SYNSEM [LKEYS.KEYREL.PRED "намеря_v_rel",
-        LOCAL.CAT.HEAD.MCLASS [FIN-PRESENT finite-present-004,
-                               FIN-AORIST finite-aorist-015,
-                               PART-AORIST participle-aorist-017,
-                               FIN-IMPERF finite-imperf-006,
-                               PART-IMPERF participle-imperf-006,
-                               PART-PASSIVE participle-passive-009,
-                               FIN-IMPERATIVE imperative-002]
-                                ]
-   ].
+    SYNSEM.LKEYS.KEYREL.PRED "намеря_v_rel" ].
 
-obeshtaya_v1 := v_da1-vp_p_dat-le &
- [ STEM < "обещая" >,
-    SYNSEM [LKEYS.KEYREL.PRED "обещая_v_1_rel",
-        LOCAL.CAT.HEAD.MCLASS [FIN-PRESENT finite-present-002,
-                               FIN-AORIST finite-aorist-012,
-                               PART-AORIST participle-aorist-020,
-                               FIN-IMPERF finite-imperf-006,
-                               PART-IMPERF participle-imperf-006,
-                               PART-PASSIVE participle-passive-011,
-                               FIN-IMPERATIVE imperative-003]
-                                ]
-   ].
+obeshtaya_v1 := v_da1-vp_p1-1_dat-le &
+  [ STEM < "обещая" >,
+    SYNSEM.LKEYS.KEYREL.PRED "обещая_v_1_rel" ].
 
-obzalozha_se := v_se-2pp-comp_p_le &
- [ STEM < "обзаложа" >,
-    SYNSEM [LKEYS.KEYREL.PRED "обзаложа+се_v_rel",
-	    LOCAL.CAT.VAL.COMPS.FIRST.OPT -,
-        LOCAL.CAT.HEAD.MCLASS [FIN-PRESENT finite-present-014,
-                               FIN-AORIST finite-aorist-026,
-                               PART-AORIST participle-aorist-038,
-                               FIN-IMPERF finite-imperf-015,
-                               PART-IMPERF participle-imperf-016,
-                               FIN-IMPERATIVE imperative-012]
-                                ]
-   ].
+obzalozha_se := v_se-2pp-comp_p2-2_le &
+  [ STEM < "обзаложа">,
+    SYNSEM.LKEYS.KEYREL.PRED "обзаложа+се_v_rel" ].
 
-opitvam_se := v_se-da-vp_i_le &
-   [ STEM < "опитвам" >,
-    SYNSEM [LKEYS.KEYREL.PRED "опитвам+се_v_rel",
-	    LOCAL.CAT.VAL.COMPS.FIRST.OPT -,
-        LOCAL.CAT.HEAD.MCLASS [FIN-PRESENT finite-present-017,
-                               FIN-AORIST finite-aorist-072,
-                               PART-AORIST participle-aorist-059,
-                               FIN-IMPERF finite-imperf-020,
-                               PART-IMPERF participle-imperf-021,
-                               PART-PRESENT participle-present-010,
-                               GERUND gerund-m-jki,
-                               PART-PASSIVE participle-passive-040,
-                               FIN-IMPERATIVE imperative-017]
-                                ]
-   ].
+opitvam_se := v_se-da-vp_i3_le &
+  [ STEM < "опитвам" >,
+    SYNSEM.LKEYS.KEYREL.PRED "опитвам+се_v_rel" ].
 
-ostavya_v1 := v_np_p_le &
- [ STEM < "оставя" >,
-    SYNSEM [LKEYS.KEYREL.PRED "оставя_v_1_rel",
-        LOCAL.CAT.HEAD.MCLASS [FIN-PRESENT finite-present-004,
-                               FIN-AORIST finite-aorist-015,
-                               PART-AORIST participle-aorist-017,
-                               FIN-IMPERF finite-imperf-006,
-                               PART-IMPERF participle-imperf-006,
-                               PART-PASSIVE participle-passive-009,
-                               FIN-IMPERATIVE imperative-002]
-                                ]
-   ].
+ostavya_v1 := v_np_p2-2_le &
+  [ STEM < "оставя" >,
+    SYNSEM.LKEYS.KEYREL.PRED "оставя_v_1_rel" ].
 
-ostavya_v2 := v_da2-vp_p_le &
- [ STEM < "оставя" >,
-    SYNSEM [LKEYS.KEYREL.PRED "оставя_v_2_rel",
-        LOCAL.CAT.HEAD.MCLASS [FIN-PRESENT finite-present-004,
-                               FIN-AORIST finite-aorist-015,
-                               PART-AORIST participle-aorist-017,
-                               FIN-IMPERF finite-imperf-006,
-                               PART-IMPERF participle-imperf-006,
-                               PART-PASSIVE participle-passive-009,
-                               FIN-IMPERATIVE imperative-002]
-                                ]
-   ].
+ostavya_v2 := v_da2-vp_p2-2_le &
+  [ STEM < "оставя" >,
+    SYNSEM.LKEYS.KEYREL.PRED "оставя_v_2_rel" ].
 
-otvorya_v2 := v_np_p_le &
+otvorya_se := v_se_p2-2_le &
   [ STEM < "отворя" >,
-    SYNSEM [LKEYS.KEYREL.PRED "отворя_v_2_rel",
-        LOCAL.CAT.HEAD.MCLASS [FIN-PRESENT finite-present-004,
-                               FIN-AORIST finite-aorist-015,
-                               PART-AORIST participle-aorist-017,
-                               FIN-IMPERF finite-imperf-006,
-                               PART-IMPERF participle-imperf-006,
-                               PART-PASSIVE participle-passive-009,
-                               FIN-IMPERATIVE imperative-002]
-                                ]
-   ].
+    SYNSEM.LKEYS.KEYREL.PRED "отворя+се_v_1_rel" ].
 
- podam := v_np-pp_p-dat_le &
-[ STEM < "подам" >,
-    SYNSEM [LKEYS.KEYREL.PRED "подам_v_rel",
-        LOCAL.CAT.HEAD.MCLASS [FIN-PRESENT finite-present-018,
-                               FIN-AORIST finite-aorist-045,
-                               PART-AORIST participle-aorist-059,
-                               FIN-IMPERF finite-imperf-018,
-                               PART-IMPERF participle-imperf-019,
-                               PART-PASSIVE participle-passive-039,
-                               FIN-IMPERATIVE imperative-017]
-                                ]
-   ].
+otvorya_v2 := v_np_p2-2_le &
+  [ STEM < "отворя" >,
+    SYNSEM.LKEYS.KEYREL.PRED "отворя_v_2_rel" ].
 
-pochudya_se := v_se-dali_p_le &
-   [ STEM < "почудя" >,
-    SYNSEM [LKEYS.KEYREL.PRED "чудя+се_v_rel",
-	    LOCAL.CAT.VAL.COMPS.FIRST.OPT -,
-        LOCAL.CAT.HEAD.MCLASS [FIN-PRESENT finite-present-004,
-                               FIN-AORIST finite-aorist-015,
-                               PART-AORIST participle-aorist-017,
-                               FIN-IMPERF finite-imperf-006,
-                               PART-IMPERF participle-imperf-006,
-                               PART-PASSIVE participle-passive-009,
-                               FIN-IMPERATIVE imperative-002]
-                                ]
-   ].
+ podam := v_np-pp_p3-1-dat_le &
+  [ STEM < "подам" >,
+    SYNSEM.LKEYS.KEYREL.PRED "подам_v_rel" ].
 
-pochudya_se_v1 := v_se-ques_p_le &
+pochudya_se := v_se-dali_p2-2_le &
   [ STEM < "почудя" >,
-   SYNSEM [LKEYS.KEYREL.PRED "чудя+се_v_1_rel",
-	    LOCAL.CAT.VAL.COMPS.FIRST.OPT -,
-        LOCAL.CAT.HEAD.MCLASS [FIN-PRESENT finite-present-004,
-                               FIN-AORIST finite-aorist-015,
-                               PART-AORIST participle-aorist-017,
-                               FIN-IMPERF finite-imperf-006,
-                               PART-IMPERF participle-imperf-006,
-                               PART-PASSIVE participle-passive-009,
-                               FIN-IMPERATIVE imperative-002]
-                                ]
-   ].
+    SYNSEM.LKEYS.KEYREL.PRED "чудя+се_v_rel" ].
 
- predam := v_np-pp_p-dat_le &
+pochudya_se_v1 := v_se-ques_p2-2_le &
+  [ STEM < "почудя" >,
+    SYNSEM.LKEYS.KEYREL.PRED "чудя+се_v_1_rel" ].
+
+ predam := v_np-pp_p3-1-dat_le &
   [ STEM < "предам" >,
-    SYNSEM [LKEYS.KEYREL.PRED "предам_v_rel",
-        LOCAL.CAT.HEAD.MCLASS [FIN-PRESENT finite-present-018,
-                               FIN-AORIST finite-aorist-045,
-                               PART-AORIST participle-aorist-059,
-                               FIN-IMPERF finite-imperf-018,
-                               PART-IMPERF participle-imperf-019,
-                               PART-PASSIVE participle-passive-039,
-                               FIN-IMPERATIVE imperative-017]
-                                ]
-   ].
+    SYNSEM.LKEYS.KEYREL.PRED "предам_v_rel" ].
 
- presledvam := v_np_i_le &
+ presledvam := v_np_i3_le &
   [ STEM < "преследвам" >,
-    SYNSEM [LKEYS.KEYREL.PRED "преследвам_v_rel",
-        LOCAL.CAT.HEAD.MCLASS [FIN-PRESENT finite-present-017,
-                               FIN-AORIST finite-aorist-072,
-                               PART-AORIST participle-aorist-059,
-                               FIN-IMPERF finite-imperf-020,
-                               PART-IMPERF participle-imperf-021,
-                               PART-PRESENT participle-present-010,
-                               GERUND gerund-m-jki,
-                               PART-PASSIVE participle-passive-040,
-                               FIN-IMPERATIVE imperative-017]
-                                ]
-   ].
+    SYNSEM.LKEYS.KEYREL.PRED "преследвам_v_rel" ].
 
- pristigna_v1 := v_-_p_le &
+ pristigna := v_-_p1-1_le &
   [ STEM < "пристигна" >,
-    SYNSEM [LKEYS.KEYREL.PRED "пристигна_v_1_rel",
-        LOCAL.CAT.HEAD.MCLASS [FIN-PRESENT finite-present-013,
-                               FIN-AORIST finite-aorist-002,
-                               PART-AORIST participle-aorist-002,
-                               FIN-IMPERF finite-imperf-015,
-                               PART-IMPERF participle-imperf-016,
-                               FIN-IMPERATIVE imperative-012]
-                                ]
-   ].
+    SYNSEM.LKEYS.KEYREL.PRED "пристигна_v_rel" ].
 
-pritesnya := v_np_p_le &
-   [ STEM < "притесня" >,
-    SYNSEM [LKEYS.KEYREL.PRED "притесня_v_rel",
-        LOCAL.CAT.HEAD.MCLASS [FIN-PRESENT finite-present-004,
-                               FIN-AORIST finite-aorist-015,
-                               PART-AORIST participle-aorist-017,
-                               FIN-IMPERF finite-imperf-004,
-                               PART-IMPERF participle-imperf-002,
-                               PART-PASSIVE participle-passive-009,
-                               FIN-IMPERATIVE imperative-002]
-                                ]
-   ].
+pritesnya := v_np_p2-3_le &
+  [ STEM < "притесня" >,
+    SYNSEM.LKEYS.KEYREL.PRED "притесня_v_rel" ].
 
- pritesnyavam := v_np_i_le &
- [ STEM < "притеснявам" >,
-    SYNSEM [LKEYS.KEYREL.PRED "притесня_v_rel",
-        LOCAL.CAT.HEAD.MCLASS [FIN-PRESENT finite-present-017,
-                               FIN-AORIST finite-aorist-072,
-                               PART-AORIST participle-aorist-059,
-                               FIN-IMPERF finite-imperf-020,
-                               PART-IMPERF participle-imperf-021,
-                               PART-PRESENT participle-present-010,
-                               GERUND gerund-m-jki,
-                               PART-PASSIVE participle-passive-040,
-                               FIN-IMPERATIVE imperative-017]
-                                ]
-   ].
+ pritesnyavam := v_np_i3_le &
+  [ STEM < "притеснявам" >,
+    SYNSEM.LKEYS.KEYREL.PRED "притесня_v_rel" ].
 
-prodalzhavam := v_da-vp_i_le &
+prodalzhavam := v_da-vp_i3_le &
   [ STEM < "продължавам" >,
-    SYNSEM [LKEYS.KEYREL.PRED "продължавам_v_rel",
-        LOCAL.CAT.HEAD.MCLASS [FIN-PRESENT finite-present-017,
-                               FIN-AORIST finite-aorist-072,
-                               PART-AORIST participle-aorist-059,
-                               FIN-IMPERF finite-imperf-020,
-                               PART-IMPERF participle-imperf-021,
-                               PART-PRESENT participle-present-010,
-                               GERUND gerund-m-jki,
-                               PART-PASSIVE participle-passive-040,
-                               FIN-IMPERATIVE imperative-017]
-                                ]
-   ].
+    SYNSEM.LKEYS.KEYREL.PRED "продължавам_v_rel" ].
 
+slozha_v1 := v_np-pp_p2-2_loc-le &
+  [ STEM < "сложа" >,
+    SYNSEM.LKEYS.KEYREL.PRED "сложа_v_1_rel" ].
 
-slozha_v1 := v_np-pp_p-loc-le &
-   [ STEM < "сложа" >,
-    SYNSEM [LKEYS.KEYREL.PRED "сложа_v_1_rel",
-        LOCAL.CAT.HEAD.MCLASS [FIN-PRESENT finite-present-014,
-                               FIN-AORIST finite-aorist-026,
-                               PART-AORIST participle-aorist-038,
-                               FIN-IMPERF finite-imperf-015,
-                               PART-IMPERF participle-imperf-016,
-                               PART-PASSIVE participle-passive-022,
-                               FIN-IMPERATIVE imperative-012]
-                                ]
-   ].
+smyatam_v1 := v_np_i3_le &
+  [ STEM < "смятам" >,
+    SYNSEM.LKEYS.KEYREL.PRED "смятам_v_1_rel" ].
 
-smyatam_v1 := v_np_i_le &
-[ STEM < "смятам" >,
-  SYNSEM [LKEYS.KEYREL.PRED "смятам_v_1_rel",
-        LOCAL.CAT.HEAD.MCLASS [FIN-PRESENT finite-present-017,
-                                                            FIN-AORIST finite-aorist-066,
-                                                            PART-AORIST participle-aorist-080,
-                                                            FIN-IMPERF finite-imperf-020,
-                                                            PART-IMPERF participle-imperf-021,
-                                                            PART-PRESENT participle-present-010,
-                                                            GERUND gerund-m-jki,
-                                                            PART-PASSIVE participle-passive-040,
-                                                            FIN-IMPERATIVE imperative-017]
-                                ]
-   ].
+smyatam_v2 := v_np-pp_i3-adj-pred_le &
+ [ STEM < "смятам" >,
+  SYNSEM [ LKEYS.KEYREL.PRED "смятам_v_2_rel",
+		     LOCAL.CAT.VAL.COMPS <[OPT -],[OPT -]> ] ].
 
-smyatam_v2 := v_np-pp_i-adj-pred_le &
-[ STEM < "смятам" >,
-SYNSEM [LKEYS.KEYREL.PRED "смятам_v_2_rel",
-                 LOCAL.CAT [ HEAD.MCLASS [FIN-PRESENT finite-present-017,
-									FIN-AORIST finite-aorist-066,
-									PART-AORIST participle-aorist-080,
-									FIN-IMPERF finite-imperf-020,
-									PART-IMPERF participle-imperf-021,
-									PART-PRESENT participle-present-010,
-									GERUND gerund-m-jki,
-									PART-PASSIVE participle-passive-040,
-									FIN-IMPERATIVE imperative-017],
-				          VAL.COMPS <[OPT -],[OPT -]> ] ] ].
-
- spya := v_-_i_le &
+ spya := v_-_i2-2_le &
   [ STEM < "спя" >,
-    SYNSEM [LKEYS.KEYREL.PRED "спя_v_rel",
-        LOCAL.CAT.HEAD.MCLASS [FIN-PRESENT finite-present-004,
-                                                            FIN-AORIST finite-aorist-011,
-                                                            PART-AORIST participle-aorist-013,
-                                                            FIN-IMPERF finite-imperf-004,
-                                                            PART-IMPERF participle-imperf-002,
-                                                            PART-PRESENT participle-present-001,
-                                                            GERUND gerund-A-ejki,
-                                                            FIN-IMPERATIVE imperative-002]
-                                ]
-   ].
-
+    SYNSEM.LKEYS.KEYREL.PRED "спя_v_rel" ].
 
 tryabva_v1 := v_must_le &
   [ STEM < "трябва" >,
-    SYNSEM [ LKEYS.KEYREL.PRED "трябва_v_1_rel",
-     LOCAL.CAT.HEAD.MCLASS [FIN-PRESENT finite-present-101,
-							     FIN-AORIST finite-aorist-080,
-							     FIN-IMPERF finite-imperf-025,
-							     PART-IMPERF participle-imperf-024,
-							     PART-AORIST participle-aorist-095]
-                                ]
-   ].
+    SYNSEM.LKEYS.KEYREL.PRED "трябва_v_1_rel" ].
 
-tryabvam := v_pp_i_le &
+tryabvam_v2 := v_pp_i3_le &
   [ STEM < "трябвам" >,
-    SYNSEM [LKEYS.KEYREL.PRED "трябвам_v_rel",
-        LOCAL.CAT.HEAD.MCLASS [FIN-PRESENT finite-present-017,
-                               FIN-AORIST finite-aorist-072,
-                               PART-AORIST participle-aorist-059,
-                               FIN-IMPERF finite-imperf-020,
-                               PART-IMPERF participle-imperf-021,
-                               PART-PRESENT participle-present-010,
-                               GERUND gerund-m-jki,
-                               FIN-IMPERATIVE imperative-017]
-                                ]
-   ].
+    SYNSEM.LKEYS.KEYREL.PRED "трябвам_v_2_rel" ].
 
- ubedya := v_da2-vp_p_le &
+ ubedya := v_da2-vp_p2-2_le &
 [ STEM < "убедя" >,
-    SYNSEM [ LKEYS.KEYREL.PRED "убедя_v_rel",
-     LOCAL.CAT.HEAD.MCLASS [FIN-PRESENT finite-present-004,
-                               FIN-AORIST finite-aorist-015,
-                               PART-AORIST participle-aorist-017,
-                               FIN-IMPERF finite-imperf-004,
-                               PART-IMPERF participle-imperf-002,
-                               PART-PASSIVE participle-passive-009,
-                               FIN-IMPERATIVE imperative-002]
-                                ]
-   ].
+    SYNSEM.LKEYS.KEYREL.PRED "убедя_v_rel" ].
 
-ubiya := v_np_p_le &
+ubiya := v_np_p1-1_le &
 [ STEM < "убия" >,
-    SYNSEM [ LKEYS.KEYREL.PRED "убия_v_rel",
-			LOCAL.CAT.HEAD.MCLASS [FIN-PRESENT finite-present-002,
-                               FIN-AORIST finite-aorist-012,
-                               PART-AORIST participle-aorist-020,
-                               FIN-IMPERF finite-imperf-006,
-                               PART-IMPERF participle-imperf-006,
-                               PART-PASSIVE participle-passive-012,
-                               FIN-IMPERATIVE imperative-003]
-                                ]
-   ].
+    SYNSEM.LKEYS.KEYREL.PRED "убия_v_rel" ].
 
-haresam_v1 := v_np_p_le &
+haresam_v1 := v_np_p3_le &
   [ STEM < "харесам" >,
-    SYNSEM [LKEYS.KEYREL.PRED "харесам_v_1_rel",
-        LOCAL.CAT.HEAD.MCLASS [FIN-PRESENT finite-present-017,
-                               FIN-AORIST finite-aorist-072,
-                               PART-AORIST participle-aorist-059,
-                               FIN-IMPERF finite-imperf-020,
-                               PART-IMPERF participle-imperf-021,
-                               PART-PASSIVE participle-passive-040,
-                               FIN-IMPERATIVE imperative-017]
-                                ]
-   ].
+    SYNSEM.LKEYS.KEYREL.PRED "харесам_v_1_rel" ].
 
-haresam_2 := v_pp_p_le &
+haresam_2 := v_pp_p3_le &
   [ STEM < "харесам" >,
-    SYNSEM [LKEYS.KEYREL.PRED "харесам_v_2_rel",
-        LOCAL.CAT.HEAD.MCLASS [FIN-PRESENT finite-present-017,
-                               FIN-AORIST finite-aorist-072,
-                               PART-AORIST participle-aorist-059,
-                               FIN-IMPERF finite-imperf-020,
-                               PART-IMPERF participle-imperf-021,
-                               PART-PASSIVE participle-passive-040,
-                               FIN-IMPERATIVE imperative-017]
-                                ]
-   ].
+    SYNSEM.LKEYS.KEYREL.PRED "харесам_v_2_rel" ].
 
-cheta := v_np_i_le &
+cheta := v_np_i1_le &
   [ STEM < "чета" >,
-    SYNSEM [LKEYS.KEYREL.PRED "чета_v_rel",
-        LOCAL.CAT.HEAD.MCLASS [FIN-PRESENT finite-present-013,
-                                                            FIN-AORIST finite-aorist-028,
-                                                            PART-AORIST participle-aorist-092,
-                                                            FIN-IMPERF finite-imperf-014,
-                                                            PART-IMPERF participle-imperf-015,
-                                                            PART-PRESENT participle-present-006,
-                                                            GERUND gerund-a-ejki,
-                                                            PART-PASSIVE participle-passive-022,
-                                                            FIN-IMPERATIVE imperative-012]
-                                ]
-   ].
+    SYNSEM.LKEYS.KEYREL.PRED "чета_v_rel"].
 
-chudya_se := v_se-dali_i_le &
- [ STEM < "чудя" >,
-    SYNSEM [LKEYS.KEYREL.PRED "чудя_v_rel",
-	    LOCAL.CAT.VAL.COMPS.FIRST.OPT -,
-        LOCAL.CAT.HEAD.MCLASS [FIN-PRESENT finite-present-004,
-                               FIN-AORIST finite-aorist-015,
-                               PART-AORIST participle-aorist-017,
-                               FIN-IMPERF finite-imperf-006,
-                               PART-IMPERF participle-imperf-006,
-                               PART-PRESENT participle-present-005,
-                               GERUND gerund-ya-ejki,
-                               PART-PASSIVE participle-passive-009,
-                               FIN-IMPERATIVE imperative-002]
-                                ]
-   ].
+chudya_se := v_se-dali_i2-2_le &
+  [ STEM < "чудя">,
+    SYNSEM.LKEYS.KEYREL.PRED "чудя+се_v_rel" ].
 
-chudya_se_v1 := v_se-ques_i_le &
-  [ STEM < "чудя" >,
-    SYNSEM [LKEYS.KEYREL.PRED "чудя_v_1_rel",
-	    LOCAL.CAT.VAL.COMPS.FIRST.OPT -,
-        LOCAL.CAT.HEAD.MCLASS [FIN-PRESENT finite-present-004,
-                               FIN-AORIST finite-aorist-015,
-                               PART-AORIST participle-aorist-017,
-                               FIN-IMPERF finite-imperf-006,
-                               PART-IMPERF participle-imperf-006,
-                               PART-PRESENT participle-present-005,
-                               GERUND gerund-ya-ejki,
-                               PART-PASSIVE participle-passive-009,
-                               FIN-IMPERATIVE imperative-002]
-                                ]
-   ].
+chudya_se_v1 := v_se-ques_i2-2_le &
+  [ STEM < "чудя">,
+    SYNSEM.LKEYS.KEYREL.PRED "чудя+се_v_1_rel" ].
 
 ;;; Auxiliaries
 
@@ -1103,66 +560,39 @@ ne := ne-le &
 
 nyama_v1 := nyama-le &
  [ STEM < "няма" >,
-    SYNSEM [ LKEYS.KEYREL.PRED "negation_rel",
-			LOCAL.CAT.HEAD.MCLASS [FIN-PRESENT finite-present-101,
-							     FIN-AORIST finite-aorist-080,
-							     FIN-IMPERF finite-imperf-025,
-							     PART-IMPERF participle-imperf-024,
-							     PART-AORIST participle-aorist-095]
-                                ]
-   ].
+    SYNSEM.LKEYS.KEYREL.PRED "negation_rel" ].
 
 sym := pres-be-le &
-  [ STEM < "съм" >,
-    SYNSEM.LOCAL.CAT.HEAD.MCLASS.FIN-PRESENT finite-present-021].
+  [ STEM < "съм" >].
 
 sym_v2 := past-be-le &
-  [ STEM < "съм" >,
-   SYNSEM.LOCAL.CAT.HEAD.MCLASS [FIN-AORIST finite-aorist-079,
-									PART-AORIST participle-aorist-094,
-									FIN-IMPERATIVE imperative-020] ].
+  [ STEM < "съм" >].
 
  sym_v3 := pres-copula-prep-le &
-  [ STEM < "съм" >,
-  SYNSEM.LOCAL.CAT.HEAD.MCLASS.FIN-PRESENT finite-present-021 ].
+  [ STEM < "съм" >].
 
  sym_v4 := pres-copula-adj-le &
-  [ STEM < "съм" >,
-  SYNSEM.LOCAL.CAT.HEAD.MCLASS.FIN-PRESENT finite-present-021].
+  [ STEM < "съм" >].
 
  sym_v5 := pres-copula-noun-le &
   [ STEM < "съм" >,
-    SYNSEM [LKEYS.KEYREL.PRED "съм_v_1_rel",
-		    LOCAL.CAT.HEAD.MCLASS.FIN-PRESENT finite-present-021] ].
+    SYNSEM.LKEYS.KEYREL.PRED "съм_v_5_rel" ].
 
  sym_v6 := past-copula-prep-le &
-  [ STEM < "съм" >,
-  SYNSEM.LOCAL.CAT.HEAD.MCLASS [FIN-AORIST finite-aorist-079,
-									PART-AORIST participle-aorist-094,
-									FIN-IMPERATIVE imperative-020] ].
+  [ STEM < "съм" >].
 
  sym_v7 := past-copula-adj-le &
-  [ STEM < "съм" >,
-  SYNSEM.LOCAL.CAT.HEAD.MCLASS [FIN-AORIST finite-aorist-079,
-									PART-AORIST participle-aorist-094,
-									FIN-IMPERATIVE imperative-020] ].
+  [ STEM < "съм" >].
 
  sym_v8 := past-copula-noun-le &
   [ STEM < "съм" >,
-     SYNSEM [LKEYS.KEYREL.PRED "съм_v_2_rel",
-			LOCAL.CAT.HEAD.MCLASS [FIN-AORIST finite-aorist-079,
-										PART-AORIST participle-aorist-094,
-										FIN-IMPERATIVE imperative-020] ] ].
+    SYNSEM.LKEYS.KEYREL.PRED "съм_v_8_rel" ].
 
  sym_v9 := pres-copula-adv-le &
-  [ STEM < "съм" >,
-  SYNSEM.LOCAL.CAT.HEAD.MCLASS.FIN-PRESENT finite-present-021].
+  [ STEM < "съм" >].
 
  sym_v10 := past-copula-adv-le &
-  [ STEM < "съм" >,
-  SYNSEM.LOCAL.CAT.HEAD.MCLASS [FIN-AORIST finite-aorist-079,
-									PART-AORIST participle-aorist-094,
-									FIN-IMPERATIVE imperative-020] ].
+  [ STEM < "съм" >].
 
 shte := will-le &
   [ STEM < "ще" >,
@@ -1170,9 +600,7 @@ shte := will-le &
 
 shtyah := would-le &
 [ STEM < "щях" >,
-SYNSEM [ LKEYS.KEYREL.PRED "future-past_rel",
-		  LOCAL.CAT.HEAD.MCLASS.FIN-IMPERF finite-imperf-022] ].
-
+SYNSEM.LKEYS.KEYREL.PRED "future-past_rel" ].
 
 
   ;;; Prepositions
@@ -1269,8 +697,7 @@ dali := dali-comp-le &
 
  nedej := nedej-aux-le &
   [ STEM < "недей" >,
-    SYNSEM [ LKEYS.KEYREL.PRED "negation_rel",
-		   LOCAL.CAT.HEAD.MCLASS.FIN-IMPERATIVE imperative-001 ] ].
+    SYNSEM.LKEYS.KEYREL.PRED "negation_rel"].
 
  nito := nito-le &
   [ STEM < "нито" >,

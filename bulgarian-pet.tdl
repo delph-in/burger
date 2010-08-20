@@ -11,6 +11,7 @@
 
 :include "head-types".
 :include "matrix".
+:include "bulgarian".
 
 
 :end :type.

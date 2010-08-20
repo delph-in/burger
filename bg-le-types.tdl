@@ -212,44 +212,53 @@ poss-refl-pro-adj-clit-le := poss-refl-pro-adj-clit.
 
 ;;; Impersonal intransitive
 
-v_-_p_im_le := v_-_p_le & impers_verb_lex.
-
-v_-_i_im_le := v_-_i_le & impers_verb_lex.
+v_-_imp_i_le :=  imperfective-lexeme &
+[SYNSEM.LOCAL.CAT [ HEAD.MCLASS impers,
+                                             VAL [ COMPS <>,
+					                 SUBJ < [LOCAL [CAT.HEAD pro-noun-hd,
+										    AGR.PNG [PERSON 3rd,
+													NUMBER singular,
+													GENDER neuter] ] ]>] ] ].
 
 ;;; Impersonal with complement
 
 v_seem_le := v_seem_lex & imperfective-lexeme &
-[ SYNSEM.LOCAL.CAT.VAL.COMPS <#comp & [LOCAL.CAT [ HEAD verb,
-														VAL.SUBJ < [] > ] ]> , 
+[ SYNSEM.LOCAL.CAT [ VAL.COMPS <#comp & [LOCAL.CAT [ HEAD verb,
+						     VAL.SUBJ < [] > ] ]>,
+		     HEAD.MCLASS impers], 
   ARG-ST <[], #comp> ].
 
 v_seem_expl_le := v_seem_lex & imperfective-lexeme &
-[ SYNSEM.LOCAL.CAT.VAL [ COMPS <#comp & [LOCAL.CAT [ HEAD normcomp,
+[ SYNSEM.LOCAL.CAT [ VAL [ COMPS <#comp & [LOCAL.CAT [ HEAD normcomp,
 						       VAL.SUBJ < > ] ]>,
 			   SUBJ < [ LOCAL [ CAT.HEAD pro-noun-hd,
 					    AGR.PNG [ PERSON 3rd,
 						      NUMBER singular,
 						      GENDER neuter ] ],
 				    OPT -] > ],
+		     HEAD.MCLASS impers], 
   ARG-ST <[], #comp> ].
 
 v_seem_nosubj_le := v_seem_lex & imperfective-lexeme &
-[ SYNSEM.LOCAL.CAT.VAL [ COMPS <#comp & [LOCAL.CAT [ HEAD verb,
+[ SYNSEM.LOCAL.CAT [ VAL [ COMPS <#comp & [LOCAL.CAT [ HEAD verb,
 						       VAL.SUBJ < > ] ]>,
 			   SUBJ < unexpressed-reg &
 				  [ LOCAL [ CAT.HEAD pro-noun-hd,
 					    AGR.PNG [ PERSON 3rd,
 						      NUMBER singular,
 						      GENDER neuter ] ] ] > ],
+		     HEAD.MCLASS impers], 
   ARG-ST <[], #comp> ].
 
-v_there-is_le := v_np_i_lex & mclass-impers.
 
-v_must_le :=  modal-verb-lex & mclass-impers &
+v_there-is_le := v_np_i_lex & [SYNSEM.LOCAL.CAT.HEAD.MCLASS impers].
+
+v_must_le :=  modal-verb-lex &
 [INFLECTED - ,
 SYNSEM.LOCAL [ CAT [ VAL.SUBJ < [LOCAL.CAT.HEAD pro-noun-hd ] >,
-						HEAD [ TAM.ASPECT #aspect & imperfective ] ],
-				CONT.HOOK.INDEX.E.ASPECT #aspect ]].
+		     HEAD [ MCLASS impers,
+			    TAM.ASPECT #aspect & imperfective ] ],
+	       CONT.HOOK.INDEX.E.ASPECT #aspect ]].
 
 
 
@@ -257,11 +266,33 @@ SYNSEM.LOCAL [ CAT [ VAL.SUBJ < [LOCAL.CAT.HEAD pro-noun-hd ] >,
 
 ;;Intransitive-perfective
 
-v_-_p_le := v_-_p_lex.
+v_-_p1_le := v_-_p_lex  & [SYNSEM.LOCAL.CAT.HEAD.MCLASS first].
+
+v_-_p1-1_le := v_-_p_lex  & [SYNSEM.LOCAL.CAT.HEAD.MCLASS first1].
+
+v_-_p2-1_le := v_-_p_lex  & [SYNSEM.LOCAL.CAT.HEAD.MCLASS second1].
+
+v_-_p2-2_le := v_-_p_lex  & [SYNSEM.LOCAL.CAT.HEAD.MCLASS second2].
+
+v_-_p2-3_le := v_-_p_lex  & [SYNSEM.LOCAL.CAT.HEAD.MCLASS second3].
+
+v_-_p3_le := v_-_p_lex  & [SYNSEM.LOCAL.CAT.HEAD.MCLASS third].
 
 ;;Intransitive-imperfective
 
-v_-_i_le := v_-_i_lex.
+v_-_i1_le := v_-_i_lex & [SYNSEM.LOCAL.CAT.HEAD.MCLASS first].
+
+v_-_i1-1_le := v_-_i_lex & [SYNSEM.LOCAL.CAT.HEAD.MCLASS first1].
+
+v_-_i2-1_le := v_-_i_lex & [SYNSEM.LOCAL.CAT.HEAD.MCLASS second1].
+
+v_-_i2-2_le := v_-_i_lex & [SYNSEM.LOCAL.CAT.HEAD.MCLASS second2].
+
+v_-_i2-3_le := v_-_i_lex & [SYNSEM.LOCAL.CAT.HEAD.MCLASS second3].
+
+v_-_i3_le := v_-_i_lex & [SYNSEM.LOCAL.CAT.HEAD.MCLASS third].
+
+v_-_i3-1_le := v_-_i_lex & [SYNSEM.LOCAL.CAT.HEAD.MCLASS third1].
 
 ;;; Transitive verbs
 
@@ -269,191 +300,494 @@ v_-_i_le := v_-_i_lex.
 
 ;;; perfective
 
-v_np_p_le := v_np_p_lex.
+v_np_p1_le := v_np_p_lex & [SYNSEM.LOCAL.CAT.HEAD.MCLASS first].
 
+v_np_p1-1_le := v_np_p_lex & [SYNSEM.LOCAL.CAT.HEAD.MCLASS first1].
+
+v_np_p2-1_le := v_np_p_lex & [SYNSEM.LOCAL.CAT.HEAD.MCLASS second1].
+
+v_np_p2-2_le := v_np_p_lex & [SYNSEM.LOCAL.CAT.HEAD.MCLASS second2].
+
+v_np_p2-3_le := v_np_p_lex & [SYNSEM.LOCAL.CAT.HEAD.MCLASS second3].
+
+v_np_p3_le := v_np_p_lex & [SYNSEM.LOCAL.CAT.HEAD.MCLASS third].
+
+v_np_p3-1_le := v_np_p_lex & [SYNSEM.LOCAL.CAT.HEAD.MCLASS third1].
 
 ;;; imperfective
 
-v_np_i_le := v_np_i_lex.
+v_np_i1_le := v_np_i_lex & [SYNSEM.LOCAL.CAT.HEAD.MCLASS first].
 
+v_np_i1-1_le := v_np_i_lex & [SYNSEM.LOCAL.CAT.HEAD.MCLASS first1].
+
+v_np_i2-1_le := v_np_i_lex & [SYNSEM.LOCAL.CAT.HEAD.MCLASS second1].
+
+v_np_i2-2_le := v_np_i_lex & [SYNSEM.LOCAL.CAT.HEAD.MCLASS second2].
+
+v_np_i2-3_le := v_np_i_lex & [SYNSEM.LOCAL.CAT.HEAD.MCLASS second3].
+
+v_np_i3_le := v_np_i_lex & [SYNSEM.LOCAL.CAT.HEAD.MCLASS third].
+
+v_np_i3-1_le := v_np_i_lex & [SYNSEM.LOCAL.CAT.HEAD.MCLASS third1].
 
 ;;; Transitive verbs with PP as complement
 
 ;;; perfective
 
-v_pp_p_le := v_pp_p_lex.
+v_pp_p1_le := v_pp_p_lex & [SYNSEM.LOCAL.CAT.HEAD.MCLASS first].
+
+v_pp_p1-1_le := v_pp_p_lex & [SYNSEM.LOCAL.CAT.HEAD.MCLASS first1].
+
+v_pp_p2-1_le := v_pp_p_lex & [SYNSEM.LOCAL.CAT.HEAD.MCLASS second1].
+
+v_pp_p2-2_le := v_pp_p_lex & [SYNSEM.LOCAL.CAT.HEAD.MCLASS second2].
+
+v_pp_p2-3_le := v_pp_p_lex & [SYNSEM.LOCAL.CAT.HEAD.MCLASS second3].
+
+v_pp_p3_le := v_pp_p_lex & [SYNSEM.LOCAL.CAT.HEAD.MCLASS third].
+
+v_pp_p3-1_le := v_pp_p_lex & [SYNSEM.LOCAL.CAT.HEAD.MCLASS third1].
 
 ;;; imperfective
 
-v_pp_i_le := v_pp_i_lex.
+v_pp_i1_le := v_pp_i_lex & [SYNSEM.LOCAL.CAT.HEAD.MCLASS first].
+
+v_pp_i1-1_le := v_pp_i_lex & [SYNSEM.LOCAL.CAT.HEAD.MCLASS first1].
+
+v_pp_i2-1_le := v_pp_i_lex & [SYNSEM.LOCAL.CAT.HEAD.MCLASS second1].
+
+v_pp_i2-2_le := v_pp_i_lex & [SYNSEM.LOCAL.CAT.HEAD.MCLASS second2].
+
+v_pp_i2-3_le := v_pp_i_lex & [SYNSEM.LOCAL.CAT.HEAD.MCLASS second3].
+
+v_pp_i3_le := v_pp_i_lex & [SYNSEM.LOCAL.CAT.HEAD.MCLASS third].
+
+v_pp_i3-1_le := v_pp_i_lex & [SYNSEM.LOCAL.CAT.HEAD.MCLASS third1].
 
 
 ;;; Transitive verbs with CLCHE as complement
 
 ;;; perfective
 
-v_che_p_le := v_che_p_lex.
+v_che_p1_le := v_che_p_lex & [SYNSEM.LOCAL.CAT.HEAD.MCLASS first].
+
+v_che_p1-1_le := v_che_p_lex & [SYNSEM.LOCAL.CAT.HEAD.MCLASS first1].
+
+v_che_p2-1_le := v_che_p_lex & [SYNSEM.LOCAL.CAT.HEAD.MCLASS second1].
+
+v_che_p2-2_le := v_che_p_lex & [SYNSEM.LOCAL.CAT.HEAD.MCLASS second2].
+
+v_che_p2-3_le := v_che_p_lex & [SYNSEM.LOCAL.CAT.HEAD.MCLASS second3].
+
+v_che_p3_le := v_che_p_lex & [SYNSEM.LOCAL.CAT.HEAD.MCLASS third].
+
+v_che_p3-1_le := v_che_p_lex & [SYNSEM.LOCAL.CAT.HEAD.MCLASS third1].
 
 ;;; imperfective
 
-v_che_i_le := v_che_i_lex.
+v_che_i1_le := v_che_i_lex & [SYNSEM.LOCAL.CAT.HEAD.MCLASS first].
+
+v_che_i1-1_le := v_che_i_lex & [SYNSEM.LOCAL.CAT.HEAD.MCLASS first1].
+
+v_che_i2-1_le := v_che_i_lex & [SYNSEM.LOCAL.CAT.HEAD.MCLASS second1].
+
+v_che_i2-2_le := v_che_i_lex & [SYNSEM.LOCAL.CAT.HEAD.MCLASS second2].
+
+v_che_i2-3_le := v_che_i_lex & [SYNSEM.LOCAL.CAT.HEAD.MCLASS second3].
+
+v_che_i3_le := v_che_i_lex & [SYNSEM.LOCAL.CAT.HEAD.MCLASS third].
+
+v_che_i3-1_le := v_che_i_lex & [SYNSEM.LOCAL.CAT.HEAD.MCLASS third1].
 
 ;;; Transitive verbs with DALI as complement
 
 ;;; perfective
 
-v_dali_p_le := v_dali_p_lex.
+v_dali_p1_le := v_dali_p_lex & [SYNSEM.LOCAL.CAT.HEAD.MCLASS first].
 
+v_dali_p1-1_le := v_dali_p_lex & [SYNSEM.LOCAL.CAT.HEAD.MCLASS first1].
+
+v_dali_p2-1_le := v_dali_p_lex & [SYNSEM.LOCAL.CAT.HEAD.MCLASS second1].
+
+v_dali_p2-2_le := v_dali_p_lex & [SYNSEM.LOCAL.CAT.HEAD.MCLASS second2].
+
+v_dali_p2-3_le := v_dali_p_lex & [SYNSEM.LOCAL.CAT.HEAD.MCLASS second3].
+
+v_dali_p3_le := v_dali_p_lex & [SYNSEM.LOCAL.CAT.HEAD.MCLASS third].
+
+v_dali_p3-1_le := v_dali_p_lex & [SYNSEM.LOCAL.CAT.HEAD.MCLASS third1].
 
 ;;; imperfective
 
-v_dali_i_le := v_dali_i_lex.
+v_dali_i1_le := v_dali_i_lex & [SYNSEM.LOCAL.CAT.HEAD.MCLASS first].
+
+v_dali_i1-1_le := v_dali_i_lex & [SYNSEM.LOCAL.CAT.HEAD.MCLASS first1].
+
+v_dali_i2-1_le := v_dali_i_lex & [SYNSEM.LOCAL.CAT.HEAD.MCLASS second1].
+
+v_dali_i2-2_le := v_dali_i_lex & [SYNSEM.LOCAL.CAT.HEAD.MCLASS second2].
+
+v_dali_i2-3_le := v_dali_i_lex & [SYNSEM.LOCAL.CAT.HEAD.MCLASS second3].
+
+v_dali_i3_le := v_dali_i_lex & [SYNSEM.LOCAL.CAT.HEAD.MCLASS third].
+
+v_dali_i3-1_le := v_dali_i_lex & [SYNSEM.LOCAL.CAT.HEAD.MCLASS third1].
 
 
 ;;; Transitive verbs with DA-FORM as CP complement (subject relaxation) - iskam
 
 ;;; perfective
 
-v_da-cp_p_le := v_da-cp_p_lex.
+v_da-cp_p1_le := v_da-cp_p_lex & [SYNSEM.LOCAL.CAT.HEAD.MCLASS first].
+
+v_da-cp_p2-1_le := v_da-cp_p_lex & [SYNSEM.LOCAL.CAT.HEAD.MCLASS second1].
+
+v_da-cp_p2-2_le := v_da-cp_p_lex & [SYNSEM.LOCAL.CAT.HEAD.MCLASS second2].
+
+v_da-cp_p2-3_le := v_da-cp_p_lex & [SYNSEM.LOCAL.CAT.HEAD.MCLASS second3].
+
+v_da-cp_p3_le := v_da-cp_p_lex & [SYNSEM.LOCAL.CAT.HEAD.MCLASS third].
+
+v_da-cp_p3-1_le := v_da-cp_p_lex & [SYNSEM.LOCAL.CAT.HEAD.MCLASS third1].
 
 ;;; imperfective
 
-v_da-cp_i_le := v_da-cp_i_lex.
+v_da-cp_i1_le := v_da-cp_i_lex & [SYNSEM.LOCAL.CAT.HEAD.MCLASS first].
+
+v_da-cp_i2-1_le := v_da-cp_i_lex & [SYNSEM.LOCAL.CAT.HEAD.MCLASS second1].
+
+v_da-cp_i2-2_le := v_da-cp_i_lex & [SYNSEM.LOCAL.CAT.HEAD.MCLASS second2].
+
+v_da-cp_i2-3_le := v_da-cp_i_lex & [SYNSEM.LOCAL.CAT.HEAD.MCLASS second3].
+
+v_da-cp_i3_le := v_da-cp_i_lex & [SYNSEM.LOCAL.CAT.HEAD.MCLASS third].
+
+v_da-cp_i3-1_le := v_da-cp_i_lex & [SYNSEM.LOCAL.CAT.HEAD.MCLASS third1].
 
 ;;; Transitive verbs with DA-FORM as VP complement (subject identity) - zapochvam, prodalzhavam
 
 ;;; perfective
 
-v_da-vp_p_le := v_da-vp_p_lex.
+v_da-vp_p1_le := v_da-vp_p_lex & [SYNSEM.LOCAL.CAT.HEAD.MCLASS first].
+
+v_da-vp_p2-1_le := v_da-vp_p_lex & [SYNSEM.LOCAL.CAT.HEAD.MCLASS second1].
+
+v_da-vp_p2-2_le := v_da-vp_p_lex & [SYNSEM.LOCAL.CAT.HEAD.MCLASS second2].
+
+v_da-vp_p2-3_le := v_da-vp_p_lex & [SYNSEM.LOCAL.CAT.HEAD.MCLASS second3].
+
+v_da-vp_p3_le := v_da-vp_p_lex & [SYNSEM.LOCAL.CAT.HEAD.MCLASS third].
+
+v_da-vp_p3-1_le := v_da-vp_p_lex & [SYNSEM.LOCAL.CAT.HEAD.MCLASS third1].
 
 ;;; imperfective
 
-v_da-vp_i_le := v_da-vp_i_lex.
+v_da-vp_i1_le := v_da-vp_i_lex & [SYNSEM.LOCAL.CAT.HEAD.MCLASS first].
 
+v_da-vp_i2-1_le := v_da-vp_i_lex & [SYNSEM.LOCAL.CAT.HEAD.MCLASS second1].
+
+v_da-vp_i2-2_le := v_da-vp_i_lex & [SYNSEM.LOCAL.CAT.HEAD.MCLASS second2].
+
+v_da-vp_i2-3_le := v_da-vp_i_lex & [SYNSEM.LOCAL.CAT.HEAD.MCLASS second3].
+
+v_da-vp_i3_le := v_da-vp_i_lex & [SYNSEM.LOCAL.CAT.HEAD.MCLASS third].
+
+v_da-vp_i3-1_le := v_da-vp_i_lex & [SYNSEM.LOCAL.CAT.HEAD.MCLASS third1].
 
 ;;; Diransitive verbs with DA-FORM as VP complement (subject-subject identity) - obeshtaja na njakogo da napravja neshto
 
 ;;; perfective
 
-v_da1-vp_p_le := v_da1-vp_p_lex.
+v_da1-vp_p1_le := v_da1-vp_p_lex & [SYNSEM.LOCAL.CAT.HEAD.MCLASS first].
 
-v_da1-vp_p_dat-le := v_da1-vp_p_lex &
+v_da1-vp_p1-1_le := v_da1-vp_p1-1_lex.
+
+v_da1-vp_p1-1_dat-le := v_da1-vp_p1-1_lex &
 [ SYNSEM.LOCAL.CAT.VAL.COMPS < [ LOCAL.CAT.HEAD.MOD < > ], [] > ].
 
 
+
+v_da1-vp_p2-1_le := v_da1-vp_p_lex & [SYNSEM.LOCAL.CAT.HEAD.MCLASS second1].
+
+v_da1-vp_p2-2_le := v_da1-vp_p_lex & [SYNSEM.LOCAL.CAT.HEAD.MCLASS second2].
+
+v_da1-vp_p2-3_le := v_da1-vp_p_lex & [SYNSEM.LOCAL.CAT.HEAD.MCLASS second3].
+
+v_da1-vp_p3_le := v_da1-vp_p_lex & [SYNSEM.LOCAL.CAT.HEAD.MCLASS third].
+
+v_da1-vp_p3-1_le := v_da1-vp_p_lex & [SYNSEM.LOCAL.CAT.HEAD.MCLASS third1].
+
 ;;; imperfective
 
-v_da1-vp_i_le := v_da1-vp_i_lex.
+v_da1-vp_i1_le := v_da1-vp_i_lex & [SYNSEM.LOCAL.CAT.HEAD.MCLASS first].
+
+v_da1-vp_i2-1_le := v_da1-vp_i_lex & [SYNSEM.LOCAL.CAT.HEAD.MCLASS second1].
+
+v_da1-vp_i2-2_le := v_da1-vp_i_lex & [SYNSEM.LOCAL.CAT.HEAD.MCLASS second2].
+
+v_da1-vp_i2-3_le := v_da1-vp_i_lex & [SYNSEM.LOCAL.CAT.HEAD.MCLASS second3].
+
+v_da1-vp_i3_le := v_da1-vp_i_lex & [SYNSEM.LOCAL.CAT.HEAD.MCLASS third].
+
+v_da1-vp_i3-1_le := v_da1-vp_i_lex & [SYNSEM.LOCAL.CAT.HEAD.MCLASS third1].
 
 ;;; Diransitive verbs with DA-FORM as VP complement (object-subject identity) - ubedja njakogo da napravi neshto
 
 ;;; perfective
 
-v_da2-vp_p_le := v_da2-vp_p_lex.
+v_da2-vp_p1_le := v_da2-vp_p_lex & [SYNSEM.LOCAL.CAT.HEAD.MCLASS first].
 
+v_da2-vp_p2-1_le := v_da2-vp_p_lex & [SYNSEM.LOCAL.CAT.HEAD.MCLASS second1].
+
+v_da2-vp_p2-2_le := v_da2-vp_p_lex & [SYNSEM.LOCAL.CAT.HEAD.MCLASS second2].
+
+v_da2-vp_p2-3_le := v_da2-vp_p_lex & [SYNSEM.LOCAL.CAT.HEAD.MCLASS second3].
+
+v_da2-vp_p3_le := v_da2-vp_p_lex & [SYNSEM.LOCAL.CAT.HEAD.MCLASS third].
+
+v_da2-vp_p3-1_le := v_da2-vp_p_lex & [SYNSEM.LOCAL.CAT.HEAD.MCLASS third1].
 
 ;;; imperfective
 
-v_da2-vp_i_le := v_da2-vp_i_lex.
+v_da2-vp_i1_le := v_da2-vp_i_lex & [SYNSEM.LOCAL.CAT.HEAD.MCLASS first].
 
+v_da2-vp_i2-1_le := v_da2-vp_i_lex & [SYNSEM.LOCAL.CAT.HEAD.MCLASS second1].
+
+v_da2-vp_i2-2_le := v_da2-vp_i_lex & [SYNSEM.LOCAL.CAT.HEAD.MCLASS second2].
+
+v_da2-vp_i2-3_le := v_da2-vp_i_lex & [SYNSEM.LOCAL.CAT.HEAD.MCLASS second3].
+
+v_da2-vp_i3_le := v_da2-vp_i_lex & [SYNSEM.LOCAL.CAT.HEAD.MCLASS third].
+
+v_da2-vp_i3-1_le := v_da2-vp_i_lex & [SYNSEM.LOCAL.CAT.HEAD.MCLASS third1].
 
 ;;; Ditransitive verbs with DA-FORM-SE-VERBS as VP complement (subject identity) - opitvam se da dojda
 
 ;;; perfective
 
-v_se-da-vp_p_le := v_se-da-vp_p_lex.
+v_se-da-vp_p1_le := v_se-da-vp_p_lex & [SYNSEM.LOCAL.CAT.HEAD.MCLASS first].
+
+v_se-da-vp_p2-1_le := v_se-da-vp_p_lex & [SYNSEM.LOCAL.CAT.HEAD.MCLASS second1].
+
+v_se-da-vp_p2-2_le := v_se-da-vp_p_lex & [SYNSEM.LOCAL.CAT.HEAD.MCLASS second2].
+
+v_se-da-vp_p2-3_le := v_se-da-vp_p_lex & [SYNSEM.LOCAL.CAT.HEAD.MCLASS second3].
+
+v_se-da-vp_p3_le := v_se-da-vp_p_lex & [SYNSEM.LOCAL.CAT.HEAD.MCLASS third].
+
+v_se-da-vp_p3-1_le := v_se-da-vp_p_lex & [SYNSEM.LOCAL.CAT.HEAD.MCLASS third1].
 
 ;;; imperfective
 
-v_se-da-vp_i_le := v_se-da-vp_i_lex.
+v_se-da-vp_i1_le := v_se-da-vp_i_lex & [SYNSEM.LOCAL.CAT.HEAD.MCLASS first].
+
+v_se-da-vp_i2-1_le := v_se-da-vp_i_lex & [SYNSEM.LOCAL.CAT.HEAD.MCLASS second1].
+
+v_se-da-vp_i2-2_le := v_se-da-vp_i_lex & [SYNSEM.LOCAL.CAT.HEAD.MCLASS second2].
+
+v_se-da-vp_i2-3_le := v_se-da-vp_i_lex & [SYNSEM.LOCAL.CAT.HEAD.MCLASS second3].
+
+v_se-da-vp_i3_le := v_se-da-vp_i_lex & [SYNSEM.LOCAL.CAT.HEAD.MCLASS third].
+
+v_se-da-vp_i3-1_le := v_se-da-vp_i_lex & [SYNSEM.LOCAL.CAT.HEAD.MCLASS third1].
+
 
 ;;; Ditransitive verbs with DALI-FORM-SE-VERBS as CP complement - chudja se dali idva
 
 ;;; perfective
 
-v_se-dali_p_le := v_se-dali_p_lex.
+v_se-dali_p1_le := v_se-dali_p_lex & [SYNSEM.LOCAL.CAT.HEAD.MCLASS first].
+
+v_se-dali_p2-1_le := v_se-dali_p_lex & [SYNSEM.LOCAL.CAT.HEAD.MCLASS second1].
+
+v_se-dali_p2-2_le := v_se-dali_p_lex & [SYNSEM.LOCAL.CAT.HEAD.MCLASS second2].
+
+v_se-dali_p2-3_le := v_se-dali_p_lex & [SYNSEM.LOCAL.CAT.HEAD.MCLASS second3].
+
+v_se-dali_p3_le := v_se-dali_p_lex & [SYNSEM.LOCAL.CAT.HEAD.MCLASS third].
+
+v_se-dali_p3-1_le := v_se-dali_p_lex & [SYNSEM.LOCAL.CAT.HEAD.MCLASS third1].
 
 ;;; imperfective
 
-v_se-dali_i_le := v_se-dali_i_lex.
+v_se-dali_i1_le := v_se-dali_i_lex & [SYNSEM.LOCAL.CAT.HEAD.MCLASS first].
+
+v_se-dali_i2-1_le := v_se-dali_i_lex & [SYNSEM.LOCAL.CAT.HEAD.MCLASS second1].
+
+v_se-dali_i2-2_le := v_se-dali_i_lex & [SYNSEM.LOCAL.CAT.HEAD.MCLASS second2].
+
+v_se-dali_i2-3_le := v_se-dali_i_lex & [SYNSEM.LOCAL.CAT.HEAD.MCLASS second3].
+
+v_se-dali_i3_le := v_se-dali_i_lex & [SYNSEM.LOCAL.CAT.HEAD.MCLASS third].
+
+v_se-dali_i3-1_le := v_se-dali_i_lex & [SYNSEM.LOCAL.CAT.HEAD.MCLASS third1].
 
 ;;; probata
 ;;; Ditransitive verbs with QUES-FORM-SE-VERBS - chudja se koj idva
 
 ;;; perfective
 
-v_se-ques_p_le := v_se-ques_p_lex.
+v_se-ques_p1_le := v_se-ques_p_lex & [SYNSEM.LOCAL.CAT.HEAD.MCLASS first].
+
+v_se-ques_p2-1_le := v_se-ques_p_lex & [SYNSEM.LOCAL.CAT.HEAD.MCLASS second1].
+
+v_se-ques_p2-2_le := v_se-ques_p_lex & [SYNSEM.LOCAL.CAT.HEAD.MCLASS second2].
+
+v_se-ques_p2-3_le := v_se-ques_p_lex & [SYNSEM.LOCAL.CAT.HEAD.MCLASS second3].
+
+v_se-ques_p3_le := v_se-ques_p_lex & [SYNSEM.LOCAL.CAT.HEAD.MCLASS third].
+
+v_se-ques_p3-1_le := v_se-ques_p_lex & [SYNSEM.LOCAL.CAT.HEAD.MCLASS third1].
+
 
 ;;; imperfective
 
-v_se-ques_i_le := v_se-ques_i_lex.
+v_se-ques_i1_le := v_se-ques_i_lex & [SYNSEM.LOCAL.CAT.HEAD.MCLASS first].
+
+v_se-ques_i2-1_le := v_se-ques_i_lex & [SYNSEM.LOCAL.CAT.HEAD.MCLASS second1].
+
+v_se-ques_i2-2_le := v_se-ques_i_lex & [SYNSEM.LOCAL.CAT.HEAD.MCLASS second2].
+
+v_se-ques_i2-3_le := v_se-ques_i_lex & [SYNSEM.LOCAL.CAT.HEAD.MCLASS second3].
+
+v_se-ques_i3_le := v_se-ques_i_lex & [SYNSEM.LOCAL.CAT.HEAD.MCLASS third].
+
+v_se-ques_i3-1_le := v_se-ques_i_lex & [SYNSEM.LOCAL.CAT.HEAD.MCLASS third1].
 
 
 ;;; Ditransitive verbs with NP and PP as complements
 
 ;;; perfective
 
-v_np-pp_p_le := v_np-pp_p_lex.
+v_np-pp_p1_le := v_np-pp_p_lex & [SYNSEM.LOCAL.CAT.HEAD.MCLASS first].
 
-v_np-pp_p-dat_le := v_np-pp_p_lex &
+v_np-pp_p1-1_le := v_np-pp_p1-1_lex.
+
+v_np-pp_p1-1-dat_le := v_np-pp_p1-1_lex &
  [ SYNSEM.LOCAL.CAT.VAL.COMPS < [], [ LOCAL.CAT.HEAD.MOD < > ] > ].
 
-v_np-pp_p-loc-le := v_np-pp_p_lex &
+
+v_np-pp_p2_le := v_np-pp_p_lex & [SYNSEM.LOCAL.CAT.HEAD.MCLASS second].
+
+v_np-pp_p2-1_le := v_np-pp_p_lex & [SYNSEM.LOCAL.CAT.HEAD.MCLASS second1].
+
+v_np-pp_p2-2_le := v_np-pp_p2-2_lex.
+
+v_np-pp_p2-2_loc-le := v_np-pp_p2-2_lex &
 [ SYNSEM.LOCAL.CAT.VAL.COMPS < [], [ LOCAL.CAT.HEAD.MOD < > ] > ].
 
+v_np-pp_p2-3_le := v_np-pp_p_lex & [SYNSEM.LOCAL.CAT.HEAD.MCLASS second3].
+
+v_np-pp_p3_le := v_np-pp_p_lex & [SYNSEM.LOCAL.CAT.HEAD.MCLASS third].
+
+v_np-pp_i3_le := v_np-pp_i3_lex.
+
+v_np-pp_i3-dat_le := v_np-pp_i3_lex &
+ [ SYNSEM.LOCAL.CAT.VAL.COMPS <  [], [ LOCAL.CAT.HEAD.MOD < > ] > ].
+
+v_np-pp_p3-1_le := v_np-pp_p3-1_lex.
+
+v_np-pp_p3-1-dat_le := v_np-pp_p3-1_lex &
+  [ SYNSEM.LOCAL.CAT.VAL.COMPS < [], [ LOCAL.CAT.HEAD.MOD < > ] > ].
 
   ;;; imperfective
 
- v_np-pp_i_le := v_np-pp_i_lex.
+ v_np-pp_i1_le := v_np-pp_i_lex & [SYNSEM.LOCAL.CAT.HEAD.MCLASS first].
 
-v_np-pp_i-pred_le := v_np-pp_i_lex &
+v_np-pp_i2_le := v_np-pp_i_lex & [SYNSEM.LOCAL.CAT.HEAD.MCLASS second].
+
+v_np-pp_i2-1_le := v_np-pp_i_lex & [SYNSEM.LOCAL.CAT.HEAD.MCLASS second1].
+
+v_np-pp_i2-2_le := v_np-pp_i_lex & [SYNSEM.LOCAL.CAT.HEAD.MCLASS second2].
+
+v_np-pp_i2-3_le := v_np-pp_i_lex & [SYNSEM.LOCAL.CAT.HEAD.MCLASS second3].
+
+
+v_np-pp_i3_le := v_np-pp_i3_lex.
+
+v_np-pp_i3-pred_le := v_np-pp_i3_lex &
 [ SYNSEM.LOCAL.CAT.VAL.COMPS < [], [ LOCAL.CAT.HEAD.MOD < > ] > ].
 
 
 ;;; smjatam njakogo za njakakav
 
-v_np-pp_p-adj_le := v_np-pp_p-adj_lex.
-
-v_np-pp_i-adj_le := v_np-pp_i-adj_lex.
-
-v_np-pp_i-adj-pred_le := v_np-pp_i-adj_lex &
+v_np-pp_i3-adj-pred_le := v_np-pp_i3-adj_lex &
 [ SYNSEM.LOCAL.CAT.VAL.COMPS < [], [ LOCAL.CAT.HEAD.MOD < > ] > ].
 
-v_np-pp_i-dat_le := v_np-pp_i_lex &
-  [ SYNSEM.LOCAL.CAT.VAL.COMPS < [], [ LOCAL.CAT.HEAD.MOD < > ] > ].
 
- 
+v_np-pp_i3-1_le := v_np-pp_i3-1_lex.
+
+v_np-pp_i3-1-dat_le := v_np-pp_i3-1_lex &
+  [ SYNSEM.LOCAL.CAT.VAL.COMPS < [], [ LOCAL.CAT.HEAD.MOD < > ] > ].
 
 ;;; izglezhdam na njakogo njakakav
 
- v_adj-pp_i_le := v_adj-pp_i_lex &
+ v_adj-pp_i3_le := v_adj-pp_i3_lex &
 [ SYNSEM.LOCAL.CAT.VAL.COMPS < [ LOCAL.CAT.HEAD.MOD < > ],[] > ].
 
   ;;; SE-transitives
 
   ;;; perfective
 
-  v_se_p_le := v_se_p_lex.
+  v_se_p1_le := v_se_p_lex & [SYNSEM.LOCAL.CAT.HEAD.MCLASS first].
+
+v_se_p2-1_le := v_se_p_lex & [SYNSEM.LOCAL.CAT.HEAD.MCLASS second1].
+
+v_se_p2-2_le := v_se_p_lex & [SYNSEM.LOCAL.CAT.HEAD.MCLASS second2].
+
+v_se_p2-3_le := v_se_p_lex & [SYNSEM.LOCAL.CAT.HEAD.MCLASS second3].
+
+v_se_p3_le := v_se_p_lex & [SYNSEM.LOCAL.CAT.HEAD.MCLASS third].
+
+v_se_p3-1_le := v_se_p_lex & [SYNSEM.LOCAL.CAT.HEAD.MCLASS third1].
 
  ;;; imperfective
 
- v_se_i_le := v_se_i_lex.
+ v_se_i1_le := v_se_i_lex & [SYNSEM.LOCAL.CAT.HEAD.MCLASS first].
 
+v_se_i2-1_le := v_se_i_lex & [SYNSEM.LOCAL.CAT.HEAD.MCLASS second1].
+
+v_se_i2-2_le := v_se_i_lex & [SYNSEM.LOCAL.CAT.HEAD.MCLASS second2].
+
+v_se_i2-3_le := v_se_i_lex & [SYNSEM.LOCAL.CAT.HEAD.MCLASS second3].
+
+v_se_i3_le := v_se_i_lex & [SYNSEM.LOCAL.CAT.HEAD.MCLASS third].
+
+v_se_i3-1_le := v_se_i_lex & [SYNSEM.LOCAL.CAT.HEAD.MCLASS third1].
 
 ;;; SE-ditransitives
 
 ;;; perfective
 
-v_se-pp_p_le := v_se-pp_p_lex.
+v_se-pp_p1_le := v_se-pp_p_lex & [SYNSEM.LOCAL.CAT.HEAD.MCLASS first].
+
+v_se-pp_p2-1_le := v_se-pp_p_lex & [SYNSEM.LOCAL.CAT.HEAD.MCLASS second1].
+
+v_se-pp_p2-2_le := v_se-pp_p_lex & [SYNSEM.LOCAL.CAT.HEAD.MCLASS second2].
+
+v_se-pp_p2-3_le := v_se-pp_p_lex & [SYNSEM.LOCAL.CAT.HEAD.MCLASS second3].
+
+v_se-pp_p3_le := v_se-pp_p_lex & [SYNSEM.LOCAL.CAT.HEAD.MCLASS third].
+
+v_se-pp_p3-1_le := v_se-pp_p_lex & [SYNSEM.LOCAL.CAT.HEAD.MCLASS third1].
 
 ;;; imperfective
 
-v_se-pp_i_le := v_se-pp_i_lex.
+v_se-pp_i1_le := v_se-pp_i_lex & [SYNSEM.LOCAL.CAT.HEAD.MCLASS first].
 
+v_se-pp_i2-1_le := v_se-pp_i_lex & [SYNSEM.LOCAL.CAT.HEAD.MCLASS second1].
+
+v_se-pp_i2-2_le := v_se-pp_i_lex & [SYNSEM.LOCAL.CAT.HEAD.MCLASS second2].
+
+v_se-pp_i2-3_le := v_se-pp_i_lex & [SYNSEM.LOCAL.CAT.HEAD.MCLASS second3].
+
+v_se-pp_i3_le := v_se-pp_i_lex & [SYNSEM.LOCAL.CAT.HEAD.MCLASS third].
+
+v_se-pp_i3-1_le := v_se-pp_i_lex & [SYNSEM.LOCAL.CAT.HEAD.MCLASS third1].
 
 ;;; four-transitive obzalozha se
 
-v_se-2pp-comp_p_le := v_se-2pp-comp_p_lex.
+v_se-2pp-comp_p2-2_le := v_se-2pp-comp_p_lex & [SYNSEM.LOCAL.CAT.HEAD.MCLASS second2].
 
 
 
@@ -484,8 +818,9 @@ nyama-le := ne-aux &
 		   LKEYS.KEYREL #keyrel & [ PRED "negation_rel" ] ] ].
 
 would-le := arg-phr-aux & raise-sem-lex-item &
-[SYNSEM.LOCAL [ CAT [ HEAD.AUX +,
-					     VAL.COMPS.FIRST.LOCAL.CAT[ HEAD.FORM da-form,
+[SYNSEM.LOCAL [ CAT [ HEAD [AUX +,
+							MCLASS would],
+					   VAL.COMPS.FIRST.LOCAL.CAT[ HEAD.FORM da-form,
 													VAL.COMPS <> ] ],
 				 AGR.E.TENSE future-past ] ].
 
@@ -494,14 +829,15 @@ ne-le := ne-aux &
 		   LKEYS.KEYREL #keyrel & [ PRED "negation_rel" ] ] ].
 
 nedej-aux-le := modal-verb-lex &
-[SYNSEM [ LOCAL [ CAT.VAL.COMPS.FIRST.LOCAL.CONT.HOOK.INDEX #arg & [SF comm],
-				     AGR.E.MOOD imperative ],
+[INFLECTED -,
+SYNSEM [ LOCAL.CAT [ HEAD.MCLASS nedej,
+					     VAL.COMPS.FIRST.LOCAL.CONT.HOOK.INDEX #arg ],
                    LKEYS.KEYREL [PRED "negation_rel" ,
 						   ARG0 #arg ] ] ].
 
-
 modal-can-le := modal-verb-lex &
-[INFLECTED - ].
+[INFLECTED -,
+SYNSEM.LOCAL.CAT.HEAD.MCLASS first2].
 
 
 
